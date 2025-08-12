@@ -1,0 +1,11 @@
+{
+  "title": "Cat in the room",
+  "description": "VR game exploring urban spaces through feline perspective",
+  "detail": "In this work, you can experience the surroundings through the eyes of a cat. During the game, certain interactions cause cats to vaporize with loud meowing sounds. As the game progresses, the sounds in the environment gradually change, immersing you in the cat's perspective while exploring the urban landscape.",
+  "technical_detail": "Through this experience, you can reflect on how urban spaces are predominantly designed for humans and how exclusionary they often are toward other forms of life.",
+  "year": "2023",
+  "medium": "VR Game",
+  "dimensions": "Interactive",
+  "location": "Korea",
+  "images": ["assets/images/cat-in-the-room.png"]
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Afropolik",
+  "content": [
+    "Afropolik is a kinetic installation that imagines a future where breathing is no longer a given, and explores how human existence can manifest in a world where air is controlled. Rather than simply warning against environmental pollution, the work poses a deeper question about the right to shared breathing space—a condition essential to life. When the act of breathing becomes subject to control rather than instinct or choice, how can human existence be affirmed?",
+    
+    "The installation is centered around a motorized structure that operates based on real-time air pollution data. A silicone mat, shaped like a human face, is pressed upon with varying intensities depending on pollution levels. The more polluted the air, the stronger the pressure becomes, leaving deeper imprints; the cleaner the air, the fainter or even absent the marks. These physical traces serve as a record of the invisible quality of air, visualizing how environmental conditions impact the human body.",
+    
+    "Sound plays an equally important role in Afropolik. The work incorporates sampled recordings of the artist's own breathing, which respond to environmental data in real time. Using Pure Data and Processing, the system changes the texture and rhythm of the sound based on both pollution levels and directional movement. The result is a mechanical yet organic interaction, giving the impression that the breath is alive within the sculptural form.",
+    
+    "The idea behind Afropolik emerged from an intense imagining of a future where breathable air is no longer accessible. It questions how existence can be validated in a world where the most essential element for survival—air—becomes invisible, scarce, or regulated. Rather than visualizing air itself, the project focuses on how the intangible leaves behind traces that can be physically and sensorially perceived.",
+    
+    "Through this intersection of sensory imagination, technical experimentation, and political inquiry, Afropolik continues to evolve. Ultimately, it becomes a device for revealing the unseen, recalling what has been forgotten, and reconsidering the most fundamental condition we share: the right to breathe."
+  ]
+} 

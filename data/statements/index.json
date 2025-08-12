@@ -1,0 +1,39 @@
+{
+  "statements": [
+    {
+      "id": "afropolik",
+      "title": "Afropolik",
+      "file": "data/statements/afropolik-statement.json"
+    },
+    {
+      "id": "resonair", 
+      "title": "Resonair",
+      "file": "data/statements/resonair-statement.json"
+    },
+    {
+      "id": "autopsy-of-sensing",
+      "title": "Autopsy of Sensing",
+      "file": "data/statements/autopsy-of-sensing-statement.json"
+    },
+    {
+      "id": "ruptura",
+      "title": "Ruptura",
+      "file": "data/statements/ruptura-statement.json"
+    },
+    {
+      "id": "unwilling-to-be-seen",
+      "title": "Unwilling to Be Seen",
+      "file": "data/statements/unwilling-to-be-seen-statement.json"
+    },
+    {
+      "id": "unseeable-organism-4",
+      "title": "Unseeable Organism #4",
+      "file": "data/statements/unseeable-organism-4-statement.json"
+    },
+    {
+      "id": "affection-became-condensation",
+      "title": "Affection Became Condensation",
+      "file": "data/statements/affection-became-condensation-statement.json"
+    }
+  ]
+} 

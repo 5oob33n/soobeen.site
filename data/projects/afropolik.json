@@ -1,0 +1,15 @@
+{
+  "title": "Afropolik",
+  "description": "Kinetic installation addressing air pollution and the right to breathe",
+  "detail": "Afropolik is a kinetic installation that addresses air pollution and the right to breathe. The movement of the motor varies depending on real-time air pollution data, influencing the pressure of a face-like form onto a silicone mat.",
+  "technical_detail": "Higher pollutant levels intensify the movement, creating deeper imprints, while cleaner air results in lighter or no traces. These imprints serve as physical records of the invisible air quality, visualizing the impact of pollution on the human body.",
+  "conceptual_detail": "By combining mechanical movement and sound, the work alludes to a future where air is controlled and questions the value and social significance of shared breathing space.",
+  "year": "2025",
+  "medium": "Motor, Arduino, Raspberry Pi, Processing, aluminum profile frame, silicone mat",
+  "dimensions": "Variable",
+  "exhibition": "HfK Bremen, Bremen, Germany",
+  "location": "Germany",
+  "photography": "Lars Gonikman, Soobeen Woo",
+  "videography": "Soobeen Woo",
+  "images": ["assets/images/afropolik.jpg"]
+}
