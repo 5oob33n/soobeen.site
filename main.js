@@ -1,4 +1,4 @@
-console.log('Portfolio loaded');
+//console.log('Portfolio loaded');
 
 // 전역 변수
 let bioData = null;
