@@ -1,0 +1,126 @@
+[
+  {
+    "title": "Solar Tomato Mist",
+    "description": "세라믹 조형 작품",
+    "year": "2025",
+    "medium": "Ceramic",
+    "dimensions": "Variable",
+    "images": [
+      "assets/images/ceramic0.jpg",
+      "assets/images/ceramic0-1.jpg"
+    ]
+  },
+  {
+    "title": "Verde & Sunset Cups",
+    "description": "세라믹 조형 작품",
+    "year": "2025",
+    "medium": "Ceramic",
+    "dimensions": "Variable",
+    "image": "assets/images/ceramic1.JPG"
+  },
+  {
+    "title": "Aurora Gradient Cups", 
+    "description": "세라믹 조형 작품",
+    "year": "2025",
+    "medium": "Ceramic",
+    "dimensions": "Variable",
+    "image": "assets/images/ceramic2.JPG"
+  },
+  {
+    "title": "Crimson Dawn Cups",
+    "description": "세라믹 조형 작품", 
+    "year": "2025",
+    "medium": "Ceramic",
+    "dimensions": "Variable",
+    "image": "assets/images/ceramic3.JPG"
+  },
+  {
+    "title": "Emerald Rise Cup",
+    "description": "세라믹 조형 작품",
+    "year": "2025",
+    "medium": "Ceramic",
+    "dimensions": "Variable",
+    "image": "assets/images/ceramic3.1.jpg"
+  },
+  {
+    "title": "Lemon Horizon Mug",
+    "description": "세라믹 조형 작품",
+    "year": "2025", 
+    "medium": "Ceramic",
+    "dimensions": "Variable",
+    "image": "assets/images/ceramic4.JPG"
+  },
+  {
+    "title": "Forest Rim Mug",
+    "description": "세라믹 조형 작품",
+    "year": "2025",
+    "medium": "Ceramic",
+    "dimensions": "Variable",
+    "image": "assets/images/ceramic4.1.jpg"
+  },
+  {
+    "title": "Twin Peaks Tray",
+    "description": "세라믹 조형 작품",
+    "year": "2025",
+    "medium": "Ceramic", 
+    "dimensions": "Variable",
+    "images": [
+      "assets/images/ceramic5.JPG",
+      "assets/images/ceramic5-1.JPG"
+    ]
+  },
+  {
+    "title": "Heart of Clay Bowl",
+    "description": "세라믹 조형 작품",
+    "year": "2025",
+    "medium": "Ceramic",
+    "dimensions": "Variable",
+    "images": [
+      "assets/images/ceramic6.jpg",
+      "assets/images/ceramic6-1.jpg"
+    ]
+  },
+  {
+    "title": "Sunray Juicer",
+    "description": "세라믹 조형 작품",
+    "year": "2025",
+    "medium": "Ceramic",
+    "dimensions": "Variable",
+    "image": "assets/images/ceramic7.JPG"
+  },
+  {
+    "title": "Cat Parade Mug",
+    "description": "세라믹 조형 작품",
+    "year": "2025",
+    "medium": "Ceramic",
+    "dimensions": "Variable",
+    "images": [
+      "assets/images/ceramic8.JPG",
+      "assets/images/ceramic8-1.JPG"
+    ]
+  },
+  {
+    "title": "Sky Patchwork Bowl",
+    "description": "세라믹 조형 작품",
+    "year": "2025",
+    "medium": "Ceramic",
+    "dimensions": "Variable",
+    "image": "assets/images/ceramic9.JPG"
+  },
+  {
+    "title": "Earth Swirl Bowl",
+    "description": "세라믹 조형 작품",
+    "year": "2025",
+    "medium": "Ceramic",
+    "dimensions": "Variable",
+    "image": "assets/images/ceramic10.JPG"
+  },
+  {
+    "title": "Shoreline Dish",
+    "description": "세라믹 조형 작품",
+    "year": "2025",
+    "medium": "Ceramic",
+    "dimensions": "Variable",
+    "image": "assets/images/ceramic11.JPG"
+  }
+]

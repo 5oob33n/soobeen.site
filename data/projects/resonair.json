@@ -1,0 +1,19 @@
+{
+  "title": "Resonair",
+  "description": "Interactive installation exploring breath, presence, and disappearance",
+  "detail": "Resonair explores the interplay between breath, presence, and disappearance in an environment saturated with air pollution. At the center of a round wooden table lies a single mask, surrounded by eight others, all connected by glowing fiber optic cables. Each mask emits light and steam, gradually filling the space with a dense, foggy atmosphere.",
+  
+  "technical_detail": "A microphone hangs from the ceiling, inviting visitors to interact. When a breath is blown into it, the light shifts—changing slowly from red to blue. This transformation symbolizes the shared nature of breath and the possibility of regeneration through connection. Even when something is broken or fragmented, it can be restored through relational and social bonds.",
+  
+  "conceptual_detail": "Breathing is something we do without conscious awareness, which often leads us to forget how precious it is. Through engaging with the installation via breath, this unconscious act is brought to the surface, transforming what is usually invisible and taken for granted into something felt, seen, and shared.",
+  
+  "conclusion": "By rendering breath both as a fleeting trace and an act of survival, Resonair blurs the boundary between visibility and erasure. It reminds us that breath, though invisible, must not be taken for granted—and that ignoring air pollution is ignoring the very basis of our existence.",
+  
+  "year": "2025",
+  "medium": "Ceramic masks (x9), fiber optic cables, LED lights, humidifiers, microphone, speaker, round wooden table",
+  "dimensions": "Variable",
+  "exhibition": "LICHTROUTEN Lüdenscheid, March 20 – 29, 2025, Daily from 7:00 PM – 11:00 PM",
+  "location": "Germany",
+  "photography": "Lars Gonikman, Jennifer Braun",
+  "images": ["assets/images/resonair.png"]
+}

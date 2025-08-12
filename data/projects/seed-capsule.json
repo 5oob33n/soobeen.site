@@ -1,0 +1,11 @@
+{
+  "title": "Seed Capsule",
+  "description": "Interactive VR experience exploring memory storage through seed metaphor",
+  "detail": "This work revolves around the concept of a 'Seed Capsule,' which serves as a repository for memories. The term 'Seed' carries dual meaning, representing a device that stores objects, backgrounds, and environments from the past, encapsulating memories.",
+  "technical_detail": "This work takes the form of an interactive VR experience, comprising rooms with different environments. By clicking on cubes, users can trigger sounds or move to the next room, allowing them to explore three rooms containing objects imbued with memories and stories.",
+  "year": "2023",
+  "medium": "Interactive VR",
+  "dimensions": "3 rooms",
+  "location": "Korea",
+  "images": ["assets/images/seed-capsule.png"]
+}

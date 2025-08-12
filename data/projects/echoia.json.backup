@@ -1,0 +1,9 @@
+{
+  "title": "Echoia",
+  "description": "Ceramic 진동을 통해 호흡을 시각화한 사운드 설치 작업",
+  "detail": "Echoia는 메아리의 개념을 통해 소리와 공간의 관계를 탐구하는 사운드 아트 작품입니다.",
+  "year": "2023",
+  "medium": "Sound Installation",
+  "dimensions": "Variable",
+  "images": ["assets/images/echoia.jpg"]
+}

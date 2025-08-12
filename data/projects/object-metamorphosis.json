@@ -1,0 +1,15 @@
+{
+  "title": "Object Metamorphosis",
+  "description": "Digital print exploring landscape mobility and material-virtual transformation",
+  "detail": "Object Metamorphosis focuses on the mobility of landscapes and their transformation, exploring the relationship between the material and the virtual. Disappearing physical environments, such as glaciers in New Zealand, were documented through personal video recordings and transformed into 3D scans using Luma AI.",
+  "technical_detail": "Through this process, material existence is digitally reconstructed, creating an intersection between reality and the virtual. However, this process questions whether digitization can fully preserve the identity of a place or inevitably leads to distortions and disconnections. Mobility extends beyond simple physical movement to the reconstruction of existence across time and space. Glaciers that once existed in a physical location are reborn in digital form within a virtual space, allowing the memories and traces of specific places to move and persist within new contexts.",
+  "conceptual_detail": "The typography reflects this intention, designed in a fragmented and incomplete form. The incompleteness of the typography highlights the inevitable gaps and transformations brought about by digitization, which fails to fully capture the wholeness of a place. This work is presented in collaboration with GHTK as part of MAP 2024. MAP 2024 is an international artistic exchange project between Bremen, Germany, and Hanoi, Vietnam, with this year's theme being 'Mobility.' The project explores not only physical movement but also the spread of ideas, thoughts, languages, and artistic expressions. From December 14 to 20, posters created by Bremen artists will be attached to GHTK delivery motorbikes, traveling across Hanoi and offering a new perspective on movement.",
+  "year": "2024",
+  "medium": "Digital print",
+  "dimensions": "72 cm x 48 cm",
+  "exhibition": "MAP 2024, GHTK delivery motorbikes, Hanoi",
+  "location": "Germany",
+  "collaboration": "GHTK, Vietnam",
+  "photography": "Hoàng Nguyễn, Út Quyên",
+  "images": ["assets/images/object-metamorphosis.jpeg"]
+}

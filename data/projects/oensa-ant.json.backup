@@ -1,0 +1,9 @@
+{
+  "title": "Oensa Ant",
+  "description": "Ceramic 진동을 통해 호흡을 시각화한 사운드 설치 작업",
+  "detail": "Oensa Ant는 개미의 사회적 행동과 집단 지능을 탐구하는 인터랙티브 설치 작품입니다.",
+  "year": "2023",
+  "medium": "Interactive Installation",
+  "dimensions": "Variable",
+  "images": ["assets/images/oensa-ant.png"]
+}

@@ -1,0 +1,70 @@
+{
+  "projects": [
+    {
+      "id": "resonair",
+      "title": "Resonair",
+      "file": "data/projects/resonair.json"
+    },
+    {
+      "id": "afropolik",
+      "title": "Afropolik", 
+      "file": "data/projects/afropolik.json"
+    },
+    {
+      "id": "antio",
+      "title": "Antio",
+      "file": "data/projects/antio.json"
+    },
+    {
+      "id": "echoia",
+      "title": "Echoia",
+      "file": "data/projects/echoia.json"
+    },
+    {
+      "id": "object-metamorphosis",
+      "title": "Object Metamorphosis",
+      "file": "data/projects/object-metamorphosis.json"
+    },
+    {
+      "id": "dreaming-streams",
+      "title": "Dreaming Streams",
+      "file": "data/projects/dreaming-streams.json"
+    },
+    {
+      "id": "debris-tracer",
+      "title": "Debris Tracer",
+      "file": "data/projects/debris-tracer.json"
+    },
+
+    {
+      "id": "jujube-universe",
+      "title": "Jujube Universe",
+      "file": "data/projects/jujube-universe.json"
+    },
+    {
+      "id": "i-saw-the-snow",
+      "title": "I saw the snow",
+      "file": "data/projects/i-saw-the-snow.json"
+    },
+    {
+      "id": "seed-capsule",
+      "title": "Seed Capsule",
+      "file": "data/projects/seed-capsule.json"
+    },
+    {
+      "id": "vom-blick",
+      "title": "Vom Blick",
+      "file": "data/projects/vom-blick.json"
+    },
+    {
+      "id": "cat-in-the-room",
+      "title": "Cat in the room",
+      "file": "data/projects/cat-in-the-room.json"
+    },
+    {
+      "id": "oensa-ant",
+      "title": "Oensa Ant",
+      "file": "data/projects/oensa-ant.json"
+    }
+  ]
+}
