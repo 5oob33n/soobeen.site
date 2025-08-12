@@ -1,0 +1,1067 @@
+@font-face {
+  font-family: 'THENEXTFONT';
+  src: url('font/THENEXTFONT.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ImpactLabel';
+  src: url('font/Impact-Label.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'EastmanAlternate';
+  src: url('font/EastmanAlternateTrial-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'EdgecuttingLite';
+  src: url('font/EdgecuttingLiteMedium.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pixelout';
+  src: url('font/Pixelout.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YapariTrial-Medium';
+  src: url('font/YapariTrial-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'EdgecuttingLite', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #ffffff;
+  color: #000000;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+}
+
+/* 숫자만 다른 폰트 적용 */
+body * {
+  font-variant-numeric: normal;
+}
+
+/* 숫자(0-9)에 대해서만 다른 폰트 적용 */
+body *:not(pre):not(code) {
+  font-feature-settings: "tnum" 1;
+}
+
+/* 숫자가 포함된 텍스트에 대해 폰트 대체 */
+@supports (font-variant-numeric: tabular-nums) {
+  body * {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* 특정 숫자 클래스에 대해 다른 폰트 적용 */
+.number-font {
+  font-family: 'EastmanAlternate', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* 숫자만 다른 폰트로 렌더링하는 유니코드 범위 설정 */
+@font-face {
+  font-family: 'NumberFont';
+  src: url('font/EastmanAlternateTrial-Bold.otf') format('opentype');
+  unicode-range: U+0030-0039; /* 0-9 숫자 */
+  font-weight: normal;
+  font-display: swap;
+}
+
+/* 숫자가 포함된 모든 요소에 숫자 전용 폰트 적용 */
+body {
+  font-family: 'EdgecuttingLite', 'NumberFont', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* 대안 방법: 숫자만 다른 폰트 적용 */
+body * {
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+/* 특정 숫자 스타일링 */
+.number-alt {
+  font-family: 'EastmanAlternate', sans-serif !important;
+}
+
+/* 상단 고정 헤더 */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-content {
+  text-align: center;
+}
+
+.main-title {
+  font-family: 'EastmanAlternate', sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.main-title:hover {
+  opacity: 0.7;
+}
+
+.header-divider {
+  width: 100px;
+  height: 1px;
+  background: #000000;
+  margin: 10px auto 0;
+}
+
+/* 메인 콘텐츠 컨테이너 */
+.main-container {
+  display: flex;
+  height: 100vh;
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
+/* 좌측 패널 */
+.left-panel {
+  width: 40%;
+  padding: 40px;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+  background: #ffffff;
+}
+
+.menu-section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-family: 'EastmanAlternate', sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+
+.description {
+  font-family: 'EdgecuttingLite', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  font-family: 'EdgecuttingLite', sans-serif;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.main-menu {
+  display: block;
+}
+
+.menu-btn {
+  display: block;
+  background: none;
+  border: none;
+  font-family: 'EdgecuttingLite', sans-serif;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  margin: 2px 0;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+  width: fit-content;
+  min-width: auto;
+  max-width: none;
+  text-decoration: none;
+  outline: none;
+}
+
+.menu-btn:hover {
+  color: #666666;
+  transform: translateX(10px);
+  text-decoration: none;
+}
+
+.menu-btn.active {
+  font-family: 'Pixelout', monospace;
+  font-weight: normal;
+  color: #000000;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  font-family: 'EdgecuttingLite', sans-serif;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* 우측 패널 */
+.right-panel {
+  width: 60%;
+  padding: 0 40px;
+  overflow: hidden;
+  background: #ffffff;
+  position: relative;
+}
+
+.content-area {
+  height: 100%;
+  position: relative;
+}
+
+/* Three.js 뷰어 */
+.three-viewer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+/* 기본 콘텐츠 */
+.default-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  position: relative;
+  z-index: 0;
+  padding: 0 20px;
+}
+
+/* 기본 콘텐츠 */
+.default-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+
+.overlay-content .large-title h2,
+.overlay-content .bottom-title h2 {
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 10px 20px;
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+}
+
+.overlay-content .side-text p {
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.6);
+  padding: 5px 10px;
+  border-radius: 3px;
+  backdrop-filter: blur(3px);
+}
+
+.large-title {
+  margin-top: 60px;
+}
+
+.large-title h2 {
+  font-family: 'EastmanAlternate', sans-serif;
+  font-weight: bold;
+  font-size: 4rem;
+  line-height: 1;
+  letter-spacing: 0.1em;
+}
+
+.center-illustration {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.plant-drawing {
+  width: 200px;
+  height: 300px;
+  border: 2px solid #000000;
+  position: relative;
+}
+
+
+.side-text {
+  position: absolute;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'EdgecuttingLite', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+.left-text {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right-text {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bottom-title {
+  margin-bottom: 60px;
+}
+
+.bottom-title h2 {
+  font-family: 'EastmanAlternate', sans-serif;
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 1;
+  letter-spacing: 0.1em;
+}
+
+/* 콘텐츠 섹션 */
+.content-section {
+  height: 100%;
+  padding: 40px 20px;
+  overflow-y: auto; /* 스크롤 활성화 */
+  scrollbar-width: none; /* Firefox 스크롤바 숨기기 */
+  -ms-overflow-style: none; /* IE/Edge 스크롤바 숨기기 */
+}
+
+/* Webkit 브라우저 스크롤바 숨기기 */
+.content-section::-webkit-scrollbar {
+  display: none;
+}
+
+.content-section h2 {
+  font-family: 'EastmanAlternate', sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  letter-spacing: 0.1em;
+}
+
+.project-grid, .ceramic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* 원형 갤러리 스타일 */
+.project-gallery-container {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* 스크롤바 숨기기 */
+}
+
+.circular-gallery {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  position: relative;
+  overflow: hidden; /* 스크롤바 숨기기 */
+}
+
+/* 프로젝트 상세 페이지 스타일 */
+.project-detail-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-family: 'EdgecuttingLite', sans-serif;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #000000;
+  padding: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-btn:hover {
+  background: #f0f0f0;
+  transform: scale(1.1);
+}
+
+.project-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.project-detail-gallery {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gallery-container {
+  flex: 1;
+  max-width: 600px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.gallery-container img {
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-nav-btn {
+  background: none;
+  color: #000000;
+  border: none;
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.gallery-nav-btn:hover {
+  transform: scale(1.1);
+}
+
+.gallery-nav-btn:disabled {
+  cursor: not-allowed;
+}
+
+.project-detail-info {
+  text-align: center;
+  padding: 0 20px;
+}
+
+.project-detail-info h3 {
+  font-family: 'EastmanAlternate', sans-serif;
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.project-detail-info p {
+  font-family: 'EdgecuttingLite', sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+/* 프로젝트 상세 페이지 두 컬럼 레이아웃 */
+.project-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.project-info-left {
+  padding-right: 20px;
+}
+
+.project-basic-info p {
+  margin: 8px 0;
+  font-size: 1em;
+  line-height: 1.4;
+  font-family: 'EdgecuttingLite', sans-serif;
+}
+
+.project-info-right p {
+  margin: 15px 0;
+  font-size: 1em;
+  line-height: 1.6;
+  text-align: justify;
+  font-family: 'EdgecuttingLite', sans-serif;
+}
+
+
+
+.project-item, .ceramic-item {
+  padding: 10px;
+  border: none;
+  background: transparent;
+  text-align: center;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.ceramic-item:hover {
+  transform: scale(1.05);
+}
+
+.ceramic-gallery {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.ceramic-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ceramic-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.ceramic-nav-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.ceramic-nav-btn.prev {
+  left: 10px;
+}
+
+.ceramic-nav-btn.next {
+  right: 10px;
+}
+
+.ceramic-info {
+  padding: 0;
+}
+
+.ceramic-grid .ceramic-item .ceramic-info h3 {
+  font-family: 'ImpactLabel', 'Impact', 'Arial Black', sans-serif !important;
+  font-size: 1.2rem !important;
+  color: #000000 !important;
+  margin: 0 !important;
+  font-weight: bold !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: none !important;
+}
+
+.project-item h3, .ceramic-item h3 {
+  font-family: 'EastmanAlternate', sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  letter-spacing: 0.05em;
+}
+
+.project-item p, .ceramic-item p {
+  font-family: 'EdgecuttingLite', sans-serif;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.statement-content, .bio-content, .contact-content {
+  font-family: 'EdgecuttingLite', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.statement-content p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.statement-section {
+  margin-bottom: 3rem;
+}
+
+.statement-section h3 {
+  font-family: 'EastmanAlternate', sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #000000;
+  letter-spacing: 0.05em;
+}
+
+.statement-item {
+  padding: 15px 0;
+  margin-bottom: 15px;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.statement-item h3 {
+  font-family: 'EastmanAlternate', sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0;
+  color: #000000;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* 숫자만 다른 폰트 적용 */
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.statement-item h3:hover {
+  transform: translateX(10px);
+}
+
+/* 특정 숫자 스타일링을 위한 클래스 */
+.number-fix {
+  font-family: 'EastmanAlternate', sans-serif !important;
+}
+
+/* 숫자 4가 포함된 텍스트에 대해 폰트 강제 적용 */
+.statement-item h3:contains("4"),
+.statement-item h3:contains("#4") {
+  font-family: 'EastmanAlternate', sans-serif !important;
+}
+
+/* 더 강력한 방법: 모든 statement 제목에 EastmanAlternate 적용 */
+.statement-item h3 {
+  font-family: 'EastmanAlternate', sans-serif !important;
+}
+
+/* 숫자 span에 대한 스타일 */
+.number-span {
+  font-family: 'YapariTrial-Medium', 'Arial', 'Helvetica', sans-serif !important;
+  font-weight: bold !important;
+}
+
+.statement-detail {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.back-to-statements {
+  background: none;
+  border: none;
+  font-family: 'EdgecuttingLite', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #666666;
+  margin-bottom: 30px;
+  padding: 10px 0;
+  transition: color 0.3s ease;
+}
+
+.back-to-statements:hover {
+  color: #000000;
+}
+
+.statement-detail h2 {
+  font-family: 'EastmanAlternate', sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #000000;
+  letter-spacing: 0.05em;
+}
+
+.contact-content p {
+  margin-bottom: 15px;
+}
+
+/* Contact 폼 스타일 */
+.contact-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+
+.contact-form {
+  background: #f8f8f8;
+  padding: 40px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'EdgecuttingLite', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  font-family: 'EdgecuttingLite', sans-serif;
+  font-size: 1rem;
+  background: #ffffff;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #000000;
+}
+
+.submit-btn {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 15px 30px;
+  font-family: 'EdgecuttingLite', sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: #333333;
+  transform: translateY(-2px);
+}
+
+
+
+/* 바이오 섹션 스타일 */
+.bio-main {
+  margin-bottom: 40px;
+}
+
+.bio-main p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.bio-section {
+  margin-bottom: 30px;
+}
+
+.bio-section h3 {
+  font-family: 'EastmanAlternate', sans-serif;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 5px;
+}
+
+.bio-section p {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.bio-section strong {
+  font-weight: bold;
+  color: #000000;
+}
+
+/* 하단 고정 푸터 */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.footer-left p, .footer-right p {
+  font-family: 'EdgecuttingLite', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.instagram-link {
+  font-family: 'EdgecuttingLite', sans-serif;
+  font-size: 0.9rem;
+  color: #000000;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.instagram-link:hover {
+  opacity: 0.7;
+}
+
+.soundcloud-link {
+  font-family: 'EdgecuttingLite', sans-serif;
+  font-size: 0.9rem;
+  color: #000000;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.soundcloud-link:hover {
+  opacity: 0.7;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  .left-panel, .right-panel {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  .left-panel {
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px;
+  }
+
+  .right-panel {
+    padding-bottom: 80px; /* 푸터 높이만큼 여백 추가 */
+  }
+
+  .content-area {
+    height: auto;
+    min-height: auto;
+    overflow: auto;
+  }
+
+  .content-section {
+    height: auto;
+    min-height: auto;
+    overflow: auto;
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  /* 프로젝트 섹션 특별 처리 */
+  #project-section {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    position: relative;
+  }
+
+  #project-section .content-section {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    padding: 10px;
+  }
+
+  .project-grid, .ceramic-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .project-item, .ceramic-item {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .ceramic-gallery {
+    height: 250px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .large-title h2 {
+    font-size: 2.5rem;
+  }
+  
+  .bottom-title h2 {
+    font-size: 2rem;
+  }
+  
+  .plant-drawing {
+    width: 150px;
+    height: 200px;
+  }
+  
+  .footer-right {
+    gap: 15px;
+  }
+
+  .copyright {
+    display: none;
+  }
+
+  .header {
+    height: 60px;
+  }
+
+  .main-container {
+    padding-top: 60px;
+  }
+
+  /* 프로젝트 상세 페이지 모바일 최적화 */
+  .project-detail-content {
+    padding: 20px;
+  }
+
+  .project-detail-gallery {
+    height: 300px;
+  }
+
+  .gallery-container img {
+    max-height: 280px;
+  }
+
+  /* 원형 갤러리 모바일 최적화 */
+  .project-gallery-container {
+    height: 40vh;
+    min-height: 250px;
+    max-height: 400px;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .circular-gallery {
+    height: 100%;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  .circular-gallery canvas {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100vw !important;
+    max-height: 40vh !important;
+  }
+
+  /* 세라믹 네비게이션 버튼 모바일 최적화 */
+  .ceramic-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
