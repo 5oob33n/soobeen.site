@@ -15,7 +15,7 @@ const threeContainer = document.getElementById('three-container');
 // JSON 데이터 로드
 async function loadBioData() {
   try {
-    const response = await fetch('data/bio.json');
+    const response = await fetch('data/bio/bio.json?t=' + Date.now());
     bioData = await response.json();
     console.log('Bio data loaded successfully');
   } catch (error) {
@@ -52,30 +52,31 @@ function renderBioSection() {
   const bioContainer = document.getElementById('bio-text');
   if (!bioContainer) return;
 
-  let html = `
-    <div class="bio-main">
-      <p>${bioData.bio.main}</p>
-      <p>${bioData.bio.detail}</p>
-      <p>${bioData.bio.conclusion}</p>
-    </div>
-  `;
+  let html = '';
+  
+  // 메인 설명
+  if (bioData.description && bioData.description.length > 0) {
+    html += '<div class="bio-main">';
+    bioData.description.forEach(paragraph => {
+      html += `<p>${paragraph}</p>`;
+    });
+    html += '</div>';
+  }
 
   // Education
   if (bioData.education && bioData.education.length > 0) {
     html += '<div class="bio-section"><h3>Education</h3>';
     bioData.education.forEach(edu => {
-      html += `<p><strong>${edu.period}</strong>, ${edu.degree}, ${edu.institution}, ${edu.location}</p>`;
+      html += `<p>${edu}</p>`;
     });
     html += '</div>';
   }
 
   // Group Exhibitions
-  if (bioData.exhibitions && bioData.exhibitions.length > 0) {
+  if (bioData.group_exhibitions && bioData.group_exhibitions.length > 0) {
     html += '<div class="bio-section"><h3>Group Exhibitions</h3>';
-    bioData.exhibitions.forEach(exhibition => {
-      html += `<p><strong>${exhibition.year}</strong>, ${exhibition.title}`;
-      if (exhibition.description) html += `, ${exhibition.description}`;
-      html += `, ${exhibition.location}</p>`;
+    bioData.group_exhibitions.forEach(exhibition => {
+      html += `<p>${exhibition}</p>`;
     });
     html += '</div>';
   }
@@ -84,9 +85,7 @@ function renderBioSection() {
   if (bioData.awards && bioData.awards.length > 0) {
     html += '<div class="bio-section"><h3>Awards, Grants, Projects, Performances</h3>';
     bioData.awards.forEach(award => {
-      html += `<p><strong>${award.year}</strong>, ${award.title}`;
-      if (award.description) html += `, ${award.description}`;
-      html += `, ${award.location}</p>`;
+      html += `<p>${award}</p>`;
     });
     html += '</div>';
   }
@@ -95,18 +94,16 @@ function renderBioSection() {
   if (bioData.experiences && bioData.experiences.length > 0) {
     html += '<div class="bio-section"><h3>Experiences</h3>';
     bioData.experiences.forEach(exp => {
-      html += `<p><strong>${exp.year}</strong>, ${exp.title}`;
-      if (exp.description) html += `, ${exp.description}`;
-      html += `, ${exp.location}</p>`;
+      html += `<p>${exp}</p>`;
     });
     html += '</div>';
   }
 
   // Artistic Contributions
-  if (bioData.artisticContributions && bioData.artisticContributions.length > 0) {
+  if (bioData.artistic_contributions && bioData.artistic_contributions.length > 0) {
     html += '<div class="bio-section"><h3>Artistic Contributions</h3>';
-    bioData.artisticContributions.forEach(contribution => {
-      html += `<p><strong>${contribution.year}</strong>, ${contribution.title}, ${contribution.description}, ${contribution.location}</p>`;
+    bioData.artistic_contributions.forEach(contribution => {
+      html += `<p>${contribution}</p>`;
     });
     html += '</div>';
   }
@@ -115,10 +112,7 @@ function renderBioSection() {
   if (bioData.work && bioData.work.length > 0) {
     html += '<div class="bio-section"><h3>Work</h3>';
     bioData.work.forEach(work => {
-      const period = work.period || work.year;
-      html += `<p><strong>${period}</strong>, ${work.title}, ${work.role}`;
-      if (work.location) html += `, ${work.location}`;
-      html += '</p>';
+      html += `<p>${work}</p>`;
     });
     html += '</div>';
   }
