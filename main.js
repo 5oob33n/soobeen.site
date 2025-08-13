@@ -15,7 +15,7 @@ const threeContainer = document.getElementById('three-container');
 // JSON 데이터 로드
 async function loadBioData() {
   try {
-    const response = await fetch('data/bio.json');
+    const response = await fetch('data/bio/bio.json');
     bioData = await response.json();
     console.log('Bio data loaded successfully');
   } catch (error) {
