@@ -24,7 +24,7 @@
     "year": "2025",
     "medium": "Ceramic",
     "dimensions": "Variable",
-    "image": "assets/images/ceramic2.JPG"
+    "image": "assets/images/ceramic2.jpg"
   },
   {
     "title": "Crimson Dawn Cups",
@@ -65,7 +65,7 @@
     "medium": "Ceramic", 
     "dimensions": "Variable",
     "images": [
-      "assets/images/ceramic5.JPG",
+      "assets/images/ceramic5.jpg",
       "assets/images/ceramic5-1.JPG"
     ]
   },
