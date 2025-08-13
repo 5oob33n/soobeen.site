@@ -16,10 +16,26 @@ const threeContainer = document.getElementById('three-container');
 async function loadBioData() {
   try {
     const response = await fetch('data/bio/bio.json?t=' + Date.now());
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      throw new Error('Response is not JSON');
+    }
+    
     bioData = await response.json();
     console.log('Bio data loaded successfully');
   } catch (error) {
     console.error('Error loading bio data:', error);
+    // 에러 발생 시 기본 데이터 설정
+    bioData = {
+      name: "Soobeen Woo",
+      title: "Media Artist, Editor, Curator",
+      description: ["Bio data could not be loaded. Please check the server configuration."]
+    };
   }
 }
 
@@ -27,10 +43,21 @@ async function loadBioData() {
 async function loadCeramicData() {
   try {
     const response = await fetch('data/ceramics/index.json');
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      throw new Error('Response is not JSON');
+    }
+    
     ceramicData = await response.json();
     console.log('Ceramic data loaded successfully');
   } catch (error) {
     console.error('Error loading ceramic data:', error);
+    ceramicData = [];
   }
 }
 
@@ -38,10 +65,21 @@ async function loadCeramicData() {
 async function loadStatementData() {
   try {
     const response = await fetch('data/statements/index.json?t=' + Date.now());
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      throw new Error('Response is not JSON');
+    }
+    
     statementData = await response.json();
     console.log('Statement data loaded successfully');
   } catch (error) {
     console.error('Error loading statement data:', error);
+    statementData = [];
   }
 }
 
