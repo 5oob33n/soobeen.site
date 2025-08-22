@@ -1,5 +1,16 @@
 [
   {
+    "title": "Meow Mug",
+    "description": "세라믹 조형 작품",
+    "year": "2025",
+    "medium": "Ceramic",
+    "dimensions": "Variable",
+    "images": [
+      "assets/images/cat1.jpg",
+      "assets/images/cat1-1.jpg"
+    ]
+  },
+  {
     "title": "Solar Tomato Mist",
     "description": "세라믹 조형 작품",
     "year": "2025",
