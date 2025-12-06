@@ -39,6 +39,7 @@ export interface Writing {
   date: string;
   summary: string;
   content: string; // Full text content
+  imageUrl?: string; // Optional image (e.g., book cover)
 }
 
 export type AsciiCharSet = 'density' | 'binary' | 'blocks';

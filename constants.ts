@@ -8,22 +8,22 @@ import { Project, MenuItem, CVItem, Writing } from './types';
 
   public/
    └── images/
-        ├── autopsy/            (Autopsy of Sensing: 사진, 오디오, 비디오)
-        ├── resonair/           (Resonair: 사진, 비디오)
-        ├── afropolik/          (Afropolik: 사진, 비디오)
-        ├── antio/              (Antio: 비디오)
-        ├── echoia/             (Echoia: 사진, 비디오)
-        ├── object-metamorphosis/ (사진)
-        ├── debris-tracer/      (사진)
-        ├── jujube/             (Jujube Universe: 사진, 비디오)
-        ├── seed-capsule/       (Seed Capsule: 사진, 비디오)
-        ├── vom-blick/          (Vom Blick: 비디오)
-        ├── oensa-ant/          (Oensa Ant: 비디오)
-        └── ceramics/           (도자 작업 사진들)
+        ├── autopsy/            (Autopsy of Sensing)
+        ├── resonair/           (Resonair)
+        ├── afropolik/          (Afropolik)
+        ├── antio/              (Antio)
+        ├── echoia/             (Echoia)
+        ├── object-metamorphosis/ 
+        ├── debris-tracer/      
+        ├── jujube/             
+        ├── seed-capsule/       
+        ├── vom-blick/          
+        ├── oensa-ant/          
+        ├── ceramics/           (도자 작업)
+        └── writings/           (글/책 표지 이미지)
 
   * 파일을 넣은 후, 아래 코드에서 주석(// [파일교체시]...)에 적힌 경로로 imageUrl 값을 변경하세요.
   * 경로는 항상 '/images/...' 로 시작해야 합니다.
-  * 영상은 Vimeo(비메오) 임베드 링크를 추천합니다.
 */
 
 export const MENU_ITEMS: MenuItem[] = [
@@ -123,14 +123,11 @@ I sonified texts, images, collision data, and photos of the objects using Ableto
 The vibrations are generated via bone conductor transducers and amplifiers, not to convey messages or meaning, but to remain as fragments of sensation, ghosts of perception that persist even after disappearance.
 
 I unfold the deconstruction and afterlife of sensation through the vibrations and sounds of the two objects, which the audience witnesses but cannot fully interpret. This work records what remains after sensation has vanished—the ghost of perception—and serves as an act of mourning the disappearance and residue of existence.`,
-    
-    // 📂 폴더: public/images/autopsy/
-    imageUrl: '/images/autopsy/main.png', // [파일교체시]: '/images/autopsy/main.jpg'
-    audioUrl: 'placeholder', // [파일교체시]: '/images/autopsy/sound.mp3'
-    videoUrl: 'placeholder', // [파일교체시]: '/images/autopsy/video.mp4' (또는 'https://player.vimeo.com/video/12345678')
+    imageUrl: '/images/autopsy/main.png',
+    audioUrl: 'placeholder', 
+    videoUrl: 'placeholder', 
     galleryUrls: [
-       '/images/autopsy/01.jpg', // [파일교체시]: '/images/autopsy/01.jpg'
-       //'https://picsum.photos/600/400?grayscale'         // [파일교체시]: '/images/autopsy/02.jpg'
+       '/images/autopsy/01.jpg',
     ]
   },
   {
@@ -143,13 +140,11 @@ I unfold the deconstruction and afterlife of sensation through the vibrations an
     location: 'Germany',
     exhibition: 'LICHTROUTEN Lüdenscheid, March 20 – 29, 2025, Daily from 7:00 PM – 11:00 PM',
     credits: 'Photography: Lars Gonikman, Jennifer Braun',
-    
-    // 📂 폴더: public/images/resonair/
-    imageUrl: '/images/resonair/main.png', // [파일교체시]: '/images/resonair/main.jpg'
-    videoUrl: 'https://vimeo.com/1144115072', // [파일교체시]: '/images/resonair/video.mp4' (또는 비메오)
+    imageUrl: '/images/resonair/main.png',
+    videoUrl: 'https://vimeo.com/1144115072',
     galleryUrls: [
-      '/images/resonair/01.png', // [파일교체시]: '/images/resonair/01.jpg'
-      '/images/resonair/02.png', // [파일교체시]: '/images/resonair/02.jpg'
+      '/images/resonair/01.png',
+      '/images/resonair/02.png',
       '/images/resonair/03.png',
       '/images/resonair/04.png',
       '/images/resonair/05.png',
@@ -176,12 +171,10 @@ By rendering breath both as a fleeting trace and an act of survival, Resonair bl
     location: 'Germany',
     exhibition: 'HfK Bremen, Bremen, Germany',
     credits: 'Photography: Lars Gonikman, Soobeen Woo\nVideography: Soobeen Woo',
-    
-    // 📂 폴더: public/images/afropolik/
-    imageUrl: '/images/afropolik/main.jpg', // [파일교체시]: '/images/afropolik/main.jpg'
-    videoUrl: 'https://vimeo.com/1060243247', // [파일교체시]: '/images/afropolik/video.mp4' (또는 비메오)
+    imageUrl: '/images/afropolik/main.jpg',
+    videoUrl: 'https://vimeo.com/1060243247',
     galleryUrls: [
-      '/images/afropolik/01.jpg', // [파일교체시]: '/images/afropolik/01.jpg'
+      '/images/afropolik/01.jpg',
       '/images/afropolik/02.jpg',
       '/images/afropolik/03.jpg',
       '/images/afropolik/04.jpg',
@@ -203,12 +196,10 @@ By combining mechanical movement and sound, the work alludes to a future where a
     year: '2025',
     location: 'Germany',
     exhibition: 'Hochschultage 2025, HfK Bremen, Bremen, Germany',
-    
-    // 📂 폴더: public/images/antio/
-    imageUrl: '/images/antio/main.png', // [파일교체시]: '/images/antio/thumbnail.jpg'
-    videoUrl: 'https://vimeo.com/1061963881', // [파일교체시]: '/images/antio/video.mp4' (또는 비메오)
+    imageUrl: '/images/antio/main.png',
+    videoUrl: 'https://vimeo.com/1061963881',
     galleryUrls: [
-      '/images/antio/01.png', // [파일교체시]: '/images/antio/01.jpg'
+      '/images/antio/01.png',
       '/images/antio/02.png',
       '/images/antio/03.png',
       '/images/antio/04.png',
@@ -235,15 +226,9 @@ The sound design, featuring manipulated voices and distorted audio layers, reinf
     location: 'Germany',
     exhibition: 'Goldstücke, Gelsenkirchen',
     credits: 'Photography: Jennifer Braun, Lars Gonikman',
-    
-    // 📂 폴더: public/images/echoia/
-    imageUrl: '/images/echoia/main.jpg', // [파일교체시]: '/images/echoia/main.jpg'
-    videoUrl: 'https://vimeo.com/1043418455', // [파일교체시]: '/images/echoia/video.mp4' (또는 비메오)
-    galleryUrls: [
-      //'https://picsum.photos/seed/echoia1/800/600?grayscale', // [파일교체시]: '/images/echoia/01.jpg'
-      //'https://picsum.photos/seed/echoia2/800/600?grayscale',
-      //'https://picsum.photos/seed/echoia3/800/600?grayscale'
-    ],
+    imageUrl: '/images/echoia/main.jpg',
+    videoUrl: 'https://vimeo.com/1043418455',
+    galleryUrls: [],
     description: `Echoia symbolically represents how digital information approaches reality and how actual identity merges with digital existence. It is expressed through a holographic device positioned at the intersection of the digital and the analog.
 
 Echoia's dynamic virtual persona is designed to overlap with a physical body, moving in a mutually mimetic manner with the digital entity. It also utilizes AI to infinitely diffuse and transform into multiple entities, generating an ever-flowing vortex that continuously connects them. By viewing this from a narrow, confined space, the work offers a more intimate experience, inviting viewers to project themselves through its reflection and contemplate their own digital self.
@@ -259,11 +244,9 @@ The sound is composed from conversations with a virtual AI that embodies Echoia'
     location: 'Germany',
     exhibition: 'MAP 2024, GHTK delivery motorbikes, Hanoi',
     credits: 'Photography: Hoàng Nguyễn, Út Quyên\nCollaboration: GHTK, Vietnam',
-    
-    // 📂 폴더: public/images/object-metamorphosis/
-    imageUrl: '/images/object-metamorphosis/main.jpeg', // [파일교체시]: '/images/object-metamorphosis/main.jpg'
+    imageUrl: '/images/object-metamorphosis/main.jpeg',
     galleryUrls: [
-      '/images/object-metamorphosis/01.jpg', // [파일교체시]: '/images/object-metamorphosis/01.jpg'
+      '/images/object-metamorphosis/01.jpg',
       '/images/object-metamorphosis/02.jpg',
       '/images/object-metamorphosis/03.jpeg',
       '/images/object-metamorphosis/04.jpeg',
@@ -283,14 +266,9 @@ The typography reflects this intention, designed in a fragmented and incomplete 
     category: 'Website',
     year: '2024',
     location: 'Germany',
-    
-    // 📂 폴더: public/images/debris-tracer/
-    imageUrl: '/images/debris-tracer/main.png', // [파일교체시]: '/images/debris-tracer/main.jpg'
-    videoUrl: 'https://vimeo.com/918490095', // [파일교체시]: '/images/debris-tracer/video.mp4' (또는 비메오)
-    galleryUrls: [
-      //'https://picsum.photos/seed/debris1/800/600?grayscale', // [파일교체시]: '/images/debris-tracer/01.jpg'
-      //'https://picsum.photos/seed/debris2/800/600?grayscale'
-    ],
+    imageUrl: '/images/debris-tracer/main.png',
+    videoUrl: 'https://vimeo.com/918490095',
+    galleryUrls: [],
     description: `Space debris, invisible to the naked eye, is an underestimated threat for many. While it may not seem urgent at present, the accumulation of space debris could result in severe environmental consequences for Earth in the future. I am deeply dedicated to exploring perspectives beyond the human gaze by blending elements of nature and technology.
 
 Conceptually, I aimed to visually represent space debris as a vast ring encircling Earth. To effectively convey this concept, I combined auditory and visual effects to stimulate human senses of sound and sight. By utilizing these senses, I hope to elevate awareness of this issue by prompting users to vocalize the phrase 'space debris.' This innovative project unfolds as a dynamic web page set against the backdrop of space. Upon loading, the page detects the phrase 'space debris,' transforming it into a password to guide users to the next environment. Using Speech Recognition technology, users are prompted to speak the designated phrase, leading them to the final page.
@@ -304,14 +282,9 @@ The final page offers a unique experience with each visit, featuring diverse mus
     category: 'Video',
     year: '2023',
     location: 'Korea',
-    
-    // 📂 폴더: public/images/jujube/
-    imageUrl: '/images/jujube/main.png', // [파일교체시]: '/images/jujube/main.jpg'
-    videoUrl: 'https://vimeo.com/863884778', // [파일교체시]: '/images/jujube/video.mp4' (또는 비메오)
-    galleryUrls: [
-      //'https://picsum.photos/600/450?grayscale', // [파일교체시]: '/images/jujube/01.jpg'
-      //'https://picsum.photos/600/450?grayscale&blur=2'
-    ],
+    imageUrl: '/images/jujube/main.png',
+    videoUrl: 'https://vimeo.com/863884778',
+    galleryUrls: [],
     description: `This work is an expansion of the view of the jujube. I thought that the structure of the jujube's supergene is like a galaxy in the universe and gave it a new personality, which I linked to a meteorite that fell to earth.
 
 In this artwork, the jujube serves as a prominent motif that will greatly influence the future of humanity, symbolizing a fervent desire to extensively study jujubes as one of the Super Seeds that could potentially save humanity.`,
@@ -323,14 +296,9 @@ In this artwork, the jujube serves as a prominent motif that will greatly influe
     category: 'Interactive VR',
     year: '2023',
     location: 'Korea',
-    
-    // 📂 폴더: public/images/seed-capsule/
-    imageUrl: '/images/seed-capsule/main.png', // [파일교체시]: '/images/seed-capsule/main.jpg'
-    videoUrl: 'https://vimeo.com/916853940', // [파일교체시]: '/images/seed-capsule/vr-demo.mp4' (또는 비메오)
-    galleryUrls: [
-      //'https://picsum.photos/seed/seedcapsule1/600/400?grayscale', // [파일교체시]: '/images/seed-capsule/01.jpg'
-      //'https://picsum.photos/seed/seedcapsule2/600/400?grayscale'
-    ],
+    imageUrl: '/images/seed-capsule/main.png',
+    videoUrl: 'https://vimeo.com/916853940',
+    galleryUrls: [],
     description: `This work revolves around the concept of a 'Seed Capsule,' which serves as a repository for memories. The term 'Seed' carries dual meaning, representing a device that stores objects, backgrounds, and environments from the past, encapsulating memories.
 
 This work takes the form of an interactive VR experience, comprising rooms with different environments. By clicking on cubes, users can trigger sounds or move to the next room, allowing them to explore three rooms containing objects imbued with memories and stories.`,
@@ -342,14 +310,9 @@ This work takes the form of an interactive VR experience, comprising rooms with 
     category: 'Video',
     year: '2023',
     location: 'Korea',
-    
-    // 📂 폴더: public/images/vom-blick/
-    imageUrl: '/images/vom-blick/main.png', // [파일교체시]: '/images/vom-blick/thumbnail.jpg'
-    videoUrl: 'https://vimeo.com/916350613', // [파일교체시]: '/images/vom-blick/video.mp4' (또는 비메오)
-    galleryUrls: [
-      //'https://picsum.photos/600/350?grayscale', // [파일교체시]: '/images/vom-blick/01.jpg'
-      //'https://picsum.photos/600/350?grayscale&blur=2'
-    ],
+    imageUrl: '/images/vom-blick/main.png',
+    videoUrl: 'https://vimeo.com/916350613',
+    galleryUrls: [],
     description: `This work delves into a recurring theme that runs throughout the series of works in 2023, relentlessly probing the notion of the 'gaze' and challenging the notion of unquestioningly accepting the human perspective.
 
 I steer the narrative of the video by vigilantly considering when I view things through an anthropocentric lens and when I passively embrace it without scrutiny.`,
@@ -361,14 +324,9 @@ I steer the narrative of the video by vigilantly considering when I view things 
     category: 'Video',
     year: '2022',
     location: 'Korea',
-    
-    // 📂 폴더: public/images/oensa-ant/
-    imageUrl: '/images/oensa-ant/main.png', // [파일교체시]: '/images/oensa-ant/thumbnail.jpg'
-    videoUrl: 'https://vimeo.com/860863523', // [파일교체시]: '/images/oensa-ant/video.mp4' (또는 비메오)
-    galleryUrls: [
-      //'https://picsum.photos/600/400?grayscale', // [파일교체시]: '/images/oensa-ant/01.jpg'
-      //'https://picsum.photos/600/400?grayscale&blur=2'
-    ],
+    imageUrl: '/images/oensa-ant/main.png',
+    videoUrl: 'https://vimeo.com/860863523',
+    galleryUrls: [],
     description: `This work is connected to the 'Antio' project and involves the virtual study of the most important creature in that project, the 'Oensa Ant'. This ant has the ability to secrete a substance called 'Perotox', which has the power to purify the environment.
 
 In a dystopian setting, it is the only living being capable of saving humanity, and humans once again rely on the strength of this small creature to survive. In this work, the ant becomes a more important being than humans, prompting a reevaluation of its status. However, it also highlights the duality of humans' relationship with non-human life forms, as the ant is sometimes exploited by humans despite its crucial role.`,
@@ -385,11 +343,8 @@ export const CERAMICS: Project[] = [
     imageUrl: '/images/ceramics/01.JPG',
     galleryUrls: [
       '/images/ceramics/02.JPG'
-      //'/images/ceramics/residue01-2.jpg',
-      //'/images/ceramics/residue01-3.jpg',
     ],
   },
-
   {
     id: 'c2',
     title: 'Pixel Cat Cup',
@@ -398,7 +353,6 @@ export const CERAMICS: Project[] = [
     description: 'A cup with pixel-style cats.',
     imageUrl: '/images/ceramics/03.PNG'
   },
-
   {
     id: 'c3',
     title: 'Vivid porcelain cup',
@@ -407,7 +361,6 @@ export const CERAMICS: Project[] = [
     description: 'A vivid porcelain cup',
     imageUrl: '/images/ceramics/04.JPG'
   },
-
   {
     id: 'c4',
     title: 'Ghost Accessory Holder',
@@ -416,8 +369,7 @@ export const CERAMICS: Project[] = [
     description: 'A little ghost accessory holder',
     imageUrl: '/images/ceramics/05.JPG'
   },
-
-    {
+  {
     id: 'c5',
     title: 'Lemon Juicer',
     category: 'Clay',
@@ -426,10 +378,8 @@ export const CERAMICS: Project[] = [
     imageUrl: '/images/ceramics/06.JPG',
         galleryUrls: [
       '/images/ceramics/07.JPG',
-      //'/images/ceramics/residue01-3.jpg',
     ],
   },
-
   {
     id: 'c6',
     title: 'Wave Foam Plate',
@@ -439,10 +389,8 @@ export const CERAMICS: Project[] = [
     imageUrl: '/images/ceramics/08.JPG',
         galleryUrls: [
       '/images/ceramics/09.JPG',
-      //'/images/ceramics/residue01-3.jpg',
     ],
   },
-
   {
     id: 'c7',
     title: 'Forsythia Cup',
@@ -451,7 +399,6 @@ export const CERAMICS: Project[] = [
     description: 'A spring forsythia cup',
     imageUrl: '/images/ceramics/10.JPG',
   },
-
   {
     id: 'c8',
     title: 'Take-out Cup',
@@ -462,13 +409,13 @@ export const CERAMICS: Project[] = [
   },
 ];
 
-
 export const WRITINGS: Writing[] = [
   {
     id: 'w1',
     title: "The Right Not To Be Sensed",
     date: "Sep 2024",
     summary: "Exploring privacy in an age of hyper-surveillance through the lens of quantum physics.",
+    imageUrl: '/images/writings/book1.jpg', // [파일교체시]
     content: `In an era defined by hyper-surveillance and data extraction, the act of remaining unseen has become a radical form of resistance. The "Right Not To Be Sensed" explores the intersection of privacy, quantum physics, and digital ethics.
 
     Just as the observer effect in quantum mechanics states that measuring a particle changes its state, the constant digital observation of human behavior fundamentally alters the nature of human existence. When every movement, heartbeat, and facial micro-expression is cataloged, analyzed, and monetized, the self ceases to be an autonomous entity and becomes a data point in a predictive model.
@@ -480,6 +427,7 @@ export const WRITINGS: Writing[] = [
     title: "Materiality of Emotion",
     date: "Jan 2024",
     summary: "How grief and joy physically alter the spaces we inhabit.",
+    // imageUrl: '/images/writings/book2.jpg',
     content: `Emotions are often dismissed as fleeting, intangible internal states. However, this text proposes that emotions possess a distinct materiality—a physical weight that alters the spaces we inhabit.
 
     Consider the atmosphere of a room after an argument, or the residual warmth in a space recently filled with laughter. These are not merely psychological projections but tangible shifts in the energetic composition of the environment. Grief, in particular, manifests as a density, a heaviness that seems to displace air. Joy, conversely, operates as a vibration, a loosening of molecular bonds.
@@ -491,6 +439,7 @@ export const WRITINGS: Writing[] = [
     title: "Invisible Inhabitants",
     date: "Nov 2023",
     summary: "A study on microbial life and its impact on architectural theory.",
+    // imageUrl: '/images/writings/book3.jpg',
     content: `Architecture has traditionally been designed for the human scale, prioritizing human comfort and aesthetics. Yet, our built environments are teeming with invisible inhabitants—microbes, fungi, and microscopic organisms—that coexist with us in intimate proximity.
 
     "Invisible Inhabitants" challenges the anthropocentric view of architecture by highlighting the agency of these non-human actors. Rather than sterilizing our spaces to exclude them, what if we designed architectures of coexistence? This essay examines the concept of "bio-receptive design," where materials are chosen to host and nurture specific microbial communities that contribute to the health of the ecosystem.

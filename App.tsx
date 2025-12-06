@@ -561,26 +561,39 @@ const App: React.FC = () => {
                 <>
                   {!selectedWritingId ? (
                     /* Writings List View */
-                    <div className="max-w-3xl space-y-16">
+                    <div className="max-w-4xl space-y-16">
                       {WRITINGS.map((w) => (
                         <article
                           key={w.id}
-                          className="group cursor-pointer"
+                          className="group cursor-pointer grid grid-cols-1 md:grid-cols-12 gap-8 items-start"
                           onClick={() => handleWritingClick(w.id)}
                         >
-                          <div className="font-mono text-[10px] text-gray-400 mb-2">
-                            {w.date}
+                          {/* Image Thumbnail for Writing */}
+                          {w.imageUrl && (
+                            <div className="md:col-span-3 aspect-[3/4] bg-gray-100 overflow-hidden">
+                               <img 
+                                 src={w.imageUrl} 
+                                 alt={w.title} 
+                                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                               />
+                            </div>
+                          )}
+                          
+                          <div className={w.imageUrl ? "md:col-span-9" : "md:col-span-12"}>
+                            <div className="font-mono text-[10px] text-gray-400 mb-2">
+                              {w.date}
+                            </div>
+                            <h3 className="text-2xl font-heading font-medium mb-3 group-hover:italic transition-all">
+                              {w.title}
+                            </h3>
+                            <p className="text-sm font-light leading-relaxed text-gray-600">
+                              {w.summary}
+                            </p>
+                            <button className="mt-4 text-xs font-bold uppercase tracking-widest border-b border-black pb-0.5 hover:opacity-50 transition-opacity">
+                              Read
+                            </button>
+                            <div className="mt-6 w-12 h-px bg-gray-200 group-hover:w-full transition-all duration-500"></div>
                           </div>
-                          <h3 className="text-2xl font-heading font-medium mb-3 group-hover:italic transition-all">
-                            {w.title}
-                          </h3>
-                          <p className="text-sm font-light leading-relaxed text-gray-600">
-                            {w.summary}
-                          </p>
-                          <button className="mt-4 text-xs font-bold uppercase tracking-widest border-b border-black pb-0.5 hover:opacity-50 transition-opacity">
-                            Read
-                          </button>
-                          <div className="mt-6 w-12 h-px bg-gray-200 group-hover:w-full transition-all duration-500"></div>
                         </article>
                       ))}
                     </div>
@@ -588,6 +601,13 @@ const App: React.FC = () => {
                     /* Writing Detail View */
                     selectedWritingData && (
                       <div className="animate-fade-in max-w-3xl mx-auto">
+                        {/* Writing Header Image */}
+                        {selectedWritingData.imageUrl && (
+                          <div className="mb-12 w-full max-w-sm mx-auto shadow-lg">
+                            <img src={selectedWritingData.imageUrl} alt={selectedWritingData.title} className="w-full h-auto" />
+                          </div>
+                        )}
+
                         <div className="mb-6 font-mono text-xs text-gray-500 uppercase tracking-widest border-b border-black/10 pb-4">
                           {selectedWritingData.date}
                         </div>
