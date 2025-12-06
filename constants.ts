@@ -377,33 +377,93 @@ In a dystopian setting, it is the only living being capable of saving humanity, 
   }
 ];
 
-export const CERAMICS: Project[] = [
-  // 📂 폴더: public/images/ceramics/
+export const CERAMICS = [
   {
     id: 'c1',
-    title: 'RESIDUE 01',
-    category: 'Porcelain',
-    year: '2022',
-    description: 'Fired with organic materials that leave carbon traces.',
-    imageUrl: 'https://picsum.photos/400/400?grayscale', // [파일교체시]: '/images/ceramics/residue01.jpg'
+    title: 'Kitty Mug',
+    category: 'Clay',
+    year: '2025',
+    description: 'A handcrafted ceramic cup with a cat-shaped handle',
+    imageUrl: '/images/ceramics/01.JPG',
+    galleryUrls: [
+      '/images/ceramics/02.JPG'
+      //'/images/ceramics/residue01-2.jpg',
+      //'/images/ceramics/residue01-3.jpg',
+    ],
   },
+
   {
     id: 'c2',
-    title: 'TECTONIC PLATE',
-    category: 'Stoneware',
-    year: '2022',
-    description: 'Cracked surfaces resembling dry earth landscapes.',
-    imageUrl: 'https://picsum.photos/400/500?grayscale', // [파일교체시]: '/images/ceramics/tectonic.jpg'
+    title: 'Pixel Cat Cup',
+    category: 'Porcelain',
+    year: '2025',
+    description: 'A cup with pixel-style cats.',
+    imageUrl: '/images/ceramics/03.PNG'
   },
-    {
+
+  {
     id: 'c3',
-    title: 'VOICE VESSEL',
-    category: 'Earthenware',
-    year: '2021',
-    description: 'Vessels shaped by sound wave frequencies.',
-    imageUrl: 'https://picsum.photos/400/300?grayscale', // [파일교체시]: '/images/ceramics/vessel.jpg'
+    title: 'Vivid porcelain cup',
+    category: 'Porcelain',
+    year: '2025',
+    description: 'A vivid porcelain cup',
+    imageUrl: '/images/ceramics/04.JPG'
+  },
+
+  {
+    id: 'c4',
+    title: 'Ghost Accessory Holder',
+    category: 'Clay',
+    year: '2025',
+    description: 'A little ghost accessory holder',
+    imageUrl: '/images/ceramics/05.JPG'
+  },
+
+    {
+    id: 'c5',
+    title: 'Lemon Juicer',
+    category: 'Clay',
+    year: '2025',
+    description: 'A lemon-shaped fruit juicer',
+    imageUrl: '/images/ceramics/06.JPG',
+        galleryUrls: [
+      '/images/ceramics/07.JPG',
+      //'/images/ceramics/residue01-3.jpg',
+    ],
+  },
+
+  {
+    id: 'c6',
+    title: 'Wave Foam Plate',
+    category: 'Clay',
+    year: '2025',
+    description: 'A plate with a wave-foam pattern',
+    imageUrl: '/images/ceramics/08.JPG',
+        galleryUrls: [
+      '/images/ceramics/09.JPG',
+      //'/images/ceramics/residue01-3.jpg',
+    ],
+  },
+
+  {
+    id: 'c7',
+    title: 'Forsythia Cup',
+    category: 'Porcelain',
+    year: '2025',
+    description: 'A spring forsythia cup',
+    imageUrl: '/images/ceramics/10.JPG',
+  },
+
+  {
+    id: 'c8',
+    title: 'Take-out Cup',
+    category: 'Clay',
+    year: '2025',
+    description: 'A handcrafted take-out cup',
+    imageUrl: '/images/ceramics/11.JPG',
   },
 ];
+
 
 export const WRITINGS: Writing[] = [
   {
