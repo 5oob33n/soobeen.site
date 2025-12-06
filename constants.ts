@@ -415,7 +415,7 @@ export const WRITINGS: Writing[] = [
     title: "The Right Not To Be Sensed",
     date: "Sep 2024",
     summary: "Exploring privacy in an age of hyper-surveillance through the lens of quantum physics.",
-    imageUrl: '/images/writings/book1.jpg', // [파일교체시]
+    //imageUrl: '/images/writings/book1.jpg', // [파일교체시]
     content: `In an era defined by hyper-surveillance and data extraction, the act of remaining unseen has become a radical form of resistance. The "Right Not To Be Sensed" explores the intersection of privacy, quantum physics, and digital ethics.
 
     Just as the observer effect in quantum mechanics states that measuring a particle changes its state, the constant digital observation of human behavior fundamentally alters the nature of human existence. When every movement, heartbeat, and facial micro-expression is cataloged, analyzed, and monetized, the self ceases to be an autonomous entity and becomes a data point in a predictive model.
