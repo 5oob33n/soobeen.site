@@ -1,5 +1,3 @@
-
-
 import { Project, MenuItem, CVItem, Writing } from './types';
 
 /*
@@ -377,7 +375,7 @@ In a dystopian setting, it is the only living being capable of saving humanity, 
   }
 ];
 
-export const CERAMICS = [
+export const CERAMICS: Project[] = [
   {
     id: 'c1',
     title: 'Kitty Mug',

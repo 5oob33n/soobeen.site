@@ -23,9 +23,16 @@ type ViewState = 'home' | 'projects' | 'ceramics' | 'writings' | 'bio' | 'contac
 // Inline component for Ceramic Grid Items with Slideshow
 const CeramicGridItem: React.FC<{ item: Project }> = ({ item }) => {
   const [idx, setIdx] = useState(0);
-  const images = item.galleryUrls && item.galleryUrls.length > 0 
-    ? item.galleryUrls 
-    : [item.imageUrl];
+  
+  // Combine main image and gallery images, removing duplicates
+  const images = React.useMemo(() => {
+    const list = [item.imageUrl];
+    if (item.galleryUrls) {
+      list.push(...item.galleryUrls);
+    }
+    // Filter out empty strings and remove duplicates
+    return Array.from(new Set(list.filter(Boolean)));
+  }, [item.imageUrl, item.galleryUrls]);
 
   const nextSlide = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -43,7 +50,7 @@ const CeramicGridItem: React.FC<{ item: Project }> = ({ item }) => {
         <img 
           src={images[idx]} 
           alt={`${item.title} view ${idx + 1}`} 
-          className="w-full h-full object-cover grayscale opacity-90 group-hover:opacity-100 transition-all duration-500" 
+          className="w-full h-full object-cover grayscale group-hover:grayscale-0 opacity-90 group-hover:opacity-100 transition-all duration-500" 
         />
         
         {images.length > 1 && (
@@ -249,7 +256,7 @@ const App: React.FC = () => {
               className="bg-white/80 backdrop-blur-[2px] px-2 py-1 -ml-2 rounded-sm text-left hover:opacity-60 transition-opacity cursor-pointer group"
             >
               <h1 className="font-heading font-bold text-sm tracking-widest uppercase">
-                <GlitchText text="Soobeen Woo" />
+                <GlitchText key="home-logo" text="Soobeen Woo" />
               </h1>
             </button>
           </header>
@@ -294,7 +301,7 @@ const App: React.FC = () => {
               onClick={() => navigateTo('home')} 
               className="pointer-events-auto bg-white/80 backdrop-blur-[2px] px-2 py-1 -ml-2 rounded-sm font-heading font-bold text-sm tracking-widest uppercase hover:opacity-50 transition-opacity text-left cursor-pointer"
             >
-              <GlitchText text="Soobeen Woo" />
+              <GlitchText key="nav-logo" text="Soobeen Woo" />
             </button>
 
             {/* Content Menu (Simple list) */}
@@ -318,6 +325,7 @@ const App: React.FC = () => {
             <header className="mb-16">
               <h2 className="text-4xl md:text-5xl font-heading font-light uppercase tracking-tight">
                 <GlitchText 
+                  key={currentView + (selectedProjectId || '') + (selectedWritingId || '')}
                   text={
                     selectedProjectId ? 'Project View' : 
                     selectedWritingId ? 'Reading' : 
@@ -570,7 +578,7 @@ const App: React.FC = () => {
                             {w.summary}
                           </p>
                           <button className="mt-4 text-xs font-bold uppercase tracking-widest border-b border-black pb-0.5 hover:opacity-50 transition-opacity">
-                            Read More
+                            Read
                           </button>
                           <div className="mt-6 w-12 h-px bg-gray-200 group-hover:w-full transition-all duration-500"></div>
                         </article>
