@@ -16,26 +16,89 @@ import {
   CONTRIBUTIONS,
   CONTACT_INFO
 } from './constants';
-import { CVItem } from './types';
+import { CVItem, Project } from './types';
 
 type ViewState = 'home' | 'projects' | 'ceramics' | 'writings' | 'bio' | 'contact';
+
+// Inline component for Ceramic Grid Items with Slideshow
+const CeramicGridItem: React.FC<{ item: Project }> = ({ item }) => {
+  const [idx, setIdx] = useState(0);
+  const images = item.galleryUrls && item.galleryUrls.length > 0 
+    ? item.galleryUrls 
+    : [item.imageUrl];
+
+  const nextSlide = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIdx((prev) => (prev + 1) % images.length);
+  };
+
+  const prevSlide = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIdx((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  return (
+    <div className="group relative">
+      <div className="aspect-square bg-gray-50 overflow-hidden mb-4 relative select-none">
+        <img 
+          src={images[idx]} 
+          alt={`${item.title} view ${idx + 1}`} 
+          className="w-full h-full object-cover grayscale opacity-90 group-hover:opacity-100 transition-all duration-500" 
+        />
+        
+        {images.length > 1 && (
+          <>
+            <button 
+              onClick={prevSlide}
+              className="absolute left-0 top-0 h-full px-2 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/10 z-10"
+              aria-label="Previous image"
+            >
+              <span className="text-3xl text-white drop-shadow-md font-thin">‹</span>
+            </button>
+            <button 
+              onClick={nextSlide}
+              className="absolute right-0 top-0 h-full px-2 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/10 z-10"
+              aria-label="Next image"
+            >
+              <span className="text-3xl text-white drop-shadow-md font-thin">›</span>
+            </button>
+            <div className="absolute bottom-2 left-0 w-full flex justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+               {images.map((_, i) => (
+                 <div 
+                   key={i} 
+                   className={`w-1 h-1 rounded-full ${i === idx ? 'bg-white' : 'bg-white/40'}`}
+                 />
+               ))}
+            </div>
+          </>
+        )}
+      </div>
+
+      <h3 className="font-heading font-medium text-sm uppercase group-hover:italic transition-all">{item.title}</h3>
+      <p className="font-mono text-[10px] text-gray-500 mt-1 uppercase tracking-wide">{item.category}</p>
+      {item.description && (
+        <p className="font-sans text-xs font-light text-gray-400 mt-2 line-clamp-2 leading-relaxed">
+          {item.description}
+        </p>
+      )}
+    </div>
+  );
+};
 
 const App: React.FC = () => {
   // Navigation & view state
   const [currentView, setCurrentView] = useState<ViewState>('home');
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [selectedWritingId, setSelectedWritingId] = useState<string | null>(null);
-  const [selectedCeramicId, setSelectedCeramicId] = useState<string | null>(null); // currently opened ceramic gallery
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Slider indices for projects and ceramics
+  // Slider indices for projects
   const [currentProjectSlideIndex, setCurrentProjectSlideIndex] = useState(0);
-  const [currentCeramicSlideIndex, setCurrentCeramicSlideIndex] = useState(0);
 
   // Scroll to top on view / selection change
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [currentView, selectedProjectId, selectedWritingId, selectedCeramicId]);
+  }, [currentView, selectedProjectId, selectedWritingId]);
 
   // Reset project slider when project changes
   useEffect(() => {
@@ -44,17 +107,10 @@ const App: React.FC = () => {
     }
   }, [selectedProjectId]);
 
-  // Reset ceramic slider when ceramic changes
-  useEffect(() => {
-    if (selectedCeramicId) {
-      setCurrentCeramicSlideIndex(0);
-    }
-  }, [selectedCeramicId]);
-
   // Simple view navigation
   const navigateTo = (view: ViewState) => {
     // If user clicks the same view and nothing is selected, do nothing (except for home)
-    if (view === currentView && !selectedProjectId && !selectedWritingId && !selectedCeramicId && view !== 'home') return;
+    if (view === currentView && !selectedProjectId && !selectedWritingId && view !== 'home') return;
     
     setIsTransitioning(true);
     setTimeout(() => {
@@ -62,7 +118,6 @@ const App: React.FC = () => {
       // Reset inner selections when changing main view
       setSelectedProjectId(null);
       setSelectedWritingId(null);
-      setSelectedCeramicId(null);
       setIsTransitioning(false);
     }, 100);
   };
@@ -85,18 +140,6 @@ const App: React.FC = () => {
     }, 100);
   };
 
-  // Ceramics card → open gallery modal
-  const handleCeramicClick = (ceramicId: string) => {
-    // When user clicks on a ceramic item, open the gallery overlay and reset index
-    setSelectedCeramicId(ceramicId);
-    setCurrentCeramicSlideIndex(0);
-  };
-
-  // Close ceramic gallery modal
-  const handleCloseCeramic = () => {
-    setSelectedCeramicId(null);
-  };
-
   // Project data & images
   const selectedProjectData = selectedProjectId ? PROJECTS.find(p => p.id === selectedProjectId) : null;
   const selectedWritingData = selectedWritingId ? WRITINGS.find(w => w.id === selectedWritingId) : null;
@@ -116,28 +159,6 @@ const App: React.FC = () => {
   const handlePrevProjectSlide = () => {
     if (projectImages.length === 0) return;
     setCurrentProjectSlideIndex((prev) => (prev - 1 + projectImages.length) % projectImages.length);
-  };
-
-  // Ceramics: find selected item (using any to avoid TS type conflicts if CERAMICS is loosely typed)
-  const selectedCeramicData = selectedCeramicId
-    ? (CERAMICS as any[]).find((c) => c.id === selectedCeramicId) || null
-    : null;
-
-  // Ceramics gallery images: use galleryUrls if present, otherwise fallback to single imageUrl
-  const ceramicImages: string[] = selectedCeramicData
-    ? (selectedCeramicData.galleryUrls && selectedCeramicData.galleryUrls.length > 0
-        ? selectedCeramicData.galleryUrls
-        : [selectedCeramicData.imageUrl])
-    : [];
-
-  const handleNextCeramicSlide = () => {
-    if (ceramicImages.length === 0) return;
-    setCurrentCeramicSlideIndex((prev) => (prev + 1) % ceramicImages.length);
-  };
-
-  const handlePrevCeramicSlide = () => {
-    if (ceramicImages.length === 0) return;
-    setCurrentCeramicSlideIndex((prev) => (prev - 1 + ceramicImages.length) % ceramicImages.length);
   };
 
   // Helper to determine if video is local file or external embed
@@ -283,7 +304,7 @@ const App: React.FC = () => {
                 <button
                   key={item.id}
                   onClick={() => navigateTo(item.id as ViewState)}
-                  className={`hover:opacity-100 transition-opacity text-right ${currentView === item.id && !selectedProjectId && !selectedWritingId && !selectedCeramicId ? 'opacity-100 font-bold' : 'opacity-40'}`}
+                  className={`hover:opacity-100 transition-opacity text-right ${currentView === item.id && !selectedProjectId && !selectedWritingId ? 'opacity-100 font-bold' : 'opacity-40'}`}
                 >
                   <GlitchText text={item.label} triggerOnLoad={false} />
                 </button>
@@ -518,98 +539,12 @@ const App: React.FC = () => {
                 </>
               )}
 
-              {/* CERAMICS */}
+              {/* CERAMICS LIST (Grid with Inline Slider) */}
               {currentView === 'ceramics' && (
-                <div className="relative">
-                  {/* Ceramics grid (overview) */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {CERAMICS.map((item: any) => (
-                      <div
-                        key={item.id}
-                        className="cursor-pointer group"
-                        onClick={() => handleCeramicClick(item.id)}
-                      >
-                        <div className="aspect-square bg-gray-50 overflow-hidden mb-4">
-                          <img
-                            src={item.imageUrl}
-                            alt={item.title}
-                            className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                          />
-                        </div>
-                        <h3 className="font-heading font-medium text-sm uppercase">
-                          {item.title}
-                        </h3>
-                        <p className="font-mono text-[10px] text-gray-500 mt-1">
-                          {item.category}
-                        </p>
-                      </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {CERAMICS.map(item => (
+                        <CeramicGridItem key={item.id} item={item} />
                     ))}
-                  </div>
-
-                  {/* Ceramics gallery modal overlay */}
-                  {selectedCeramicData && (
-                    <div className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm flex items-center justify-center">
-                      <div className="relative max-w-4xl w-full mx-4 bg-white/90 rounded-sm shadow-lg p-6 md:p-8">
-                        {/* Close button */}
-                        <button
-                          onClick={handleCloseCeramic}
-                          className="absolute top-3 right-3 font-mono text-[10px] uppercase tracking-widest text-gray-500 hover:text-black"
-                        >
-                          Close ×
-                        </button>
-
-                        {/* Title / meta */}
-                        <div className="mb-4 pr-10">
-                          <div className="font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-1">
-                            Ceramic Piece
-                          </div>
-                          <h3 className="text-lg md:text-2xl font-heading uppercase">
-                            {selectedCeramicData.title}
-                          </h3>
-                          {selectedCeramicData.category && (
-                            <p className="font-mono text-[10px] text-gray-500 mt-1">
-                              {selectedCeramicData.category}
-                            </p>
-                          )}
-                        </div>
-
-                        {/* Image slider for ceramics */}
-                        <div className="relative w-full aspect-[4/3] bg-gray-100 overflow-hidden group select-none">
-                          {ceramicImages.length > 0 && (
-                            <img
-                              src={ceramicImages[currentCeramicSlideIndex]}
-                              alt={`${selectedCeramicData.title} view ${currentCeramicSlideIndex + 1}`}
-                              className="w-full h-full object-cover transition-all duration-500"
-                            />
-                          )}
-
-                          {ceramicImages.length > 1 && (
-                            <>
-                              <button
-                                onClick={handlePrevCeramicSlide}
-                                className="absolute left-0 top-0 h-full px-4 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/10"
-                                aria-label="Previous image"
-                              >
-                                <span className="text-3xl text-white drop-shadow-md font-thin">‹</span>
-                              </button>
-                              
-                              <button
-                                onClick={handleNextCeramicSlide}
-                                className="absolute right-0 top-0 h-full px-4 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/10"
-                                aria-label="Next image"
-                              >
-                                <span className="text-3xl text-white drop-shadow-md font-thin">›</span>
-                              </button>
-
-                              <div className="absolute bottom-3 right-3 bg-black/60 text-white px-2 py-1 text-[10px] font-mono tracking-widest rounded-sm">
-                                {currentCeramicSlideIndex + 1} / {ceramicImages.length}
-                              </div>
-                            </>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  )}
                 </div>
               )}
 
