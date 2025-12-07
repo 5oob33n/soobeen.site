@@ -36,7 +36,7 @@ export const MENU_ITEMS: MenuItem[] = [
 
 export const BIO_PROFILE = {
   name: "Soobeen Woo",
-  title: "Digital Media Artist",
+  title: "Media Artist",
   location: "Bremen, Germany / Daegu & Busan, Korea",
   email: "youxarthur@gmail.com"
 };
