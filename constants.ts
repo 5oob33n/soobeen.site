@@ -51,9 +51,9 @@ export const CONTACT_INFO = {
 };
 
 export const BIO_TEXT = [
-  "Soobeen Woo is a digital media artist exploring unseen layers of perception and existence. Her work translates what escapes human vision—micro-vibrations, disappearing traces, erased voices, and non-human sensory structures—into sound, ceramics, vibration systems, text, and virtual environments, revealing forms of reality that precede interpretation.",
-  "Rather than reproducing an entity, her installations focus on the residue and fractures that existence leaves behind. Elements such as heat, breath, fragments, collisions, condensation, and sound operate like living organisms within the work, shifting and fading in response to the viewer's proximity, body heat, air movement, and time.",
-  "She critically examines the relationship between perception and existence, engaging questions of the right not to be sensed, the materiality of human emotion as intrusion, and the ways invisible beings come to inhabit the world."
+  "Soobeen Woo is a digital media artist who approaches sound, vibration, and material as archaeological layers rather than expressive media. Her work investigates how existence leaves traces before it becomes visible, legible, or meaningful—through micro-vibrations, residues, erased voices, and non-human sensory structures.",
+  "Instead of reproducing entities or narratives, her installations operate as sites of excavation. Sound, ceramics, vibration systems, text, and virtual environments function as evidence fields where what has disappeared, failed to register, or resisted perception resurfaces as fragments and residues. These elements do not represent life; they behave like living conditions that shift, erode, and fade in response to proximity, body heat, breath, air movement, and time.",
+  "Through this practice, she examines the unstable boundary between perception and existence. Her work questions the assumption that to exist is to be sensed, addressing themes such as the right not to be perceived, human emotion as a material intrusion, and the ways invisible or non-human beings inhabit the world through traces rather than presence."
 ];
 
 export const EDUCATION: CVItem[] = [

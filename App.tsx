@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate, useParams, useLocation, Link } from 'react-router-dom';
 import AsciiBackground from './components/AsciiBackground';
 import GlitchText from './components/GlitchText';
 import { 
@@ -17,8 +18,6 @@ import {
   CONTACT_INFO
 } from './constants';
 import { CVItem, Project } from './types';
-
-type ViewState = 'home' | 'projects' | 'ceramics' | 'writings' | 'bio' | 'contact';
 
 // Inline component for Ceramic Grid Items with Slideshow
 const CeramicGridItem: React.FC<{ item: Project }> = ({ item }) => {
@@ -92,20 +91,42 @@ const CeramicGridItem: React.FC<{ item: Project }> = ({ item }) => {
   );
 };
 
+// Main App wrapper with Router
 const App: React.FC = () => {
-  // Navigation & view state
-  const [currentView, setCurrentView] = useState<ViewState>('home');
-  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
-  const [selectedWritingId, setSelectedWritingId] = useState<string | null>(null);
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+};
+
+// Helper to get current view from pathname
+const getViewFromPath = (pathname: string): string => {
+  const path = pathname.split('/')[1] || 'home';
+  return path;
+};
+
+const AppContent: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Slider indices for projects
   const [currentProjectSlideIndex, setCurrentProjectSlideIndex] = useState(0);
 
-  // Scroll to top on view / selection change
+  // Determine current view from URL
+  const currentView = getViewFromPath(location.pathname);
+
+  // Check if we're on a detail page
+  const isProjectDetail = location.pathname.startsWith('/projects/') && location.pathname !== '/projects';
+  const isWritingDetail = location.pathname.startsWith('/writings/') && location.pathname !== '/writings';
+  const selectedProjectId = isProjectDetail ? location.pathname.split('/')[2] : null;
+  const selectedWritingId = isWritingDetail ? location.pathname.split('/')[2] : null;
+
+  // Scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [currentView, selectedProjectId, selectedWritingId]);
+  }, [location.pathname]);
 
   // Reset project slider when project changes
   useEffect(() => {
@@ -114,17 +135,14 @@ const App: React.FC = () => {
     }
   }, [selectedProjectId]);
 
-  // Simple view navigation
-  const navigateTo = (view: ViewState) => {
-    // If user clicks the same view and nothing is selected, do nothing (except for home)
-    if (view === currentView && !selectedProjectId && !selectedWritingId && view !== 'home') return;
+  // Navigation with transition
+  const navigateTo = (view: string) => {
+    const targetPath = view === 'home' ? '/' : `/${view}`;
+    if (location.pathname === targetPath) return;
     
     setIsTransitioning(true);
     setTimeout(() => {
-      setCurrentView(view);
-      // Reset inner selections when changing main view
-      setSelectedProjectId(null);
-      setSelectedWritingId(null);
+      navigate(targetPath);
       setIsTransitioning(false);
     }, 100);
   };
@@ -133,7 +151,7 @@ const App: React.FC = () => {
   const handleProjectClick = (projectId: string) => {
     setIsTransitioning(true);
     setTimeout(() => {
-      setSelectedProjectId(projectId);
+      navigate(`/projects/${projectId}`);
       setIsTransitioning(false);
     }, 100);
   };
@@ -142,7 +160,7 @@ const App: React.FC = () => {
   const handleWritingClick = (writingId: string) => {
     setIsTransitioning(true);
     setTimeout(() => {
-      setSelectedWritingId(writingId);
+      navigate(`/writings/${writingId}`);
       setIsTransitioning(false);
     }, 100);
   };
@@ -167,6 +185,9 @@ const App: React.FC = () => {
     if (projectImages.length === 0) return;
     setCurrentProjectSlideIndex((prev) => (prev - 1 + projectImages.length) % projectImages.length);
   };
+  
+  // Check if on home
+  const isHome = location.pathname === '/';
 
   // Helper to determine if video is local file or external embed
   const isLocalVideo = (url: string) => {
@@ -246,7 +267,7 @@ const App: React.FC = () => {
       </div>
 
       {/* HOME VIEW LAYOUT */}
-      {currentView === 'home' && (
+      {isHome && (
         <div className={`relative z-10 w-full h-screen flex flex-col justify-between p-8 md:p-12 transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
           
           {/* Top Left: Name */}
@@ -277,7 +298,7 @@ const App: React.FC = () => {
                 {MENU_ITEMS.map((item) => (
                   <li key={item.id}>
                     <button 
-                      onClick={() => navigateTo(item.id as ViewState)}
+                      onClick={() => navigateTo(item.id)}
                       className="group block w-full font-heading font-normal text-xs tracking-widest transition-all uppercase text-right"
                     >
                       <GlitchText text={item.label} />
@@ -291,7 +312,7 @@ const App: React.FC = () => {
       )}
 
       {/* CONTENT VIEW LAYOUT */}
-      {currentView !== 'home' && (
+      {!isHome && (
         <div className={`relative z-10 min-h-screen transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
           
           {/* Navigation Header for Content Pages */}
@@ -338,8 +359,12 @@ const App: React.FC = () => {
                   onClick={() => {
                     setIsTransitioning(true);
                     setTimeout(() => {
-                      setSelectedProjectId(null);
-                      setSelectedWritingId(null);
+                      // Navigate back to the list view
+                      if (selectedProjectId) {
+                        navigate('/projects');
+                      } else if (selectedWritingId) {
+                        navigate('/writings');
+                      }
                       setIsTransitioning(false);
                     }, 100);
                   }}
@@ -352,7 +377,7 @@ const App: React.FC = () => {
 
             <div className="fade-in-content">
               {/* PROJECTS */}
-              {currentView === 'projects' && (
+              {(currentView === 'projects' || isProjectDetail) && (
                 <>
                   {!selectedProjectId ? (
                     /* Project List View */
@@ -557,7 +582,7 @@ const App: React.FC = () => {
               )}
 
               {/* WRITINGS */}
-              {currentView === 'writings' && (
+              {(currentView === 'writings' || isWritingDetail) && (
                 <>
                   {!selectedWritingId ? (
                     /* Writings List View */
