@@ -106,6 +106,24 @@ const getViewFromPath = (pathname: string): string => {
   return path;
 };
 
+// Helper to create URL-friendly slug from title
+const createSlug = (title: string): string => {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9가-힣]+/g, '-') // Replace non-alphanumeric chars with hyphens
+    .replace(/^-+|-+$/g, '');         // Remove leading/trailing hyphens
+};
+
+// Helper to find project by slug
+const findProjectBySlug = (slug: string): Project | undefined => {
+  return PROJECTS.find(p => createSlug(p.title) === slug);
+};
+
+// Helper to find writing by slug
+const findWritingBySlug = (slug: string) => {
+  return WRITINGS.find(w => createSlug(w.title) === slug);
+};
+
 const AppContent: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -120,8 +138,8 @@ const AppContent: React.FC = () => {
   // Check if we're on a detail page
   const isProjectDetail = location.pathname.startsWith('/projects/') && location.pathname !== '/projects';
   const isWritingDetail = location.pathname.startsWith('/writings/') && location.pathname !== '/writings';
-  const selectedProjectId = isProjectDetail ? location.pathname.split('/')[2] : null;
-  const selectedWritingId = isWritingDetail ? location.pathname.split('/')[2] : null;
+  const selectedProjectSlug = isProjectDetail ? decodeURIComponent(location.pathname.split('/')[2]) : null;
+  const selectedWritingSlug = isWritingDetail ? decodeURIComponent(location.pathname.split('/')[2]) : null;
 
   // Scroll to top on route change
   useEffect(() => {
@@ -130,10 +148,10 @@ const AppContent: React.FC = () => {
 
   // Reset project slider when project changes
   useEffect(() => {
-    if (selectedProjectId) {
+    if (selectedProjectSlug) {
       setCurrentProjectSlideIndex(0);
     }
-  }, [selectedProjectId]);
+  }, [selectedProjectSlug]);
 
   // Navigation with transition
   const navigateTo = (view: string) => {
@@ -147,27 +165,29 @@ const AppContent: React.FC = () => {
     }, 100);
   };
 
-  // Project list → detail
-  const handleProjectClick = (projectId: string) => {
+  // Project list → detail (use slug from title)
+  const handleProjectClick = (project: Project) => {
+    const slug = createSlug(project.title);
     setIsTransitioning(true);
     setTimeout(() => {
-      navigate(`/projects/${projectId}`);
+      navigate(`/projects/${slug}`);
       setIsTransitioning(false);
     }, 100);
   };
 
-  // Writings list → detail
-  const handleWritingClick = (writingId: string) => {
+  // Writings list → detail (use slug from title)
+  const handleWritingClick = (title: string) => {
+    const slug = createSlug(title);
     setIsTransitioning(true);
     setTimeout(() => {
-      navigate(`/writings/${writingId}`);
+      navigate(`/writings/${slug}`);
       setIsTransitioning(false);
     }, 100);
   };
 
-  // Project data & images
-  const selectedProjectData = selectedProjectId ? PROJECTS.find(p => p.id === selectedProjectId) : null;
-  const selectedWritingData = selectedWritingId ? WRITINGS.find(w => w.id === selectedWritingId) : null;
+  // Project data & images (find by slug)
+  const selectedProjectData = selectedProjectSlug ? findProjectBySlug(selectedProjectSlug) : null;
+  const selectedWritingData = selectedWritingSlug ? findWritingBySlug(selectedWritingSlug) : null;
   
   // Build project image array for slider
   const projectImages = selectedProjectData 
@@ -332,7 +352,7 @@ const AppContent: React.FC = () => {
                 <button
                   key={item.id}
                   onClick={() => navigateTo(item.id as ViewState)}
-                  className={`hover:opacity-100 transition-opacity text-right ${currentView === item.id && !selectedProjectId && !selectedWritingId ? 'opacity-100 font-bold' : 'opacity-40'}`}
+                  className={`hover:opacity-100 transition-opacity text-right ${currentView === item.id && !selectedProjectSlug && !selectedWritingSlug ? 'opacity-100 font-bold' : 'opacity-40'}`}
                 >
                   <GlitchText text={item.label} triggerOnLoad={false} />
                 </button>
@@ -346,23 +366,23 @@ const AppContent: React.FC = () => {
             <header className="mb-16">
               <h2 className="text-4xl md:text-5xl font-heading font-light uppercase tracking-tight">
                 <GlitchText 
-                  key={currentView + (selectedProjectId || '') + (selectedWritingId || '')}
+                  key={currentView + (selectedProjectSlug || '') + (selectedWritingSlug || '')}
                   text={
-                    selectedProjectId ? 'Project View' : 
-                    selectedWritingId ? 'Reading' : 
+                    selectedProjectSlug ? 'Project View' : 
+                    selectedWritingSlug ? 'Reading' : 
                     currentView
                   } 
                 />
               </h2>
-              {(selectedProjectId || selectedWritingId) && (
+              {(selectedProjectSlug || selectedWritingSlug) && (
                 <button 
                   onClick={() => {
                     setIsTransitioning(true);
                     setTimeout(() => {
                       // Navigate back to the list view
-                      if (selectedProjectId) {
+                      if (selectedProjectSlug) {
                         navigate('/projects');
-                      } else if (selectedWritingId) {
+                      } else if (selectedWritingSlug) {
                         navigate('/writings');
                       }
                       setIsTransitioning(false);
@@ -379,14 +399,14 @@ const AppContent: React.FC = () => {
               {/* PROJECTS */}
               {(currentView === 'projects' || isProjectDetail) && (
                 <>
-                  {!selectedProjectId ? (
+                  {!selectedProjectSlug ? (
                     /* Project List View */
                     <div className="space-y-24">
                       {PROJECTS.map((project) => (
                         <div key={project.id} className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start group">
                           <div
                             className="aspect-[4/3] overflow-hidden bg-gray-100 cursor-pointer"
-                            onClick={() => handleProjectClick(project.id)}
+                            onClick={() => handleProjectClick(project)}
                           >
                             <img
                               src={project.imageUrl}
@@ -395,7 +415,7 @@ const AppContent: React.FC = () => {
                             />
                           </div>
                           <div className="md:pt-4">
-                            <button onClick={() => handleProjectClick(project.id)} className="text-left">
+                            <button onClick={() => handleProjectClick(project)} className="text-left">
                               <h3 className="text-xl font-heading font-medium uppercase mb-2 hover:italic transition-all duration-300">
                                 {project.title}
                               </h3>
@@ -410,7 +430,7 @@ const AppContent: React.FC = () => {
                               {project.description}
                             </p>
                             <button
-                              onClick={() => handleProjectClick(project.id)}
+                              onClick={() => handleProjectClick(project)}
                               className="mt-4 text-[10px] font-bold uppercase tracking-widest border-b border-black pb-0.5 hover:opacity-50 transition-opacity"
                             >
                               View Project
@@ -584,14 +604,14 @@ const AppContent: React.FC = () => {
               {/* WRITINGS */}
               {(currentView === 'writings' || isWritingDetail) && (
                 <>
-                  {!selectedWritingId ? (
+                  {!selectedWritingSlug ? (
                     /* Writings List View */
                     <div className="max-w-4xl space-y-16">
                       {WRITINGS.map((w) => (
                         <article
                           key={w.id}
                           className="group cursor-pointer grid grid-cols-1 md:grid-cols-12 gap-8 items-start"
-                          onClick={() => handleWritingClick(w.id)}
+                          onClick={() => handleWritingClick(w.title)}
                         >
                           {/* Image Thumbnail for Writing */}
                           {w.imageUrl && (
