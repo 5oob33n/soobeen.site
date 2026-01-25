@@ -368,8 +368,8 @@ const AppContent: React.FC = () => {
                 <GlitchText 
                   key={currentView + (selectedProjectSlug || '') + (selectedWritingSlug || '')}
                   text={
-                    selectedProjectSlug ? 'Project View' : 
-                    selectedWritingSlug ? 'Reading' : 
+                    selectedProjectSlug && selectedProjectData ? selectedProjectData.title : 
+                    selectedWritingSlug && selectedWritingData ? selectedWritingData.title : 
                     currentView
                   } 
                 />
@@ -443,13 +443,6 @@ const AppContent: React.FC = () => {
                     /* Project Detail View */
                     selectedProjectData && (
                       <div className="animate-fade-in max-w-4xl mx-auto">
-                        <div className="mb-4 font-mono text-xs text-gray-500 uppercase tracking-widest">
-                          {selectedProjectData.year}
-                        </div>
-                        <h1 className="text-3xl md:text-6xl font-heading font-light uppercase tracking-tight mb-12">
-                          {selectedProjectData.title}
-                        </h1>
-
                         {/* Image Slider / Carousel for projects */}
                         <div className="relative w-full aspect-video bg-gray-100 mb-12 group select-none">
                           <img
@@ -653,12 +646,9 @@ const AppContent: React.FC = () => {
                           </div>
                         )}
 
-                        <div className="mb-6 font-mono text-xs text-gray-500 uppercase tracking-widest border-b border-black/10 pb-4">
+                        <div className="mb-8 font-mono text-xs text-gray-500 uppercase tracking-widest border-b border-black/10 pb-4">
                           {selectedWritingData.date}
                         </div>
-                        <h1 className="text-3xl md:text-5xl font-heading font-light mb-12 leading-tight">
-                          {selectedWritingData.title}
-                        </h1>
                         <div className="prose prose-sm md:prose-base font-light text-justify text-gray-800 whitespace-pre-line leading-loose">
                           {selectedWritingData.content}
                         </div>
