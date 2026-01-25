@@ -49,6 +49,7 @@ const CeramicGridItem: React.FC<{ item: Project }> = ({ item }) => {
         <img 
           src={images[idx]} 
           alt={`${item.title} view ${idx + 1}`} 
+          loading="lazy"
           className="w-full h-full object-cover grayscale group-hover:grayscale-0 opacity-90 group-hover:opacity-100 transition-all duration-500" 
         />
         
@@ -411,6 +412,7 @@ const AppContent: React.FC = () => {
                             <img
                               src={project.imageUrl}
                               alt={project.title}
+                              loading="lazy"
                               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                             />
                           </div>
@@ -448,6 +450,7 @@ const AppContent: React.FC = () => {
                           <img
                             src={projectImages[currentProjectSlideIndex]}
                             alt={`${selectedProjectData.title} view ${currentProjectSlideIndex + 1}`}
+                            loading="lazy"
                             className="w-full h-full object-cover transition-all duration-500"
                           />
                           
@@ -612,6 +615,7 @@ const AppContent: React.FC = () => {
                                <img 
                                  src={w.imageUrl} 
                                  alt={w.title} 
+                                 loading="lazy"
                                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                                />
                             </div>
@@ -642,7 +646,7 @@ const AppContent: React.FC = () => {
                         {/* Writing Header Image */}
                         {selectedWritingData.imageUrl && (
                           <div className="mb-12 w-full max-w-sm mx-auto shadow-lg">
-                            <img src={selectedWritingData.imageUrl} alt={selectedWritingData.title} className="w-full h-auto" />
+                            <img src={selectedWritingData.imageUrl} alt={selectedWritingData.title} loading="lazy" className="w-full h-auto" />
                           </div>
                         )}
 
