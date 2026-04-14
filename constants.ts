@@ -106,6 +106,9 @@ export const CONTRIBUTIONS: CVItem[] = [
   { year: 2024, title: "Ouroboros", description: "CGI & AI generated image, Hara Shin, Seoul, South Korea" }
 ];
 
+/** Bump the `?v=` number when you replace files under public/images/devouring-voices/ (cache bust). */
+const DV_IMG = (path: string) => `${path}?v=4`;
+
 export const PROJECTS: Project[] = [
   {
     id: 'p11',
@@ -116,17 +119,17 @@ export const PROJECTS: Project[] = [
     location: 'Germany',
     materials:
       'Ceramic siren sculpture, audio interface, microphone, speakers, Ableton Live, Max/MSP; dimensions variable',
-    imageUrl: '/images/devouring-voices/main.JPG',
+    imageUrl: DV_IMG('/images/devouring-voices/main.JPG'),
     videoUrl: 'placeholder',
     galleryUrls: [
-      '/images/devouring-voices/1.JPG',
-      '/images/devouring-voices/2.JPG',
-      '/images/devouring-voices/3.JPG',
-      '/images/devouring-voices/4.JPG',
-      '/images/devouring-voices/5.JPG',
-      '/images/devouring-voices/6.JPG',
-      '/images/devouring-voices/7.JPG',
-      '/images/devouring-voices/8.JPG',
+      DV_IMG('/images/devouring-voices/1.JPG'),
+      DV_IMG('/images/devouring-voices/2.JPG'),
+      DV_IMG('/images/devouring-voices/3.JPG'),
+      DV_IMG('/images/devouring-voices/4.JPG'),
+      DV_IMG('/images/devouring-voices/5.JPG'),
+      DV_IMG('/images/devouring-voices/6.JPG'),
+      DV_IMG('/images/devouring-voices/7.JPG'),
+      DV_IMG('/images/devouring-voices/8.JPG'),
     ],
     description: `Devouring Voices dismantles the human voice as a stable carrier of meaning and identity. Instead of transmitting intention, the voice is absorbed, fragmented, and reconfigured within a non-human system. What is spoken does not return as language, but as residue—detached from the speaker, stripped of coherence.
 
