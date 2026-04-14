@@ -1,4 +1,4 @@
-import { Project, MenuItem, CVItem, Writing } from './types';
+import { Project, MenuItem, CVItem } from './types';
 
 /*
   [🗂️ 파일 관리 및 폴더 구조 가이드]
@@ -20,8 +20,7 @@ import { Project, MenuItem, CVItem, Writing } from './types';
         ├── vom-blick/          
         ├── oensa-ant/          
         ├── devouring-voices/   (Devouring Voices)
-        ├── ceramics/           (도자 작업)
-        └── writings/           (글/책 표지 이미지)
+        └── ceramics/           (도자 작업)
 
   * 파일을 넣은 후, 아래 코드에서 주석(// [파일교체시]...)에 적힌 경로로 imageUrl 값을 변경하세요.
   * 경로는 항상 '/images/...' 로 시작해야 합니다.
@@ -30,7 +29,6 @@ import { Project, MenuItem, CVItem, Writing } from './types';
 export const MENU_ITEMS: MenuItem[] = [
   { label: 'Projects', id: 'projects' },
   { label: 'Ceramics', id: 'ceramics' },
-  { label: 'Writings', id: 'writings' },
   { label: 'BIO', id: 'bio' },
   { label: 'Contact', id: 'contact' },
 ];
@@ -440,19 +438,4 @@ export const CERAMICS: Project[] = [
     description: 'A handcrafted take-out cup',
     imageUrl: '/images/ceramics/11.JPG',
   },
-];
-
-export const WRITINGS: Writing[] = [
-  {
-    id: 'w1',
-    title: "The Right Not To Be Sensed",
-    date: "Sep 2024",
-    summary: "Exploring privacy in an age of hyper-surveillance through the lens of quantum physics.",
-    //imageUrl: '/images/writings/book1.jpg', // [파일교체시]
-    content: `In an era defined by hyper-surveillance and data extraction, the act of remaining unseen has become a radical form of resistance. The "Right Not To Be Sensed" explores the intersection of privacy, quantum physics, and digital ethics.
-
-    Just as the observer effect in quantum mechanics states that measuring a particle changes its state, the constant digital observation of human behavior fundamentally alters the nature of human existence. When every movement, heartbeat, and facial micro-expression is cataloged, analyzed, and monetized, the self ceases to be an autonomous entity and becomes a data point in a predictive model.
-
-    This essay argues that true privacy is no longer about hiding information but about claiming the right to exist without being measured. It is a plea for the preservation of the "uncollapsed state"—the potentiality of being that exists before interpretation and categorization. By examining the ways in which invisible infrastructures of sensing permeate our daily lives, we can begin to imagine a new kind of human right: the right to remain indeterminate.`
-  }
 ];

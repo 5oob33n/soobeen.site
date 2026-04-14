@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate, useParams, useLocation, Link } from 'react-router-dom';
+import { BrowserRouter, useNavigate, useLocation } from 'react-router-dom';
 import AsciiBackground from './components/AsciiBackground';
 import GlitchText from './components/GlitchText';
 import ChladniBackground from './components/ChladniBackground';
@@ -7,7 +7,6 @@ import {
   MENU_ITEMS, 
   PROJECTS, 
   CERAMICS, 
-  WRITINGS, 
   BIO_TEXT, 
   BIO_PROFILE,
   EDUCATION,
@@ -121,11 +120,6 @@ const findProjectBySlug = (slug: string): Project | undefined => {
   return PROJECTS.find(p => createSlug(p.title) === slug);
 };
 
-// Helper to find writing by slug
-const findWritingBySlug = (slug: string) => {
-  return WRITINGS.find(w => createSlug(w.title) === slug);
-};
-
 const AppContent: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -141,9 +135,14 @@ const AppContent: React.FC = () => {
 
   // Check if we're on a detail page
   const isProjectDetail = location.pathname.startsWith('/projects/') && location.pathname !== '/projects';
-  const isWritingDetail = location.pathname.startsWith('/writings/') && location.pathname !== '/writings';
   const selectedProjectSlug = isProjectDetail ? decodeURIComponent(location.pathname.split('/')[2]) : null;
-  const selectedWritingSlug = isWritingDetail ? decodeURIComponent(location.pathname.split('/')[2]) : null;
+
+  // Old bookmarks to /writings → home
+  useEffect(() => {
+    if (location.pathname === '/writings' || location.pathname.startsWith('/writings/')) {
+      navigate('/', { replace: true });
+    }
+  }, [location.pathname, navigate]);
 
   // Scroll to top on route change
   useEffect(() => {
@@ -179,19 +178,8 @@ const AppContent: React.FC = () => {
     }, 100);
   };
 
-  // Writings list → detail (use slug from title)
-  const handleWritingClick = (title: string) => {
-    const slug = createSlug(title);
-    setIsTransitioning(true);
-    setTimeout(() => {
-      navigate(`/writings/${slug}`);
-      setIsTransitioning(false);
-    }, 100);
-  };
-
   // Project data & images (find by slug)
   const selectedProjectData = selectedProjectSlug ? findProjectBySlug(selectedProjectSlug) : null;
-  const selectedWritingData = selectedWritingSlug ? findWritingBySlug(selectedWritingSlug) : null;
   
   // Build project image array for slider
   const projectImages = selectedProjectData
@@ -381,8 +369,8 @@ const AppContent: React.FC = () => {
               {MENU_ITEMS.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => navigateTo(item.id as ViewState)}
-                  className={`hover:opacity-100 transition-opacity text-right ${currentView === item.id && !selectedProjectSlug && !selectedWritingSlug ? 'opacity-100 font-bold' : 'opacity-40'}`}
+                  onClick={() => navigateTo(item.id)}
+                  className={`hover:opacity-100 transition-opacity text-right ${currentView === item.id && !selectedProjectSlug ? 'opacity-100 font-bold' : 'opacity-40'}`}
                 >
                   <GlitchText text={item.label} triggerOnLoad={false} />
                 </button>
@@ -396,25 +384,19 @@ const AppContent: React.FC = () => {
             <header className="mb-16">
               <h2 className="text-4xl md:text-5xl font-heading font-light uppercase tracking-tight">
                 <GlitchText 
-                  key={currentView + (selectedProjectSlug || '') + (selectedWritingSlug || '')}
+                  key={currentView + (selectedProjectSlug || '')}
                   text={
                     selectedProjectSlug && selectedProjectData ? selectedProjectData.title : 
-                    selectedWritingSlug && selectedWritingData ? selectedWritingData.title : 
                     currentView
                   } 
                 />
               </h2>
-              {(selectedProjectSlug || selectedWritingSlug) && (
+              {selectedProjectSlug && (
                 <button 
                   onClick={() => {
                     setIsTransitioning(true);
                     setTimeout(() => {
-                      // Navigate back to the list view
-                      if (selectedProjectSlug) {
-                        navigate('/projects');
-                      } else if (selectedWritingSlug) {
-                        navigate('/writings');
-                      }
+                      navigate('/projects');
                       setIsTransitioning(false);
                     }, 100);
                   }}
@@ -624,77 +606,6 @@ const AppContent: React.FC = () => {
                         <CeramicGridItem key={item.id} item={item} />
                     ))}
                 </div>
-              )}
-
-              {/* WRITINGS */}
-              {(currentView === 'writings' || isWritingDetail) && (
-                <>
-                  {!selectedWritingSlug ? (
-                    /* Writings List View */
-                    <div className="max-w-4xl space-y-16">
-                      {WRITINGS.map((w) => (
-                        <article
-                          key={w.id}
-                          className="group cursor-pointer grid grid-cols-1 md:grid-cols-12 gap-8 items-start"
-                          onClick={() => handleWritingClick(w.title)}
-                        >
-                          {/* Image Thumbnail for Writing */}
-                          {w.imageUrl && (
-                            <div className="md:col-span-3 aspect-[3/4] bg-gray-100 overflow-hidden">
-                               <img 
-                                 src={w.imageUrl} 
-                                 alt={w.title} 
-                                 loading="lazy"
-                                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                               />
-                            </div>
-                          )}
-                          
-                          <div className={w.imageUrl ? "md:col-span-9" : "md:col-span-12"}>
-                            <div className="font-mono text-[10px] text-gray-400 mb-2">
-                              {w.date}
-                            </div>
-                            <h3 className="text-2xl font-heading font-medium mb-3 group-hover:italic transition-all">
-                              {w.title}
-                            </h3>
-                            <p className="text-sm font-light leading-relaxed text-gray-600">
-                              {w.summary}
-                            </p>
-                            <button className="mt-4 text-xs font-bold uppercase tracking-widest border-b border-black pb-0.5 hover:opacity-50 transition-opacity">
-                              Read
-                            </button>
-                            <div className="mt-6 w-12 h-px bg-gray-200 group-hover:w-full transition-all duration-500"></div>
-                          </div>
-                        </article>
-                      ))}
-                    </div>
-                  ) : (
-                    /* Writing Detail View */
-                    selectedWritingData && (
-                      <div className="animate-fade-in max-w-3xl mx-auto">
-                        {/* Writing Header Image */}
-                        {selectedWritingData.imageUrl && (
-                          <div className="mb-12 w-full max-w-sm mx-auto shadow-lg">
-                            <img src={selectedWritingData.imageUrl} alt={selectedWritingData.title} loading="lazy" className="w-full h-auto" />
-                          </div>
-                        )}
-
-                        <div className="mb-8 font-mono text-xs text-gray-500 uppercase tracking-widest border-b border-black/10 pb-4">
-                          {selectedWritingData.date}
-                        </div>
-                        <div className="prose prose-sm md:prose-base font-light text-justify text-gray-800 whitespace-pre-line leading-loose">
-                          {selectedWritingData.content}
-                        </div>
-                        
-                        <div className="mt-20 pt-8 border-t border-gray-200">
-                          <p className="font-mono text-[10px] text-gray-400">
-                            &copy; Soobeen Woo. Text may not be reproduced without permission.
-                          </p>
-                        </div>
-                      </div>
-                    )
-                  )}
-                </>
               )}
 
               {/* BIO */}
