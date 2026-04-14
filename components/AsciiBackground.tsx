@@ -2,9 +2,10 @@ import React, { useRef, useEffect } from 'react';
 
 interface AsciiBackgroundProps {
   intensity?: number; // 0 to 1
+  interactive?: boolean;
 }
 
-const AsciiBackground: React.FC<AsciiBackgroundProps> = ({ intensity = 1.0 }) => {
+const AsciiBackground: React.FC<AsciiBackgroundProps> = ({ intensity = 1.0, interactive = true }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -40,8 +41,10 @@ const AsciiBackground: React.FC<AsciiBackgroundProps> = ({ intensity = 1.0 }) =>
       if (rippleStrength > 50) rippleStrength = 50;
     };
     
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('wheel', handleWheel);
+    if (interactive) {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('wheel', handleWheel);
+    }
 
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
@@ -80,11 +83,16 @@ const AsciiBackground: React.FC<AsciiBackgroundProps> = ({ intensity = 1.0 }) =>
       const rows = Math.ceil(h / fontSize);
 
       // Smooth mouse follow
-      mouse.x += (targetMouse.x - mouse.x) * 0.1;
-      mouse.y += (targetMouse.y - mouse.y) * 0.1;
+      if (interactive) {
+        mouse.x += (targetMouse.x - mouse.x) * 0.1;
+        mouse.y += (targetMouse.y - mouse.y) * 0.1;
+      } else {
+        mouse.x = -1000;
+        mouse.y = -1000;
+      }
 
       time += 0.01;
-      rippleStrength *= rippleDecay;
+      rippleStrength = interactive ? rippleStrength * rippleDecay : 0;
 
       const cx = cols / 2;
       const cy = rows / 2;
@@ -185,12 +193,14 @@ const AsciiBackground: React.FC<AsciiBackgroundProps> = ({ intensity = 1.0 }) =>
     draw();
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('wheel', handleWheel);
+      if (interactive) {
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('wheel', handleWheel);
+      }
       window.removeEventListener('resize', resize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [intensity]);
+  }, [intensity, interactive]);
 
   return (
     <canvas

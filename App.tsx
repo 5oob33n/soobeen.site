@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate, useParams, useLocation, Link } from 'react-router-dom';
 import AsciiBackground from './components/AsciiBackground';
 import GlitchText from './components/GlitchText';
+import ChladniBackground from './components/ChladniBackground';
 import { 
   MENU_ITEMS, 
   PROJECTS, 
@@ -284,12 +285,15 @@ const AppContent: React.FC = () => {
 
       {/* PERSISTENT BACKGROUND */}
       <div className="fixed inset-0 z-0">
-        <AsciiBackground intensity={1} />
+        <AsciiBackground intensity={0.55} interactive={false} />
       </div>
 
       {/* HOME VIEW LAYOUT */}
       {isHome && (
         <div className={`relative z-10 w-full h-screen flex flex-col justify-between p-8 md:p-12 transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+          
+          {/* Chladni Figure Background (Home Only) */}
+          <ChladniBackground showHud={false} />
           
           {/* Top Left: Name */}
           <header className="flex justify-start">

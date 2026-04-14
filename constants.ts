@@ -421,29 +421,5 @@ export const WRITINGS: Writing[] = [
     Just as the observer effect in quantum mechanics states that measuring a particle changes its state, the constant digital observation of human behavior fundamentally alters the nature of human existence. When every movement, heartbeat, and facial micro-expression is cataloged, analyzed, and monetized, the self ceases to be an autonomous entity and becomes a data point in a predictive model.
 
     This essay argues that true privacy is no longer about hiding information but about claiming the right to exist without being measured. It is a plea for the preservation of the "uncollapsed state"—the potentiality of being that exists before interpretation and categorization. By examining the ways in which invisible infrastructures of sensing permeate our daily lives, we can begin to imagine a new kind of human right: the right to remain indeterminate.`
-  },
-  {
-    id: 'w2',
-    title: "Materiality of Emotion",
-    date: "Jan 2024",
-    summary: "How grief and joy physically alter the spaces we inhabit.",
-    // imageUrl: '/images/writings/book2.jpg',
-    content: `Emotions are often dismissed as fleeting, intangible internal states. However, this text proposes that emotions possess a distinct materiality—a physical weight that alters the spaces we inhabit.
-
-    Consider the atmosphere of a room after an argument, or the residual warmth in a space recently filled with laughter. These are not merely psychological projections but tangible shifts in the energetic composition of the environment. Grief, in particular, manifests as a density, a heaviness that seems to displace air. Joy, conversely, operates as a vibration, a loosening of molecular bonds.
-
-    Drawing on concepts from new materialism and affect theory, "Materiality of Emotion" investigates how human feelings leave residues on objects and architecture. It asks: If emotions are physical, can they be fossilized? Can we excavate the emotional history of a place just as we excavate its geological layers? By treating emotion as matter, we open up new possibilities for understanding the interaction between the human psyche and the physical world.`
-  },
-  {
-    id: 'w3',
-    title: "Invisible Inhabitants",
-    date: "Nov 2023",
-    summary: "A study on microbial life and its impact on architectural theory.",
-    // imageUrl: '/images/writings/book3.jpg',
-    content: `Architecture has traditionally been designed for the human scale, prioritizing human comfort and aesthetics. Yet, our built environments are teeming with invisible inhabitants—microbes, fungi, and microscopic organisms—that coexist with us in intimate proximity.
-
-    "Invisible Inhabitants" challenges the anthropocentric view of architecture by highlighting the agency of these non-human actors. Rather than sterilizing our spaces to exclude them, what if we designed architectures of coexistence? This essay examines the concept of "bio-receptive design," where materials are chosen to host and nurture specific microbial communities that contribute to the health of the ecosystem.
-
-    By acknowledging the trillions of invisible lives that share our spaces, we shift from a perspective of dominance to one of symbiosis. The walls are not inert barriers but living skins; the air is not empty space but a medium of biological exchange. Recognizing these invisible neighbors forces us to rethink the boundaries of the "home" and the definition of "occupant."`
   }
 ];
