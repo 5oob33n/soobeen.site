@@ -6,6 +6,9 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const publicDir = join(__dirname, '..', 'public', 'images');
 
+// Optional: `node scripts/compress-images.mjs devouring-voices` → only that subfolder
+const subfolderArg = process.argv[2];
+
 const MAX_WIDTH = 1920;  // Maximum width
 const MAX_HEIGHT = 1440; // Maximum height
 const JPEG_QUALITY = 80; // JPEG quality (0-100)
@@ -53,7 +56,7 @@ async function compressImage(filePath) {
         .toBuffer();
     } else {
       buffer = await image
-        .jpeg({ quality: JPEG_QUALITY, mozjpeg: true })
+        .jpeg({ quality: JPEG_QUALITY, mozjpeg: true, progressive: true })
         .toBuffer();
     }
     
@@ -75,8 +78,13 @@ async function compressImage(filePath) {
 }
 
 async function main() {
+  let rootDir = publicDir;
+  if (subfolderArg) {
+    rootDir = join(publicDir, subfolderArg);
+    console.log(`📁 Scope: public/images/${subfolderArg}/\n`);
+  }
   console.log('🖼️  Finding images...\n');
-  const files = await getAllFiles(publicDir);
+  const files = await getAllFiles(rootDir);
   console.log(`Found ${files.length} images\n`);
   
   let totalSaved = 0;

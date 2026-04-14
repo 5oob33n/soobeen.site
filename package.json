@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "compress-images": "node scripts/compress-images.mjs",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },

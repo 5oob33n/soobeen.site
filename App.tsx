@@ -134,6 +134,8 @@ const AppContent: React.FC = () => {
   // Slider indices for projects
   const [currentProjectSlideIndex, setCurrentProjectSlideIndex] = useState(0);
 
+  const homeFrequencyHz = 432;
+
   // Determine current view from URL
   const currentView = getViewFromPath(location.pathname);
 
@@ -192,10 +194,21 @@ const AppContent: React.FC = () => {
   const selectedWritingData = selectedWritingSlug ? findWritingBySlug(selectedWritingSlug) : null;
   
   // Build project image array for slider
-  const projectImages = selectedProjectData 
-    ? (selectedProjectData.galleryUrls && selectedProjectData.galleryUrls.length > 0 
-        ? selectedProjectData.galleryUrls 
-        : [selectedProjectData.imageUrl])
+  const projectImages = selectedProjectData
+    ? (() => {
+        const main = selectedProjectData.imageUrl;
+        const gallery = selectedProjectData.galleryUrls ?? [];
+        if (gallery.length === 0) return main ? [main] : [];
+        const seen = new Set<string>();
+        const ordered: string[] = [];
+        for (const url of [main, ...gallery]) {
+          if (url && !seen.has(url)) {
+            seen.add(url);
+            ordered.push(url);
+          }
+        }
+        return ordered;
+      })()
     : [];
 
   const handleNextProjectSlide = () => {
@@ -293,7 +306,14 @@ const AppContent: React.FC = () => {
         <div className={`relative z-10 w-full h-screen flex flex-col justify-between p-8 md:p-12 transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
           
           {/* Chladni Figure Background (Home Only) */}
-          <ChladniBackground showHud={false} />
+          <ChladniBackground
+            mode="frequency"
+            frequencyHz={homeFrequencyHz}
+            showHud={false}
+            animate
+            animationFps={8}
+            animationSpeed={0.45}
+          />
           
           {/* Top Left: Name */}
           <header className="flex justify-start">

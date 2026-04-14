@@ -19,6 +19,7 @@ import { Project, MenuItem, CVItem, Writing } from './types';
         ├── seed-capsule/       
         ├── vom-blick/          
         ├── oensa-ant/          
+        ├── devouring-voices/   (Devouring Voices)
         ├── ceramics/           (도자 작업)
         └── writings/           (글/책 표지 이미지)
 
@@ -106,6 +107,35 @@ export const CONTRIBUTIONS: CVItem[] = [
 ];
 
 export const PROJECTS: Project[] = [
+  {
+    id: 'p11',
+    title: 'Devouring Voices',
+    projectType: 'Individual Project',
+    category: 'Sound Interactive Installation',
+    year: '2026',
+    location: 'Germany',
+    materials:
+      'Ceramic siren sculpture, audio interface, microphone, speakers, Ableton Live, Max/MSP; dimensions variable',
+    imageUrl: '/images/devouring-voices/main.JPG',
+    videoUrl: 'placeholder',
+    galleryUrls: [
+      '/images/devouring-voices/1.JPG',
+      '/images/devouring-voices/2.JPG',
+      '/images/devouring-voices/3.JPG',
+      '/images/devouring-voices/4.JPG',
+      '/images/devouring-voices/5.JPG',
+      '/images/devouring-voices/6.JPG',
+      '/images/devouring-voices/7.JPG',
+      '/images/devouring-voices/8.JPG',
+    ],
+    description: `Devouring Voices dismantles the human voice as a stable carrier of meaning and identity. Instead of transmitting intention, the voice is absorbed, fragmented, and reconfigured within a non-human system. What is spoken does not return as language, but as residue—detached from the speaker, stripped of coherence.
+
+At the center of the installation sits a ceramic siren-like sculpture. A microphone invites visitors to speak, but the system does not respond immediately. Voices are captured, delayed, and unpredictably transformed through Ableton Live and Max/MSP before re-emerging through speakers embedded in the space. The returned sound no longer belongs to the speaker; it circulates as something altered, unstable, and untraceable.
+
+This process foregrounds the loss embedded in every act of transmission. Meaning collapses, identity dissolves, and what remains is a fragmented echo that resists recognition. The work does not preserve the voice—it devours it, displacing it into a space where communication fails and only sonic traces persist.
+
+By confronting the audience with their own dislocated voice, Devouring Voices questions the assumption that speech guarantees presence. Instead, it proposes a condition where expression becomes erosion, and where the act of speaking initiates its own disappearance.`,
+  },
   {
     id: 'p1',
     title: 'Autopsy of Sensing',
@@ -330,7 +360,7 @@ I steer the narrative of the video by vigilantly considering when I view things 
     description: `This work is connected to the 'Antio' project and involves the virtual study of the most important creature in that project, the 'Oensa Ant'. This ant has the ability to secrete a substance called 'Perotox', which has the power to purify the environment.
 
 In a dystopian setting, it is the only living being capable of saving humanity, and humans once again rely on the strength of this small creature to survive. In this work, the ant becomes a more important being than humans, prompting a reevaluation of its status. However, it also highlights the duality of humans' relationship with non-human life forms, as the ant is sometimes exploited by humans despite its crucial role.`,
-  }
+  },
 ];
 
 export const CERAMICS: Project[] = [
