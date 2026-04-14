@@ -66,6 +66,7 @@ export const EDUCATION: CVItem[] = [
 ];
 
 export const EXHIBITIONS: CVItem[] = [
+  { year: 2026, title: "RETURN OF THE GIZMOS", location: "Güterbahnhof Tor 26, Bremen, Germany" },
   { year: 2025, title: "ONE PIECE", description: "Choreographed by the Machines", location: "NebenFlut, HfK Bremen, Bremen, Germany" },
   { year: 2025, title: "Lichtrouten 2025", location: "Lüdenscheid, Germany" },
   { year: 2025, title: "BLAUES RAUSCHEN 2025", description: "Performance, Philharmonie Essen, Essen, Germany" },
