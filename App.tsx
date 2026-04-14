@@ -639,10 +639,10 @@ const AppContent: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Resume / CV Sections — exhibitions first (newest / primary record) */}
+                  {/* Resume / CV Sections */}
                   <div className="border-t border-black pt-16">
-                    {renderCVSection('Exhibitions & Performances', EXHIBITIONS)}
                     {renderCVSection('Education', EDUCATION)}
+                    {renderCVSection('Exhibitions & Performances', EXHIBITIONS)}
                     {renderCVSection('Awards & Grants', AWARDS)}
                     {renderCVSection('Experience', EXPERIENCES)}
                     {renderCVSection('Work', WORK)}
