@@ -293,13 +293,15 @@ const AppContent: React.FC = () => {
   return (
     <div className="relative min-h-screen font-sans text-black selection:bg-black selection:text-white">
       
-      {/* GLOBAL NOISE OVERLAY */}
-      <div className="noise" />
+      {/* GLOBAL NOISE OVERLAY — calmer on home so Chladni reads as primary layer */}
+      <div className={isHome ? 'noise noise--home' : 'noise'} />
 
-      {/* PERSISTENT BACKGROUND */}
-      <div className="fixed inset-0 z-0">
-        <AsciiBackground intensity={0.55} interactive={false} />
-      </div>
+      {/* ASCII field: inner pages only — home is vibration / residue only */}
+      {!isHome && (
+        <div className="fixed inset-0 z-0">
+          <AsciiBackground intensity={0.55} interactive={false} />
+        </div>
+      )}
 
       {/* HOME VIEW LAYOUT */}
       {isHome && (
@@ -311,8 +313,11 @@ const AppContent: React.FC = () => {
             frequencyHz={homeFrequencyHz}
             showHud={false}
             animate
-            animationFps={8}
-            animationSpeed={0.45}
+            animationSpeed={0.42}
+            excavation
+            scanlineOpacity={0.05}
+            baseResolution={{ w: 320, h: 200 }}
+            pixelSize={3}
           />
           
           {/* Top Left: Name */}
