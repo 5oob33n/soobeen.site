@@ -8,13 +8,17 @@ export interface Project {
   imageUrl: string;
   galleryUrls?: string[];
   videoUrl?: string;
-  audioUrl?: string; // New field for sound works
-  // New structured metadata fields
+  audioUrl?: string;
   projectType?: string;
   location?: string;
   materials?: string;
+  materialsKo?: string;
   exhibition?: string;
   credits?: string;
+  // Korean translations
+  titleKo?: string;
+  categoryKo?: string;
+  descriptionKo?: string;
 }
 
 export interface MenuItem {

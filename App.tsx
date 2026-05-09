@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, useNavigate, useLocation } from 'react-router-dom';
 import AsciiBackground from './components/AsciiBackground';
-import GlitchText from './components/GlitchText';
-import ChladniBackground from './components/ChladniBackground';
-import { 
-  MENU_ITEMS, 
-  PROJECTS, 
-  CERAMICS, 
-  BIO_TEXT, 
+import ChladniHome from './components/ChladniHome';
+import {
+  MENU_ITEMS,
+  MENU_ITEMS_KO,
+  PROJECTS,
+  CERAMICS,
+  BIO_TEXT,
+  BIO_TEXT_KO,
+  CV_LABELS,
   BIO_PROFILE,
   EDUCATION,
   EXHIBITIONS,
@@ -15,12 +17,21 @@ import {
   EXPERIENCES,
   WORK,
   CONTRIBUTIONS,
+  EDUCATION_KO,
+  EXHIBITIONS_KO,
+  AWARDS_KO,
+  EXPERIENCES_KO,
+  WORK_KO,
+  CONTRIBUTIONS_KO,
   CONTACT_INFO
 } from './constants';
+
 import { CVItem, Project } from './types';
 
+type Lang = 'en' | 'ko';
+
 // Inline component for Ceramic Grid Items with Slideshow
-const CeramicGridItem: React.FC<{ item: Project }> = ({ item }) => {
+const CeramicGridItem: React.FC<{ item: Project; lang: Lang }> = ({ item, lang }) => {
   const [idx, setIdx] = useState(0);
   
   // Combine main image and gallery images, removing duplicates
@@ -81,11 +92,13 @@ const CeramicGridItem: React.FC<{ item: Project }> = ({ item }) => {
         )}
       </div>
 
-      <h3 className="font-heading font-medium text-sm uppercase group-hover:italic transition-all">{item.title}</h3>
+      <h3 className={`font-heading font-medium text-sm uppercase group-hover:italic transition-all ${lang === 'ko' && item.titleKo ? 'font-ko' : ''}`}>
+        {lang === 'ko' && item.titleKo ? item.titleKo : item.title}
+      </h3>
       <p className="font-mono text-[10px] text-gray-500 mt-1 uppercase tracking-wide">{item.category}</p>
       {item.description && (
-        <p className="font-sans text-xs font-light text-gray-400 mt-2 line-clamp-2 leading-relaxed">
-          {item.description}
+        <p className={`text-xs font-light text-gray-400 mt-2 line-clamp-2 leading-relaxed ${lang === 'ko' && item.descriptionKo ? 'font-ko' : 'font-sans'}`}>
+          {lang === 'ko' && item.descriptionKo ? item.descriptionKo : item.description}
         </p>
       )}
     </div>
@@ -124,11 +137,14 @@ const AppContent: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [lang, setLang] = useState<Lang>('en');
 
   // Slider indices for projects
   const [currentProjectSlideIndex, setCurrentProjectSlideIndex] = useState(0);
 
-  const homeFrequencyHz = 432;
+  const labels = CV_LABELS[lang];
+  const menuItems = lang === 'ko' ? MENU_ITEMS_KO : MENU_ITEMS;
+  const bioText = lang === 'ko' ? BIO_TEXT_KO : BIO_TEXT;
 
   // Determine current view from URL
   const currentView = getViewFromPath(location.pathname);
@@ -249,7 +265,7 @@ const AppContent: React.FC = () => {
   const renderCVSection = (title: string, items: CVItem[]) => (
     <div className="mb-12">
       <h3 className="font-heading font-bold text-sm uppercase mb-6 tracking-wide border-b border-black/10 pb-2">
-        <GlitchText text={title} />
+        {title}
       </h3>
       <div className="space-y-4">
         {items.map((item, index) => (
@@ -280,73 +296,66 @@ const AppContent: React.FC = () => {
 
   return (
     <div className="relative min-h-screen font-sans text-black selection:bg-black selection:text-white">
-      
-      {/* GLOBAL NOISE OVERLAY — calmer on home so Chladni reads as primary layer */}
-      <div className={isHome ? 'noise noise--home' : 'noise'} />
 
-      {/* ASCII field: inner pages only — home is vibration / residue only */}
+      {/* Noise overlay — content pages only */}
+      {!isHome && <div className="noise" />}
+
+      {/* ASCII field: inner pages only */}
       {!isHome && (
         <div className="fixed inset-0 z-0">
-          <AsciiBackground intensity={0.55} interactive={false} />
+          <AsciiBackground intensity={0.38} interactive={false} />
         </div>
       )}
 
-      {/* HOME VIEW LAYOUT */}
+      {/* ── HOME ─────────────────────────────────────────── */}
       {isHome && (
-        <div className={`relative z-10 w-full h-screen flex flex-col justify-between p-8 md:p-12 transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
-          
-          {/* Chladni Figure Background (Home Only) */}
-          <ChladniBackground
-            mode="frequency"
-            frequencyHz={homeFrequencyHz}
-            showHud={false}
-            animate
-            animationSpeed={0.42}
-            excavation
-            scanlineOpacity={0.05}
-            baseResolution={{ w: 320, h: 200 }}
-            pixelSize={3}
-          />
-          
-          {/* Top Left: Name */}
-          <header className="flex justify-start">
-            <button 
-              onClick={() => navigateTo('home')}
-              className="bg-white/80 backdrop-blur-[2px] px-2 py-1 -ml-2 rounded-sm text-left hover:opacity-60 transition-opacity cursor-pointer group"
-            >
-              <h1 className="font-heading font-bold text-sm tracking-widest uppercase">
-                <GlitchText key="home-logo" text="Soobeen Woo" />
-              </h1>
-            </button>
-          </header>
+        <>
+          <ChladniHome />
+          <div className={`relative z-10 w-full h-screen flex flex-col p-10 md:p-16 transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
 
-          {/* Bottom Area: Copyright (Left) & Menu (Right) */}
-          <div className="flex justify-between items-end w-full">
-            
-            {/* Copyright */}
-            <div className="bg-white/80 backdrop-blur-[2px] px-2 py-1 -ml-2 rounded-sm">
-              <p className="font-mono text-[10px] text-gray-500 uppercase tracking-tight">
-                &copy; {new Date().getFullYear()} Soobeen Woo. <span className="hidden sm:inline">All Rights Reserved.</span>
-              </p>
+            {/* Top row: name (left) + lang toggle (right) */}
+            <div className="flex justify-between items-start">
+              <button onClick={() => navigateTo('home')} className="text-left group">
+                <h1 className="font-heading font-semibold text-sm tracking-[0.18em] uppercase text-black group-hover:opacity-50 transition-opacity">
+                  Soobeen Woo
+                </h1>
+              </button>
+
+              {/* Language toggle */}
+              <button
+                onClick={() => setLang(l => l === 'en' ? 'ko' : 'en')}
+                className="flex items-center gap-2 text-[11px] tracking-widest uppercase text-black/40 hover:text-black transition-colors"
+                aria-label="Toggle language"
+              >
+                <span className={lang === 'en' ? 'text-black font-semibold' : ''}>EN</span>
+                <span className="text-black/20">·</span>
+                <span className={lang === 'ko' ? 'text-black font-semibold font-ko' : ''}>KR</span>
+              </button>
             </div>
 
-            {/* Menu */}
-            <nav className="bg-white/80 backdrop-blur-[2px] px-3 py-2 -mr-3 rounded-sm">
-              <ul className="flex flex-col gap-1 text-right">
-                {MENU_ITEMS.map((item) => (
-                  <li key={item.id}>
-                    <button 
-                      onClick={() => navigateTo(item.id)}
-                      className="group block w-full font-heading font-normal text-xs tracking-widest transition-all uppercase text-right"
-                    >
-                      <GlitchText text={item.label} />
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            {/* Bottom row: nav (left) + copyright (right) */}
+            <div className="mt-auto flex justify-between items-end w-full">
+              <nav>
+                <ul className="flex flex-wrap gap-x-8 gap-y-2">
+                  {menuItems.map((item) => (
+                    <li key={item.id}>
+                      <button
+                        onClick={() => navigateTo(item.id)}
+                        className={`block text-[11px] tracking-[0.18em] uppercase text-black hover:opacity-40 transition-opacity ${lang === 'ko' ? 'font-ko tracking-wider' : ''}`}
+                      >
+                        {item.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              <p className="font-mono text-[9px] text-black/25 uppercase tracking-wider">
+                &copy; {new Date().getFullYear()} Soobeen Woo
+              </p>
+            </div>
           </div>
-        </div>
+        </>
       )}
 
       {/* CONTENT VIEW LAYOUT */}
@@ -355,24 +364,36 @@ const AppContent: React.FC = () => {
           
           {/* Navigation Header for Content Pages */}
           <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-start p-8 md:p-12 pointer-events-none">
-            {/* Logo links back to home */}
-            <button 
-              onClick={() => navigateTo('home')} 
-              className="pointer-events-auto bg-white/80 backdrop-blur-[2px] px-2 py-1 -ml-2 rounded-sm font-heading font-bold text-sm tracking-widest uppercase hover:opacity-50 transition-opacity text-left cursor-pointer"
+            {/* Logo */}
+            <button
+              onClick={() => navigateTo('home')}
+              className="pointer-events-auto text-left hover:opacity-40 transition-opacity"
             >
-              <GlitchText key="nav-logo" text="Soobeen Woo" />
+              <span className="font-heading font-semibold text-sm tracking-[0.18em] uppercase">Soobeen Woo</span>
             </button>
 
-            {/* Content Menu (Simple list) */}
-            <div className="pointer-events-auto flex flex-col items-end gap-1 font-heading text-xs uppercase tracking-wide bg-white/80 backdrop-blur-[2px] px-4 py-2 -mr-4 rounded-sm">
-              <button onClick={() => navigateTo('home')} className="mb-4 hover:underline">Close</button>
-              {MENU_ITEMS.map((item) => (
+            {/* Right side: lang toggle + menu */}
+            <div className="pointer-events-auto flex flex-col items-end gap-2">
+              {/* Lang toggle */}
+              <button
+                onClick={() => setLang(l => l === 'en' ? 'ko' : 'en')}
+                className="flex items-center gap-1.5 text-[10px] tracking-widest uppercase text-black/35 hover:text-black transition-colors mb-2"
+              >
+                <span className={lang === 'en' ? 'text-black font-semibold' : ''}>EN</span>
+                <span className="text-black/20">·</span>
+                <span className={lang === 'ko' ? 'text-black font-semibold font-ko' : ''}>KR</span>
+              </button>
+              {/* Nav items */}
+              <button onClick={() => navigateTo('home')} className="text-[11px] tracking-widest uppercase text-black/40 hover:text-black transition-colors mb-2">
+                {lang === 'ko' ? '닫기' : 'Close'}
+              </button>
+              {menuItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => navigateTo(item.id)}
-                  className={`hover:opacity-100 transition-opacity text-right ${currentView === item.id && !selectedProjectSlug ? 'opacity-100 font-bold' : 'opacity-40'}`}
+                  className={`text-[11px] tracking-widest uppercase transition-opacity text-right ${lang === 'ko' ? 'font-ko' : ''} ${currentView === item.id && !selectedProjectSlug ? 'text-black font-semibold opacity-100' : 'text-black/35 hover:text-black hover:opacity-100'}`}
                 >
-                  <GlitchText text={item.label} triggerOnLoad={false} />
+                  {item.label}
                 </button>
               ))}
             </div>
@@ -382,14 +403,10 @@ const AppContent: React.FC = () => {
           <main className="w-full min-h-screen bg-white/90 backdrop-blur-sm pt-32 pb-24 px-8 md:px-24 lg:px-48">
             
             <header className="mb-16">
-              <h2 className="text-4xl md:text-5xl font-heading font-light uppercase tracking-tight">
-                <GlitchText 
-                  key={currentView + (selectedProjectSlug || '')}
-                  text={
-                    selectedProjectSlug && selectedProjectData ? selectedProjectData.title : 
-                    currentView
-                  } 
-                />
+              <h2 className={`text-4xl md:text-5xl font-heading font-light uppercase tracking-tight ${lang === 'ko' && !selectedProjectSlug ? 'font-ko' : ''}`}>
+                {selectedProjectSlug && selectedProjectData
+                  ? selectedProjectData.title
+                  : (labels.viewTitle[currentView] ?? currentView)}
               </h2>
               {selectedProjectSlug && (
                 <button 
@@ -402,7 +419,7 @@ const AppContent: React.FC = () => {
                   }}
                   className="mt-4 text-xs font-mono uppercase tracking-wider text-gray-500 hover:text-black hover:underline"
                 >
-                  &larr; Back to List
+                  {labels.back}
                 </button>
               )}
             </header>
@@ -436,17 +453,17 @@ const AppContent: React.FC = () => {
                             <div className="flex gap-4 font-mono text-[10px] text-gray-500 mb-4 border-b border-gray-200 pb-2">
                               <span>{project.year}</span>
                               <span>/</span>
-                              <span>{project.category}</span>
+                              <span>{lang === 'ko' && project.categoryKo ? project.categoryKo : project.category}</span>
                             </div>
                             {/* Only show text description in list view */}
-                            <p className="font-sans text-sm font-light leading-relaxed text-gray-800 line-clamp-3">
-                              {project.description}
+                            <p className={`text-sm font-light leading-relaxed text-gray-800 line-clamp-3 ${lang === 'ko' && project.descriptionKo ? 'font-ko' : 'font-sans'}`}>
+                              {lang === 'ko' && project.descriptionKo ? project.descriptionKo : project.description}
                             </p>
                             <button
                               onClick={() => handleProjectClick(project)}
-                              className="mt-4 text-[10px] font-bold uppercase tracking-widest border-b border-black pb-0.5 hover:opacity-50 transition-opacity"
+                              className={`mt-4 text-[10px] font-bold uppercase tracking-widest border-b border-black pb-0.5 hover:opacity-50 transition-opacity ${lang === 'ko' ? 'font-ko' : ''}`}
                             >
-                              View Project
+                              {labels.viewProject}
                             </button>
                           </div>
                         </div>
@@ -496,37 +513,43 @@ const AppContent: React.FC = () => {
                           <div className="space-y-4">
                             {selectedProjectData.projectType && (
                               <div>
-                                <span className="block text-gray-400 uppercase text-[10px] tracking-wider mb-1">Type</span>
+                                <span className="block text-gray-400 uppercase text-[10px] tracking-wider mb-1">{labels.type}</span>
                                 <span className="text-black">{selectedProjectData.projectType}</span>
                               </div>
                             )}
                             <div>
-                              <span className="block text-gray-400 uppercase text-[10px] tracking-wider mb-1">Category</span>
-                              <span className="text-black">{selectedProjectData.category}</span>
+                              <span className="block text-gray-400 uppercase text-[10px] tracking-wider mb-1">{labels.category}</span>
+                              <span className="text-black">
+                                {lang === 'ko' && selectedProjectData.categoryKo ? selectedProjectData.categoryKo : selectedProjectData.category}
+                              </span>
                             </div>
                             {selectedProjectData.materials && (
                               <div>
-                                <span className="block text-gray-400 uppercase text-[10px] tracking-wider mb-1">Materials</span>
-                                <span>{selectedProjectData.materials}</span>
+                                <span className="block text-gray-400 uppercase text-[10px] tracking-wider mb-1">{labels.materials}</span>
+                                <span>
+                                  {lang === 'ko' && selectedProjectData.materialsKo
+                                    ? selectedProjectData.materialsKo
+                                    : selectedProjectData.materials}
+                                </span>
                               </div>
                             )}
                           </div>
                           <div className="space-y-4">
                             <div>
-                              <span className="block text-gray-400 uppercase text-[10px] tracking-wider mb-1">Year / Location</span>
+                              <span className="block text-gray-400 uppercase text-[10px] tracking-wider mb-1">{labels.yearLocation}</span>
                               <span>
                                 {selectedProjectData.year} / {selectedProjectData.location || 'Germany'}
                               </span>
                             </div>
                             {selectedProjectData.exhibition && (
                               <div>
-                                <span className="block text-gray-400 uppercase text-[10px] tracking-wider mb-1">Exhibited At</span>
+                                <span className="block text-gray-400 uppercase text-[10px] tracking-wider mb-1">{labels.exhibitedAt}</span>
                                 <span>{selectedProjectData.exhibition}</span>
                               </div>
                             )}
                             {selectedProjectData.credits && (
                               <div>
-                                <span className="block text-gray-400 uppercase text-[10px] tracking-wider mb-1">Credits</span>
+                                <span className="block text-gray-400 uppercase text-[10px] tracking-wider mb-1">{labels.credits}</span>
                                 <span className="whitespace-pre-line">{selectedProjectData.credits}</span>
                               </div>
                             )}
@@ -539,18 +562,17 @@ const AppContent: React.FC = () => {
                             {selectedProjectData.videoUrl === 'placeholder' ? (
                               <div className="text-center p-8">
                                 <p className="text-white font-mono uppercase tracking-widest text-xs mb-2 border border-white/30 inline-block px-4 py-2">
-                                  Video Documentation
+                                  {labels.videoDoc}
                                 </p>
-                                <p className="text-gray-400 text-[10px] font-mono">Coming Soon / To Be Uploaded</p>
+                                <p className="text-gray-400 text-[10px] font-mono">{labels.comingSoon}</p>
                               </div>
                             ) : isLocalVideo(selectedProjectData.videoUrl) ? (
-                              <video 
-                                controls 
+                              <video
+                                controls
                                 className="w-full h-full"
                                 poster={projectImages[0]}
                               >
                                 <source src={selectedProjectData.videoUrl} type="video/mp4" />
-                                Your browser does not support the video tag.
                               </video>
                             ) : (
                               <iframe 
@@ -569,19 +591,18 @@ const AppContent: React.FC = () => {
                         {selectedProjectData.audioUrl && (
                           <div className="w-full mb-12 border border-gray-200 p-6 bg-gray-50/50 backdrop-blur-sm">
                             <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500 mb-4 border-b border-gray-200 pb-2 inline-block">
-                              Sound Record
+                              {labels.soundRecord}
                             </p>
                             {selectedProjectData.audioUrl === 'placeholder' ? (
                               <div className="text-center py-6 bg-white border border-dashed border-gray-300">
                                 <div className="w-8 h-8 rounded-full border-2 border-gray-300 mx-auto mb-2 animate-pulse"></div>
                                 <p className="text-[10px] font-mono uppercase tracking-wider text-gray-400">
-                                  Audio track coming soon
+                                  {labels.audioSoon}
                                 </p>
                               </div>
                             ) : (
                               <audio controls className="w-full grayscale focus:outline-none">
                                 <source src={selectedProjectData.audioUrl} type="audio/mpeg" />
-                                Your browser does not support the audio element.
                               </audio>
                             )}
                           </div>
@@ -589,8 +610,8 @@ const AppContent: React.FC = () => {
 
                         {/* Description Text */}
                         <div className="mt-8">
-                          <p className="text-base md:text-lg font-light leading-relaxed text-gray-800 whitespace-pre-line">
-                            {selectedProjectData.description}
+                          <p className={`text-base md:text-lg font-light leading-relaxed text-gray-800 whitespace-pre-line ${lang === 'ko' && selectedProjectData.descriptionKo ? 'font-ko' : ''}`}>
+                            {lang === 'ko' && selectedProjectData.descriptionKo ? selectedProjectData.descriptionKo : selectedProjectData.description}
                           </p>
                         </div>
                       </div>
@@ -603,7 +624,7 @@ const AppContent: React.FC = () => {
               {currentView === 'ceramics' && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {CERAMICS.map(item => (
-                        <CeramicGridItem key={item.id} item={item} />
+                        <CeramicGridItem key={item.id} item={item} lang={lang} />
                     ))}
                 </div>
               )}
@@ -615,11 +636,15 @@ const AppContent: React.FC = () => {
                   <div className="mb-20 grid grid-cols-1 lg:grid-cols-12 gap-12">
                     <div className="lg:col-span-4 font-mono text-[10px] leading-loose text-gray-500">
                       <p className="text-black font-bold mb-4 uppercase text-xs tracking-widest">
-                        <GlitchText text={BIO_PROFILE.title} triggerOnLoad={false} />
+                        {lang === 'ko'
+                          ? <span className="font-ko">{BIO_PROFILE.titleKo}</span>
+                          : BIO_PROFILE.title}
                       </p>
-                      <p>{BIO_PROFILE.location}</p>
+                      <p className={lang === 'ko' ? 'font-ko text-[11px]' : ''}>
+                        {lang === 'ko' ? BIO_PROFILE.locationKo : BIO_PROFILE.location}
+                      </p>
                       <br />
-                      <p>Contact:</p>
+                      <p>{lang === 'ko' ? '연락처' : 'Contact'}:</p>
                       <a
                         href={`mailto:${BIO_PROFILE.email}`}
                         className="underline hover:text-black transition-colors"
@@ -628,10 +653,10 @@ const AppContent: React.FC = () => {
                       </a>
                     </div>
                     <div className="lg:col-span-8 space-y-6">
-                      {BIO_TEXT.map((text, i) => (
+                      {bioText.map((text, i) => (
                         <p
                           key={i}
-                          className="leading-relaxed text-justify text-sm font-light text-gray-800"
+                          className={`leading-relaxed text-justify text-sm font-light text-gray-800 ${lang === 'ko' ? 'font-ko' : ''}`}
                         >
                           {text}
                         </p>
@@ -641,12 +666,12 @@ const AppContent: React.FC = () => {
 
                   {/* Resume / CV Sections */}
                   <div className="border-t border-black pt-16">
-                    {renderCVSection('Education', EDUCATION)}
-                    {renderCVSection('Exhibitions & Performances', EXHIBITIONS)}
-                    {renderCVSection('Awards & Grants', AWARDS)}
-                    {renderCVSection('Experience', EXPERIENCES)}
-                    {renderCVSection('Work', WORK)}
-                    {renderCVSection('Contributions', CONTRIBUTIONS)}
+                    {renderCVSection(labels.education, lang === 'ko' ? EDUCATION_KO : EDUCATION)}
+                    {renderCVSection(labels.exhibitions, lang === 'ko' ? EXHIBITIONS_KO : EXHIBITIONS)}
+                    {renderCVSection(labels.awards, lang === 'ko' ? AWARDS_KO : AWARDS)}
+                    {renderCVSection(labels.experience, lang === 'ko' ? EXPERIENCES_KO : EXPERIENCES)}
+                    {renderCVSection(labels.work, lang === 'ko' ? WORK_KO : WORK)}
+                    {renderCVSection(labels.contributions, lang === 'ko' ? CONTRIBUTIONS_KO : CONTRIBUTIONS)}
                   </div>
                 </div>
               )}
@@ -656,9 +681,9 @@ const AppContent: React.FC = () => {
                 <div className="min-h-[50vh] flex flex-col justify-center">
                   <a
                     href={`mailto:${CONTACT_INFO.email}`}
-                    className="text-3xl md:text-5xl lg:text-6xl font-heading font-light uppercase hover:italic transition-all break-all"
+                    className="text-3xl md:text-5xl lg:text-6xl font-heading font-light uppercase hover:opacity-40 transition-opacity break-all"
                   >
-                    <GlitchText text={CONTACT_INFO.email} />
+                    {CONTACT_INFO.email}
                   </a>
                   <div className="mt-12 flex flex-wrap gap-8 font-mono text-xs uppercase tracking-wider">
                     {CONTACT_INFO.links.map((link) => (
@@ -667,9 +692,9 @@ const AppContent: React.FC = () => {
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:line-through transition-all"
+                        className="hover:opacity-40 transition-opacity"
                       >
-                        <GlitchText text={link.label} triggerOnLoad={false} />
+                        {link.label}
                       </a>
                     ))}
                   </div>

@@ -33,15 +33,25 @@ export const MENU_ITEMS: MenuItem[] = [
   { label: 'Contact', id: 'contact' },
 ];
 
+export const MENU_ITEMS_KO: MenuItem[] = [
+  { label: '프로젝트', id: 'projects' },
+  { label: '세라믹', id: 'ceramics' },
+  { label: '소개', id: 'bio' },
+  { label: '연락처', id: 'contact' },
+];
+
 export const BIO_PROFILE = {
   name: "Soobeen Woo",
+  nameKo: "우수빈",
   title: "Media Artist",
+  titleKo: "미디어 아티스트",
   location: "Bremen, Germany / Daegu & Busan, Korea",
-  email: "youxarthur@gmail.com"
+  locationKo: "브레멘, 독일 / 대구·부산, 한국",
+  email: "soobeen.work@gmail.com"
 };
 
 export const CONTACT_INFO = {
-  email: "youxarthur@gmail.com",
+  email: "soobeen.work@gmail.com",
   links: [
     { label: "Instagram", url: "https://www.instagram.com/5oob33n/" },
     { label: "LinkedIn", url: "https://www.linkedin.com/in/soobeen-woo/" },
@@ -50,14 +60,83 @@ export const CONTACT_INFO = {
 };
 
 export const BIO_TEXT = [
-  "Soobeen Woo is a digital media artist who approaches sound, vibration, and material as archaeological layers rather than expressive media. Her work investigates how existence leaves traces before it becomes visible, legible, or meaningful—through micro-vibrations, residues, erased voices, and non-human sensory structures.",
-  "Instead of reproducing entities or narratives, her installations operate as sites of excavation. Sound, ceramics, vibration systems, text, and virtual environments function as evidence fields where what has disappeared, failed to register, or resisted perception resurfaces as fragments and residues. These elements do not represent life; they behave like living conditions that shift, erode, and fade in response to proximity, body heat, breath, air movement, and time.",
-  "Through this practice, she examines the unstable boundary between perception and existence. Her work questions the assumption that to exist is to be sensed, addressing themes such as the right not to be perceived, human emotion as a material intrusion, and the ways invisible or non-human beings inhabit the world through traces rather than presence."
+  "Soobeen Woo is an artist who treats sound, vibration, and material as archaeological strata rather than expressive media. Her interest lies in the traces left before existence becomes visible or linguistic — through micro-vibrations, erased voices, and non-human sensory structures.",
+  "Her installations function not as representations but as sites of excavation. Sound, ceramics, vibration systems, text, and virtual environments each operate as evidence fields, where what has disappeared, failed to register, or resisted perception resurfaces in the form of fragments and residues. These elements shift, erode, and dissolve in response to proximity, body heat, breath, air movement, and time.",
+  "Her current research centers on unfired clay — a material that retains the possibility of returning to the environment. Clay becomes a site of evidence: absorbing sound and vibration, then dispersing them again. The process of gathering natural matter directly from the land and experimenting with it as material comes close to an act of excavation — one in which what has disappeared returns in the form of a trace.",
+  "This practice explores the unstable boundary between perception and existence. It questions the assumption that to exist is to be sensed, addressing the right not to be perceived, human emotion as material intrusion, and the ways non-human beings inhabit the world through traces rather than presence."
 ];
+
+export const BIO_TEXT_KO = [
+  "우수빈은 사운드, 진동, 물질을 표현 매체가 아닌 고고학적 지층으로 다루는 작가다. 존재가 가시화되거나 언어화되기 이전 — 미세한 진동, 지워진 목소리, 비인간적 감각 구조 — 이 남기는 흔적에 관심을 둔다.",
+  "설치 작업은 재현이 아닌 발굴지로 기능한다. 사운드, 도자, 진동 시스템, 텍스트, 가상 환경은 각각 증거의 장으로 작동하며, 사라진 것, 인식되지 못한 것, 지각에 저항했던 것이 파편과 잔류물의 형태로 되살아난다. 이 요소들은 근접성, 체온, 호흡, 기류, 시간에 반응하며 변화하고 마모되고 소멸한다.",
+  "현재는 '소성하지 않은 흙'을 중심으로 연구를 이어가고 있다. 언젠가 다시 환경으로 돌아갈 수 있는 물질로서의 흙은, 소리와 진동을 머금었다가 다시 흩어지는 하나의 증거 현장이 된다. 자연 지물을 직접 채집하고 재료로 실험하는 과정은, 사라진 것이 흔적의 형태로 되돌아오는 발굴의 행위에 가깝다.",
+  "이 작업은 지각과 존재 사이의 불안정한 경계를 탐구한다. 존재한다는 것이 곧 감지된다는 가정에 의문을 제기하며, 지각받지 않을 권리, 물질로서의 인간 감정, 흔적을 통해 세계에 깃드는 비인간 존재의 방식을 함께 살핀다."
+];
+
+export const CV_LABELS = {
+  en: {
+    education: 'Education',
+    exhibitions: 'Exhibitions & Performances',
+    awards: 'Awards & Grants',
+    experience: 'Experience',
+    work: 'Work',
+    contributions: 'Contributions',
+    contact: 'Contact',
+    contactLabel: 'Contact',
+    back: '← Back to List',
+    viewProject: 'View Project',
+    close: 'Close',
+    type: 'Type',
+    category: 'Category',
+    materials: 'Materials',
+    yearLocation: 'Year / Location',
+    exhibitedAt: 'Exhibited At',
+    credits: 'Credits',
+    soundRecord: 'Sound Record',
+    videoDoc: 'Video Documentation',
+    comingSoon: 'Coming Soon / To Be Uploaded',
+    audioSoon: 'Audio track coming soon',
+    viewTitle: {
+      projects: 'Projects',
+      ceramics: 'Ceramics',
+      bio: 'BIO',
+      contact: 'Contact',
+    } as Record<string, string>,
+  },
+  ko: {
+    education: '학력',
+    exhibitions: '전시 및 공연',
+    awards: '수상 및 지원',
+    experience: '경력',
+    work: '활동',
+    contributions: '기여',
+    contact: '연락처',
+    contactLabel: '연락처',
+    back: '← 목록으로',
+    viewProject: '프로젝트 보기',
+    close: '닫기',
+    type: '유형',
+    category: '카테고리',
+    materials: '재료',
+    yearLocation: '연도 / 장소',
+    exhibitedAt: '전시',
+    credits: '크레딧',
+    soundRecord: '사운드 기록',
+    videoDoc: '영상 기록',
+    comingSoon: '준비 중',
+    audioSoon: '오디오 준비 중',
+    viewTitle: {
+      projects: '프로젝트',
+      ceramics: '세라믹',
+      bio: '소개',
+      contact: '연락처',
+    } as Record<string, string>,
+  },
+};
 
 export const EDUCATION: CVItem[] = [
   {
-    year: "2023-present",
+    year: "2023-2026",
     degree: "BFA, Digital Media",
     school: "HfK Bremen (University of Arts Bremen)",
     title: "HfK Bremen", 
@@ -94,15 +173,65 @@ export const EXPERIENCES: CVItem[] = [
 ];
 
 export const WORK: CVItem[] = [
-  { year: "2025-present", title: "Videographer (Studentische Hilfskraft)", company: "DFKI Bremen", location: "Bremen, Germany" },
+  { year: "2025-2026", title: "Videographer (Studentische Hilfskraft)", company: "DFKI Bremen", location: "Bremen, Germany" },
   { year: 2025, title: "Curator", company: "Lichtrouten 2025", location: "Lüdenscheid, Germany" },
   { year: "2024-present", title: "Guest Editor", company: "2room Magazine (Webzine)" },
   { year: "2021-2023", title: "Editor", company: "Wesang Company: Magazine maat", location: "Seoul, South Korea" }
 ];
 
 export const CONTRIBUTIONS: CVItem[] = [
-  { year: 2025, title: "That's My Neighbour", description: "3D Modeling & Animation, The Fike Room, Busan, South Korea" },
+  { year: 2025, title: "That's My Neighbour", description: "3D Modeling & Animation, The File Room, Busan, South Korea" },
   { year: 2024, title: "Ouroboros", description: "CGI & AI generated image, Hara Shin, Seoul, South Korea" }
+];
+
+export const EDUCATION_KO: CVItem[] = [
+  {
+    year: "2023-2026",
+    degree: "BFA, 디지털 미디어",
+    school: "HfK Bremen (University of Arts Bremen)",
+    title: "HfK Bremen",
+    location: "독일"
+  }
+];
+
+export const EXHIBITIONS_KO: CVItem[] = [
+  { year: 2026, title: "RETURN OF THE GIZMOS", location: "Güterbahnhof Tor 26, 브레멘, 독일" },
+  { year: 2025, title: "ONE PIECE", description: "Choreographed by the Machines", location: "NebenFlut, HfK Bremen, 브레멘, 독일" },
+  { year: 2025, title: "Lichtrouten 2025", location: "뤼덴샤이트, 독일" },
+  { year: 2025, title: "BLAUES RAUSCHEN 2025", description: "퍼포먼스, Philharmonie Essen, 에센, 독일" },
+  { year: 2025, title: "Hochschultage 2025", location: "HfK Bremen, 브레멘, 독일" },
+  { year: 2024, title: "MAP 2024 - POSTER SERIES", description: "하노이 거리의 이동성을 주제로 한 예술 프로젝트 (GHTK 협업)", location: "하노이 시내, 베트남" },
+  { year: 2024, title: "Goldstücke 2024 - Licht Kunst Projekte Gelsenkirchen", location: "겔젠키르헨, 독일" },
+  { year: 2024, title: "Lichter der City", description: "프로젝션 매핑", location: "브레멘, 독일" },
+  { year: 2022, title: "Korea-Thai-Japan NFT Festival", description: "Team Invisible", location: "Uncommon Gallery, 서울, 한국" },
+  { year: 2018, title: "YCK F 2018 (Young Creativ Korea F)", location: "Ara Art Center, 서울, 한국" }
+];
+
+export const AWARDS_KO: CVItem[] = [
+  { year: 2025, title: "Open Space - Domshof", description: "VJ 퍼포먼스, 브레멘, 독일" },
+  { year: 2024, title: "Dreaming Streams", description: "Goldstücke - Licht Kunst Projekte Gelsenkirchen Diplopia 공모, Team KIS, 겔젠키르헨, 독일" },
+  { year: 2024, title: "Open Space - Domshof", description: "VJ 퍼포먼스, 브레멘, 독일" }
+];
+
+export const EXPERIENCES_KO: CVItem[] = [
+  { year: 2025, title: "VJ-ing Workshop", description: "Xenorama Studio, 브레멘, 독일" },
+  { year: 2025, title: "BLAUES RAUSCHEN 2025", description: "데이터 윤리와 창작 실천 - 비평 워크숍, 에센, 독일" },
+  { year: 2024, title: "MAP 2024 - Movement", description: "HfK Bremen & Heritage Art Space - 하노이, 베트남, 브레멘, 독일" },
+  { year: 2024, title: "VJ-ing Workshop", description: "We Dig it + Xenorama Studio, 브레멘, 독일" },
+  { year: 2023, title: "Projection Mapping Workshop", description: "We Dig it + Xenorama Studio, 브레멘, 독일" },
+  { year: 2022, title: "Seminar & Hackathon", description: "Web 3.0 시대의 디지털 온라인 환경에서의 창작, Art Collider - 한국예술종합학교, 서울, 한국" }
+];
+
+export const WORK_KO: CVItem[] = [
+  { year: "2025-2026", title: "영상 촬영 (학생 보조원)", company: "DFKI Bremen", location: "브레멘, 독일" },
+  { year: 2025, title: "큐레이터", company: "Lichtrouten 2025", location: "뤼덴샤이트, 독일" },
+  { year: "2024-현재", title: "객원 편집자", company: "2room Magazine (Webzine)" },
+  { year: "2021-2023", title: "편집자", company: "Wesang Company: Magazine maat", location: "서울, 한국" }
+];
+
+export const CONTRIBUTIONS_KO: CVItem[] = [
+  { year: 2025, title: "That's My Neighbour", description: "3D 모델링 & 애니메이션, The File Room, 부산현대미술관, 부산, 한국" },
+  { year: 2024, title: "Ouroboros", description: "CGI & AI 생성 이미지, Hara Shin, 서울, 한국" }
 ];
 
 /** Bump the `?v=` number when you replace files under public/images/devouring-voices/ (cache bust). */
@@ -114,10 +243,13 @@ export const PROJECTS: Project[] = [
     title: 'Devouring Voices',
     projectType: 'Individual Project',
     category: 'Sound Interactive Installation',
+    categoryKo: '사운드 인터랙티브 설치',
     year: '2026',
     location: 'Germany',
     materials:
       'Ceramic siren sculpture, audio interface, microphone, speakers, Ableton Live, Max/MSP; dimensions variable',
+    materialsKo:
+      '도자 사이렌 조각, 오디오 인터페이스, 마이크, 스피커, Ableton Live, Max/MSP; 가변 크기',
     imageUrl: DV_IMG('/images/devouring-voices/main.JPG'),
     videoUrl: 'placeholder',
     galleryUrls: [
@@ -137,15 +269,24 @@ At the center of the installation sits a ceramic siren-like sculpture. A microph
 This process foregrounds the loss embedded in every act of transmission. Meaning collapses, identity dissolves, and what remains is a fragmented echo that resists recognition. The work does not preserve the voice—it devours it, displacing it into a space where communication fails and only sonic traces persist.
 
 By confronting the audience with their own dislocated voice, Devouring Voices questions the assumption that speech guarantees presence. Instead, it proposes a condition where expression becomes erosion, and where the act of speaking initiates its own disappearance.`,
+    descriptionKo: `Devouring Voices는 인간의 목소리를 안정적인 의미와 정체성의 매개체로서 해체합니다. 목소리는 의도를 전달하는 대신, 비인간적 시스템 안에서 흡수되고 분열되고 재구성됩니다. 발화된 것은 언어가 아닌 잔류물로 되돌아오며—발화자로부터 분리되고 일관성을 잃은 채 남습니다.
+
+설치의 중심에는 도자 사이렌 형상의 조각이 자리합니다. 마이크가 관객의 발화를 유도하지만, 시스템은 즉각적으로 반응하지 않습니다. 목소리는 포착되어 지연되고, Ableton Live와 Max/MSP를 통해 예측 불가능하게 변형된 후 공간 곳곳의 스피커를 통해 재출현합니다. 되돌아온 소리는 더 이상 발화자에게 속하지 않으며, 변형되고 불안정하며 추적 불가능한 무언가로 떠돕니다.
+
+이 과정은 모든 전달 행위에 내재된 상실을 전면에 드러냅니다. 의미가 무너지고 정체성이 해소되며, 남는 것은 인식에 저항하는 파편화된 메아리입니다. 작업은 목소리를 보존하지 않습니다—그것을 삼켜버리고, 소통이 실패하며 오직 음향적 흔적만이 지속되는 공간으로 밀어냅니다.
+
+관객이 자신의 분리된 목소리와 마주하게 함으로써, Devouring Voices는 발화가 현재성을 보장한다는 가정에 의문을 제기합니다. 대신, 표현이 침식이 되고 말하는 행위 자체가 스스로의 소멸을 시작하는 조건을 제안합니다.`,
   },
   {
     id: 'p1',
     title: 'Autopsy of Sensing',
     projectType: 'Individual Project',
     category: 'Performance',
+    categoryKo: '퍼포먼스',
     year: '2025',
     location: 'Germany',
     materials: 'Ceramic object (x1), glass object (x1), bone conductor transducers, amplifiers, Ableton/Max for Live',
+    materialsKo: '도자 오브젝트 (x1), 유리 오브젝트 (x1), 골전도 트랜스듀서, 앰프, Ableton/Max for Live',
     description: `For a long time, humans have understood perception as a tool to comprehend the world. Only what can be seen, heard, or felt was considered to exist, and perception was used as a means to collect, control, and categorize information. Yet, sensations that are unseen, unheard, and untouchable also operate and exist within the world.
 
 《Autopsy of Sensing》 explores this gap, based on repeated encounters in New Zealand with the deaths of birds—particularly those resulting from collisions with windows—and on the non-visual sensory structures of kiwi and kakapo.
@@ -155,6 +296,15 @@ I sonified texts, images, collision data, and photos of the objects using Ableto
 The vibrations are generated via bone conductor transducers and amplifiers, not to convey messages or meaning, but to remain as fragments of sensation, ghosts of perception that persist even after disappearance.
 
 I unfold the deconstruction and afterlife of sensation through the vibrations and sounds of the two objects, which the audience witnesses but cannot fully interpret. This work records what remains after sensation has vanished—the ghost of perception—and serves as an act of mourning the disappearance and residue of existence.`,
+    descriptionKo: `오랫동안 인간은 지각을 세계를 이해하는 도구로 사용해왔습니다. 보이고, 들리고, 느껴지는 것만이 존재하는 것으로 여겨졌으며, 지각은 정보를 수집하고 통제하고 분류하는 수단으로 기능했습니다. 그러나 보이지 않고, 들리지 않고, 만져지지 않는 감각들 또한 세계 안에서 작동하고 존재합니다.
+
+《감각의 해부》는 뉴질랜드에서 반복적으로 마주친 새들의 죽음—특히 유리창 충돌로 인한—과 키위새 및 카카포의 비시각적 감각 구조를 바탕으로, 이 간극을 탐구합니다.
+
+텍스트, 이미지, 충돌 데이터, 그리고 오브젝트 사진들을 Ableton과 Max for Live로 소니파이했고, 그 결과물은 두 개의 공명 오브젝트—도자와 유리—를 통해 진동으로 구현됩니다. 각각의 오브젝트는 해부된 죽은 새의 구조를 암시하며, 단순한 재현이 아닌 독자적인 공명을 생성하는 감각 기관으로 기능합니다.
+
+진동은 골전도 트랜스듀서와 앰프를 통해 발생하며, 메시지나 의미를 전달하기 위한 것이 아니라 감각의 파편으로, 소멸 이후에도 지속되는 지각의 유령으로 남기 위한 것입니다.
+
+관객이 목격하지만 완전히 해석할 수 없는 두 오브젝트의 진동과 소리를 통해, 나는 감각의 해체와 사후를 펼쳐냅니다. 이 작업은 감각이 사라진 후 남는 것—지각의 유령—을 기록하며, 존재의 소멸과 잔류를 애도하는 행위입니다.`,
     imageUrl: '/images/autopsy/main.png',
     audioUrl: 'placeholder', 
     videoUrl: 'placeholder', 
@@ -167,7 +317,9 @@ I unfold the deconstruction and afterlife of sensation through the vibrations an
     title: 'Resonair',
     projectType: 'Individual Project',
     category: 'Interactive Installation',
+    categoryKo: '인터랙티브 설치',
     materials: 'Ceramic masks (x9), fiber optic cables, LED lights, humidifiers, microphone, speaker, round wooden table',
+    materialsKo: '도자 마스크 (x9), 광섬유 케이블, LED 조명, 가습기, 마이크, 스피커, 원형 나무 테이블',
     year: '2025',
     location: 'Germany',
     exhibition: 'LICHTROUTEN Lüdenscheid, March 20 – 29, 2025, Daily from 7:00 PM – 11:00 PM',
@@ -192,13 +344,22 @@ A microphone hangs from the ceiling, inviting visitors to interact. When a breat
 Breathing is something we do without conscious awareness, which often leads us to forget how precious it is. Through engaging with the installation via breath, this unconscious act is brought to the surface, transforming what is usually invisible and taken for granted into something felt, seen, and shared.
 
 By rendering breath both as a fleeting trace and an act of survival, Resonair blurs the boundary between visibility and erasure. It reminds us that breath, though invisible, must not be taken for granted—and that ignoring air pollution is ignoring the very basis of our existence.`,
+    descriptionKo: `Resonair는 공기 오염이 만연한 환경 속에서 호흡, 현존, 그리고 소멸의 상호작용을 탐구합니다. 둥근 나무 테이블 위에 하나의 마스크가 놓이고, 그 주위로 여덟 개의 마스크가 빛나는 광섬유 케이블로 연결되어 있습니다. 각각의 마스크는 빛과 수증기를 내뿜으며 공간을 점차 짙은 안개로 채워갑니다.
+
+천장에 매달린 마이크는 관객의 참여를 유도합니다. 마이크에 숨을 불어넣으면 빛이 변화합니다—서서히 빨간색에서 파란색으로. 이 전환은 호흡의 공유적 속성과 연결을 통한 회복의 가능성을 상징합니다. 무언가가 깨지거나 파편화되었을 때도, 관계적·사회적 유대를 통해 복원될 수 있습니다.
+
+호흡은 우리가 의식하지 않고 행하는 것이기에, 그것이 얼마나 소중한지 잊기 쉽습니다. 호흡을 통해 설치와 상호작용함으로써, 이 무의식적 행위가 표면으로 떠오르며 보이지 않던 것이 느껴지고, 보이고, 공유됩니다.
+
+호흡을 덧없는 흔적이자 생존의 행위로 가시화함으로써, Resonair는 가시성과 소거 사이의 경계를 흐립니다. 보이지 않더라도 호흡은 당연한 것이 아니며, 공기 오염을 외면하는 것은 우리 존재의 근간을 외면하는 것임을 상기시킵니다.`,
   },
   {
     id: 'p3',
     title: 'Afropolik',
     projectType: 'Individual Project',
     category: 'Installation',
+    categoryKo: '설치',
     materials: 'Motor, Arduino, Raspberry Pi, Processing, aluminum profile frame, silicone mat',
+    materialsKo: '모터, Arduino, Raspberry Pi, Processing, 알루미늄 프로파일 프레임, 실리콘 매트',
     year: '2025',
     location: 'Germany',
     exhibition: 'HfK Bremen, Bremen, Germany',
@@ -218,13 +379,20 @@ By rendering breath both as a fleeting trace and an act of survival, Resonair bl
 Higher pollutant levels intensify the movement, creating deeper imprints, while cleaner air results in lighter or no traces. These imprints serve as physical records of the invisible air quality, visualizing the impact of pollution on the human body.
 
 By combining mechanical movement and sound, the work alludes to a future where air is controlled and questions the value and social significance of shared breathing space.`,
+    descriptionKo: `Afropolik은 공기 오염과 숨 쉴 권리를 다루는 키네틱 설치입니다. 모터의 움직임은 실시간 대기 오염 데이터에 따라 달라지며, 실리콘 매트 위 얼굴 형상에 가해지는 압력에 영향을 미칩니다.
+
+오염 물질 수치가 높아지면 움직임이 강해져 더 깊은 자국을 남기고, 공기가 맑을 때는 흔적이 가볍거나 사라집니다. 이 자국들은 보이지 않는 공기 질의 물리적 기록으로, 오염이 인체에 미치는 영향을 가시화합니다.
+
+기계적 움직임과 소리를 결합함으로써, 작업은 공기가 통제되는 미래를 암시하며 공유된 호흡 공간의 가치와 사회적 의미에 의문을 제기합니다.`,
   },
   {
     id: 'p_antio',
     title: 'Antio',
     projectType: 'Individual Project',
     category: 'Video',
+    categoryKo: '비디오',
     materials: 'Duration: 02:44',
+    materialsKo: '재생 시간: 02:44',
     year: '2025',
     location: 'Germany',
     exhibition: 'Hochschultage 2025, HfK Bremen, Bremen, Germany',
@@ -247,13 +415,20 @@ By combining mechanical movement and sound, the work alludes to a future where a
 Presented in the style of a dystopian infomercial with VHS aesthetics, the ad showcases Antio's latest innovations, such as Oensa Ant and Perotox, as essential solutions for a controlled future. However, as the narrative unfolds, glitches, distortions, and eerie undertones expose a deeper deception, suggesting that the world outside Antio's promises may not be as habitable as it seems.
 
 The sound design, featuring manipulated voices and distorted audio layers, reinforces the sense of unease, making viewers question the fine line between corporate illusion and reality.`,
+    descriptionKo: `이 광고는 가상 기업 Antio Co.를 위한 것으로, 숨겨진 의도와 기업 프로파간다가 현실을 형성하는 Antio 유니버스를 배경으로 합니다. Pika, Sora, Suno로 생성되고 After Effects와 Ableton Live로 편집된 이 영상은 불안하고 음모론적인 톤을 취하며, 세련된 마케팅 이면에 감춰진 불안한 진실을 서서히 드러냅니다.
+
+디스토피아적 홈쇼핑 형식과 VHS 미학으로 제시된 이 광고는 통제된 미래를 위한 필수 솔루션으로 Oensa Ant와 Perotox 같은 Antio의 최신 혁신을 선보입니다. 그러나 서사가 전개되면서 글리치, 왜곡, 섬뜩한 기저음이 더 깊은 기만을 노출하며, Antio의 약속 너머 세계가 보이는 것만큼 살기 좋지 않을 수 있음을 암시합니다.
+
+조작된 목소리와 왜곡된 오디오 레이어로 구성된 사운드 디자인은 불안감을 강화하며, 기업적 환상과 현실 사이의 경계에 의문을 품게 만듭니다.`,
   },
   {
     id: 'p4',
     title: 'Echoia',
     projectType: 'Individual Project',
     category: 'Installation',
+    categoryKo: '설치',
     materials: '3D hologram, AI-generated visuals and sound, mirror, black acrylic panels, stone',
+    materialsKo: '3D 홀로그램, AI 생성 영상 및 사운드, 거울, 검정 아크릴 패널, 돌',
     year: '2024',
     location: 'Germany',
     exhibition: 'Goldstücke, Gelsenkirchen',
@@ -266,12 +441,18 @@ The sound design, featuring manipulated voices and distorted audio layers, reinf
 Echoia's dynamic virtual persona is designed to overlap with a physical body, moving in a mutually mimetic manner with the digital entity. It also utilizes AI to infinitely diffuse and transform into multiple entities, generating an ever-flowing vortex that continuously connects them. By viewing this from a narrow, confined space, the work offers a more intimate experience, inviting viewers to project themselves through its reflection and contemplate their own digital self.
 
 The sound is composed from conversations with a virtual AI that embodies Echoia's persona, translated into music.`,
+    descriptionKo: `Echoia는 디지털 정보가 현실에 접근하는 방식과 실제 정체성이 디지털 존재와 융합되는 과정을 상징적으로 표현합니다. 디지털과 아날로그의 교차점에 위치한 홀로그래픽 장치를 통해 구현됩니다.
+
+Echoia의 역동적인 가상 페르소나는 물리적 신체와 겹치도록 설계되었으며, 디지털 존재와 상호 모방적인 방식으로 움직입니다. 또한 AI를 활용해 무한히 분산되고 다수의 존재로 변형되며, 이를 지속적으로 연결하는 흐르는 소용돌이를 생성합니다. 좁고 제한된 공간에서 이를 바라봄으로써, 작업은 더 친밀한 경험을 제공하며 관객이 반영을 통해 스스로를 투사하고 자신의 디지털 자아를 성찰하도록 초대합니다.
+
+사운드는 Echoia의 페르소나를 구현한 가상 AI와의 대화에서 비롯되며, 음악으로 번역되었습니다.`,
   },
   {
     id: 'p5',
     title: 'Object Metamorphosis',
     projectType: 'Individual Project',
     category: 'Digital print',
+    categoryKo: '디지털 프린트',
     year: '2024',
     location: 'Germany',
     exhibition: 'MAP 2024, GHTK delivery motorbikes, Hanoi',
@@ -290,12 +471,18 @@ The sound is composed from conversations with a virtual AI that embodies Echoia'
 Through this process, material existence is digitally reconstructed, creating an intersection between reality and the virtual. However, this process questions whether digitization can fully preserve the identity of a place or inevitably leads to distortions and disconnections. Mobility extends beyond simple physical movement to the reconstruction of existence across time and space. Glaciers that once existed in a physical location are reborn in digital form within a virtual space, allowing the memories and traces of specific places to move and persist within new contexts.
 
 The typography reflects this intention, designed in a fragmented and incomplete form. The incompleteness of the typography highlights the inevitable gaps and transformations brought about by digitization, which fails to fully capture the wholeness of a place. This work is presented in collaboration with GHTK as part of MAP 2024. MAP 2024 is an international artistic exchange project between Bremen, Germany, and Hanoi, Vietnam, with this year's theme being 'Mobility.' The project explores not only physical movement but also the spread of ideas, thoughts, languages, and artistic expressions. From December 14 to 20, posters created by Bremen artists will be attached to GHTK delivery motorbikes, traveling across Hanoi and offering a new perspective on movement.`,
+    descriptionKo: `Object Metamorphosis는 경관의 이동성과 그 변환에 초점을 맞추며, 물질과 가상의 관계를 탐구합니다. 뉴질랜드의 빙하처럼 사라져가는 물리적 환경들이 개인 영상 촬영을 통해 기록되고, Luma AI를 사용해 3D 스캔으로 변환되었습니다.
+
+이 과정을 통해 물질적 존재가 디지털로 재구성되며, 현실과 가상의 교차점이 형성됩니다. 그러나 이 과정은 디지털화가 장소의 정체성을 온전히 보존할 수 있는지, 아니면 불가피하게 왜곡과 단절로 이어지는지를 질문합니다. 이동성은 단순한 물리적 움직임을 넘어 시간과 공간을 가로지른 존재의 재구성으로 확장됩니다. 특정 장소에 물리적으로 존재했던 빙하들은 가상 공간 안에서 디지털 형태로 재탄생하며, 특정 장소의 기억과 흔적이 새로운 맥락 안에서 이동하고 지속될 수 있게 합니다.
+
+타이포그래피는 이러한 의도를 반영하며, 파편화되고 불완전한 형태로 디자인되었습니다. 타이포그래피의 불완전함은 디지털화가 가져오는 필연적인 간극과 변형을 부각시키며, 장소의 온전함을 완전히 포착하는 데 실패합니다. 이 작업은 MAP 2024의 일환으로 GHTK와의 협업으로 제시됩니다. MAP 2024는 독일 브레멘과 베트남 하노이 간의 국제 예술 교류 프로젝트로, 올해 주제는 '이동성'입니다. 12월 14일부터 20일까지, 브레멘 예술가들이 제작한 포스터가 GHTK 배달 오토바이에 부착되어 하노이 전역을 이동하며 새로운 시각을 제공합니다.`,
   },
   {
     id: 'p6',
     title: 'Debris Tracer',
     projectType: 'Individual Project',
     category: 'Website',
+    categoryKo: '웹사이트',
     year: '2024',
     location: 'Germany',
     imageUrl: '/images/debris-tracer/main.png',
@@ -306,12 +493,18 @@ The typography reflects this intention, designed in a fragmented and incomplete 
 Conceptually, I aimed to visually represent space debris as a vast ring encircling Earth. To effectively convey this concept, I combined auditory and visual effects to stimulate human senses of sound and sight. By utilizing these senses, I hope to elevate awareness of this issue by prompting users to vocalize the phrase 'space debris.' This innovative project unfolds as a dynamic web page set against the backdrop of space. Upon loading, the page detects the phrase 'space debris,' transforming it into a password to guide users to the next environment. Using Speech Recognition technology, users are prompted to speak the designated phrase, leading them to the final page.
 
 The final page offers a unique experience with each visit, featuring diverse music, text, and interactive objects. Each object corresponds to distinct textual descriptions, with direct engagement revealing 3D models responsive to sound intensity. Space debris primarily comprises remnants from artificial satellites and other space objects. To enhance intrigue, I integrated commonplace items into the visual narrative. This symbolizes the omnipresence of space debris in our surroundings and underscores the inevitability of humans being part of this cycle. This phenomenon emphasizes the urgent need for heightened awareness and proactive solutions.`,
+    descriptionKo: `우주 쓰레기는 육안으로 보이지 않아 많은 이들에게 과소평가되는 위협입니다. 현재로서는 시급하지 않아 보일 수 있지만, 우주 쓰레기의 누적은 미래에 지구에 심각한 환경적 결과를 초래할 수 있습니다. 자연과 기술의 요소를 결합해 인간의 시선을 넘어선 관점을 탐구하는 데 깊이 몰두하고 있습니다.
+
+개념적으로는 우주 쓰레기를 지구를 둘러싼 거대한 고리로 시각적으로 표현하고자 했습니다. 이를 효과적으로 전달하기 위해 청각과 시각 효과를 결합해 인간의 감각을 자극했습니다. 이 감각들을 활용함으로써, 사용자들이 '우주 쓰레기'라는 문구를 발화하도록 유도해 인식을 높이고자 합니다. 이 프로젝트는 우주를 배경으로 한 역동적인 웹 페이지로 전개됩니다. 페이지가 로드되면 '우주 쓰레기'라는 문구를 인식하고, 이를 비밀번호로 변환해 다음 환경으로 안내합니다. 음성 인식 기술을 사용해 사용자는 지정된 문구를 발화하도록 유도되고, 최종 페이지로 이동합니다.
+
+최종 페이지는 방문할 때마다 독특한 경험을 제공하며, 다양한 음악, 텍스트, 인터랙티브 오브젝트를 선보입니다. 각 오브젝트는 고유한 텍스트 설명과 연결되며, 직접 상호작용하면 음량에 반응하는 3D 모델이 드러납니다. 우주 쓰레기는 주로 인공위성과 기타 우주 오브젝트의 잔해로 구성됩니다. 일상적인 사물들을 시각적 서사에 통합해 우주 쓰레기가 우리 주변 어디에나 존재함을 상징하고, 인간이 이 순환의 일부일 수밖에 없음을 강조합니다. 이 현상은 인식 제고와 적극적인 해결책의 시급한 필요성을 부각시킵니다.`,
   },
   {
     id: 'p7',
     title: 'Jujube Universe',
     projectType: 'Individual Project',
     category: 'Video',
+    categoryKo: '비디오',
     year: '2023',
     location: 'Korea',
     imageUrl: '/images/jujube/main.png',
@@ -320,12 +513,16 @@ The final page offers a unique experience with each visit, featuring diverse mus
     description: `This work is an expansion of the view of the jujube. I thought that the structure of the jujube's supergene is like a galaxy in the universe and gave it a new personality, which I linked to a meteorite that fell to earth.
 
 In this artwork, the jujube serves as a prominent motif that will greatly influence the future of humanity, symbolizing a fervent desire to extensively study jujubes as one of the Super Seeds that could potentially save humanity.`,
+    descriptionKo: `이 작업은 대추를 바라보는 시각을 확장하는 작업입니다. 대추의 슈퍼진 구조가 우주의 은하처럼 보인다고 생각했으며, 이에 새로운 개성을 부여하고 지구에 떨어진 운석과 연결지었습니다.
+
+이 작품에서 대추는 인류의 미래에 큰 영향을 미칠 핵심 모티프로 등장하며, 인류를 구할 수 있는 슈퍼 씨앗 중 하나로서 대추를 광범위하게 연구하고자 하는 열망을 상징합니다.`,
   },
   {
     id: 'p8',
     title: 'Seed Capsule',
     projectType: 'Individual Project',
     category: 'Interactive VR',
+    categoryKo: '인터랙티브 VR',
     year: '2023',
     location: 'Korea',
     imageUrl: '/images/seed-capsule/main.png',
@@ -334,12 +531,16 @@ In this artwork, the jujube serves as a prominent motif that will greatly influe
     description: `This work revolves around the concept of a 'Seed Capsule,' which serves as a repository for memories. The term 'Seed' carries dual meaning, representing a device that stores objects, backgrounds, and environments from the past, encapsulating memories.
 
 This work takes the form of an interactive VR experience, comprising rooms with different environments. By clicking on cubes, users can trigger sounds or move to the next room, allowing them to explore three rooms containing objects imbued with memories and stories.`,
+    descriptionKo: `이 작업은 기억의 저장소로서의 '씨앗 캡슐' 개념을 중심으로 전개됩니다. '씨앗'이라는 단어는 이중적 의미를 지니며, 과거의 사물, 배경, 환경을 저장하고 기억을 캡슐화하는 장치를 상징합니다.
+
+이 작업은 인터랙티브 VR 경험의 형태를 취하며, 각기 다른 환경의 방들로 구성됩니다. 큐브를 클릭하면 소리가 트리거되거나 다음 방으로 이동할 수 있으며, 기억과 이야기가 깃든 사물들로 채워진 세 개의 방을 탐험할 수 있습니다.`,
   },
   {
     id: 'p9',
     title: 'Vom Blick',
     projectType: 'Individual Project',
     category: 'Video',
+    categoryKo: '비디오',
     year: '2023',
     location: 'Korea',
     imageUrl: '/images/vom-blick/main.png',
@@ -348,12 +549,16 @@ This work takes the form of an interactive VR experience, comprising rooms with 
     description: `This work delves into a recurring theme that runs throughout the series of works in 2023, relentlessly probing the notion of the 'gaze' and challenging the notion of unquestioningly accepting the human perspective.
 
 I steer the narrative of the video by vigilantly considering when I view things through an anthropocentric lens and when I passively embrace it without scrutiny.`,
+    descriptionKo: `이 작업은 2023년 연작 전반에 걸쳐 반복되는 주제를 깊이 파고들며, '시선'이라는 개념을 끊임없이 탐구하고 인간의 관점을 무비판적으로 수용하는 것에 도전합니다.
+
+나는 사물을 인간 중심적 시각으로 바라보는 순간과 아무런 검토 없이 수동적으로 받아들이는 순간을 예민하게 의식하면서 영상의 서사를 이끌어갑니다.`,
   },
   {
     id: 'p10',
     title: 'Oensa Ant',
     projectType: 'Individual Project',
     category: 'Video',
+    categoryKo: '비디오',
     year: '2022',
     location: 'Korea',
     imageUrl: '/images/oensa-ant/main.png',
@@ -362,6 +567,9 @@ I steer the narrative of the video by vigilantly considering when I view things 
     description: `This work is connected to the 'Antio' project and involves the virtual study of the most important creature in that project, the 'Oensa Ant'. This ant has the ability to secrete a substance called 'Perotox', which has the power to purify the environment.
 
 In a dystopian setting, it is the only living being capable of saving humanity, and humans once again rely on the strength of this small creature to survive. In this work, the ant becomes a more important being than humans, prompting a reevaluation of its status. However, it also highlights the duality of humans' relationship with non-human life forms, as the ant is sometimes exploited by humans despite its crucial role.`,
+    descriptionKo: `이 작업은 'Antio' 프로젝트와 연결되며, 그 프로젝트에서 가장 중요한 생명체인 '오엔사 개미(Oensa Ant)'를 가상으로 연구하는 작업입니다. 이 개미는 'Perotox'라는 물질을 분비하는 능력을 지니며, 이 물질은 환경을 정화하는 힘을 가지고 있습니다.
+
+디스토피아적 설정 속에서, 오엔사 개미는 인류를 구할 수 있는 유일한 생명체이며, 인간은 다시 한번 이 작은 생명체의 힘에 의존해 생존합니다. 이 작업에서 개미는 인간보다 더 중요한 존재가 되며, 그 지위를 재평가하도록 촉구합니다. 그러나 동시에 인간과 비인간 생명체 간의 관계의 이중성을 드러내는데, 개미는 결정적인 역할에도 불구하고 때로는 인간에게 착취당합니다.`,
   },
 ];
 
@@ -369,9 +577,11 @@ export const CERAMICS: Project[] = [
   {
     id: 'c1',
     title: 'Kitty Mug',
+    titleKo: '고양이 머그',
     category: 'Clay',
     year: '2025',
     description: 'A handcrafted ceramic cup with a cat-shaped handle',
+    descriptionKo: '고양이 모양 손잡이가 달린 수제 도자 컵',
     imageUrl: '/images/ceramics/01.JPG',
     galleryUrls: [
       '/images/ceramics/02.JPG'
@@ -380,63 +590,77 @@ export const CERAMICS: Project[] = [
   {
     id: 'c2',
     title: 'Pixel Cat Cup',
+    titleKo: '픽셀 고양이 컵',
     category: 'Porcelain',
     year: '2025',
     description: 'A cup with pixel-style cats.',
+    descriptionKo: '픽셀 스타일 고양이가 그려진 컵',
     imageUrl: '/images/ceramics/03.PNG'
   },
   {
     id: 'c3',
     title: 'Vivid porcelain cup',
+    titleKo: '비비드 도자기 컵',
     category: 'Porcelain',
     year: '2025',
     description: 'A vivid porcelain cup',
+    descriptionKo: '선명한 색감의 도자기 컵',
     imageUrl: '/images/ceramics/04.JPG'
   },
   {
     id: 'c4',
     title: 'Ghost Accessory Holder',
+    titleKo: '유령 소품 홀더',
     category: 'Clay',
     year: '2025',
     description: 'A little ghost accessory holder',
+    descriptionKo: '귀여운 유령 모양의 소품 정리함',
     imageUrl: '/images/ceramics/05.JPG'
   },
   {
     id: 'c5',
     title: 'Lemon Juicer',
+    titleKo: '레몬 착즙기',
     category: 'Clay',
     year: '2025',
     description: 'A lemon-shaped fruit juicer',
+    descriptionKo: '레몬 모양의 과일 착즙기',
     imageUrl: '/images/ceramics/06.JPG',
-        galleryUrls: [
+    galleryUrls: [
       '/images/ceramics/07.JPG',
     ],
   },
   {
     id: 'c6',
     title: 'Wave Foam Plate',
+    titleKo: '파도 물결 접시',
     category: 'Clay',
     year: '2025',
     description: 'A plate with a wave-foam pattern',
+    descriptionKo: '파도 물결 패턴의 접시',
     imageUrl: '/images/ceramics/08.JPG',
-        galleryUrls: [
+    galleryUrls: [
       '/images/ceramics/09.JPG',
     ],
   },
   {
     id: 'c7',
     title: 'Forsythia Cup',
+    titleKo: '개나리 컵',
     category: 'Porcelain',
     year: '2025',
     description: 'A spring forsythia cup',
+    descriptionKo: '봄 개나리 컵',
     imageUrl: '/images/ceramics/10.JPG',
   },
   {
     id: 'c8',
     title: 'Take-out Cup',
+    titleKo: '테이크아웃 컵',
     category: 'Clay',
     year: '2025',
     description: 'A handcrafted take-out cup',
+    descriptionKo: '수제 테이크아웃 컵',
     imageUrl: '/images/ceramics/11.JPG',
   },
 ];

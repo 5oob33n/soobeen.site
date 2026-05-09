@@ -8,9 +8,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Raleway', 'sans-serif'],
-        heading: ['Montserrat', 'sans-serif'],
-        mono: ['monospace'], 
+        sans: ['Funnel Display', 'sans-serif'],
+        heading: ['Funnel Display', 'sans-serif'],
+        ko: ['Diphylleia', 'serif'],
+        mono: ['monospace'],
       },
     },
   },
