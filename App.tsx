@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, useNavigate, useLocation } from 'react-router-dom';
 import AsciiBackground from './components/AsciiBackground';
-import ChladniHome from './components/ChladniHome';
+import WaterDropHome from './components/WaterDropHome';
 import {
   MENU_ITEMS,
   MENU_ITEMS_KO,
@@ -310,50 +310,49 @@ const AppContent: React.FC = () => {
       {/* ── HOME ─────────────────────────────────────────── */}
       {isHome && (
         <>
-          <ChladniHome />
-          <div className={`relative z-10 w-full h-screen flex flex-col p-10 md:p-16 transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+          <WaterDropHome />
+          <div className={`relative z-10 w-full h-screen transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
 
-            {/* Top row: name (left) + lang toggle (right) */}
-            <div className="flex justify-between items-start">
+            {/* Left column: name (top) → nav + copyright (bottom) */}
+            <div className="flex flex-col justify-between h-full p-10 md:p-14 w-fit">
+
               <button onClick={() => navigateTo('home')} className="text-left group">
                 <h1 className="font-heading font-semibold text-sm tracking-[0.18em] uppercase text-black group-hover:opacity-50 transition-opacity">
                   Soobeen Woo
                 </h1>
               </button>
 
-              {/* Language toggle */}
-              <button
-                onClick={() => setLang(l => l === 'en' ? 'ko' : 'en')}
-                className="flex items-center gap-2 text-[11px] tracking-widest uppercase text-black/40 hover:text-black transition-colors"
-                aria-label="Toggle language"
-              >
-                <span className={lang === 'en' ? 'text-black font-semibold' : ''}>EN</span>
-                <span className="text-black/20">·</span>
-                <span className={lang === 'ko' ? 'text-black font-semibold font-ko' : ''}>KR</span>
-              </button>
+              <div>
+                <nav>
+                  <ul className="flex flex-col gap-3">
+                    {menuItems.map((item) => (
+                      <li key={item.id}>
+                        <button
+                          onClick={() => navigateTo(item.id)}
+                          className={`text-[11px] tracking-[0.18em] uppercase text-black hover:opacity-40 transition-opacity ${lang === 'ko' ? 'font-ko tracking-wider' : ''}`}
+                        >
+                          {item.label}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+                <p className="font-mono text-[9px] text-black/25 uppercase tracking-wider mt-5">
+                  &copy; {new Date().getFullYear()} Soobeen Woo
+                </p>
+              </div>
             </div>
 
-            {/* Bottom row: nav (left) + copyright (right) */}
-            <div className="mt-auto flex justify-between items-end w-full">
-              <nav>
-                <ul className="flex flex-wrap gap-x-8 gap-y-2">
-                  {menuItems.map((item) => (
-                    <li key={item.id}>
-                      <button
-                        onClick={() => navigateTo(item.id)}
-                        className={`block text-[11px] tracking-[0.18em] uppercase text-black hover:opacity-40 transition-opacity ${lang === 'ko' ? 'font-ko tracking-wider' : ''}`}
-                      >
-                        {item.label}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-
-              <p className="font-mono text-[9px] text-black/25 uppercase tracking-wider">
-                &copy; {new Date().getFullYear()} Soobeen Woo
-              </p>
-            </div>
+            {/* Language toggle — top right */}
+            <button
+              onClick={() => setLang(l => l === 'en' ? 'ko' : 'en')}
+              className="absolute top-10 right-10 md:top-14 md:right-14 flex items-center gap-2 text-[11px] tracking-widest uppercase text-black/40 hover:text-black transition-colors"
+              aria-label="Toggle language"
+            >
+              <span className={lang === 'en' ? 'text-black font-semibold' : ''}>EN</span>
+              <span className="text-black/20">·</span>
+              <span className={lang === 'ko' ? 'text-black font-semibold font-ko' : ''}>KR</span>
+            </button>
           </div>
         </>
       )}
@@ -402,27 +401,14 @@ const AppContent: React.FC = () => {
           {/* Main Content Container - White/90 background */}
           <main className="w-full min-h-screen bg-white/90 backdrop-blur-sm pt-32 pb-24 px-8 md:px-24 lg:px-48">
             
-            <header className="mb-16">
-              <h2 className={`text-4xl md:text-5xl font-heading font-light uppercase tracking-tight ${lang === 'ko' && !selectedProjectSlug ? 'font-ko' : ''}`}>
-                {selectedProjectSlug && selectedProjectData
-                  ? selectedProjectData.title
-                  : (labels.viewTitle[currentView] ?? currentView)}
-              </h2>
-              {selectedProjectSlug && (
-                <button 
-                  onClick={() => {
-                    setIsTransitioning(true);
-                    setTimeout(() => {
-                      navigate('/projects');
-                      setIsTransitioning(false);
-                    }, 100);
-                  }}
-                  className="mt-4 text-xs font-mono uppercase tracking-wider text-gray-500 hover:text-black hover:underline"
-                >
-                  {labels.back}
-                </button>
-              )}
-            </header>
+            {/* Header — only for list/section views */}
+            {!selectedProjectSlug && (
+              <header className="mb-16">
+                <h2 className={`text-4xl md:text-5xl font-heading font-light uppercase tracking-tight ${lang === 'ko' ? 'font-ko' : ''}`}>
+                  {labels.viewTitle[currentView] ?? currentView}
+                </h2>
+              </header>
+            )}
 
             <div className="fade-in-content">
               {/* PROJECTS */}
@@ -473,6 +459,22 @@ const AppContent: React.FC = () => {
                     /* Project Detail View */
                     selectedProjectData && (
                       <div className="animate-fade-in max-w-4xl mx-auto">
+                        {/* Title + back button — aligned with content */}
+                        <div className="mb-12">
+                          <h2 className="text-4xl md:text-5xl font-heading font-light uppercase tracking-tight">
+                            {selectedProjectData.title}
+                          </h2>
+                          <button
+                            onClick={() => {
+                              setIsTransitioning(true);
+                              setTimeout(() => { navigate('/projects'); setIsTransitioning(false); }, 100);
+                            }}
+                            className="mt-4 text-xs font-mono uppercase tracking-wider text-gray-500 hover:text-black hover:underline"
+                          >
+                            {labels.back}
+                          </button>
+                        </div>
+
                         {/* Image Slider / Carousel for projects */}
                         <div className="relative w-full aspect-video bg-gray-100 mb-12 group select-none">
                           <img

@@ -239,6 +239,55 @@ const DV_IMG = (path: string) => `${path}?v=4`;
 
 export const PROJECTS: Project[] = [
   {
+    id: 'p12',
+    title: 'Residual, Unfelt',
+    projectType: 'Individual Project',
+    category: 'Sound Installation / Speculative Sensing System',
+    categoryKo: '사운드 설치 / 추측적 감지 시스템',
+    year: '2026',
+    location: 'Germany',
+    materials:
+      'Unfired clay, agar, copper rods and wire, modified piezo sensors, suspended weights, Teensy 4.1, Audio Shield, custom processing boards, patch bay, speakers; three probing objects, each 30 × 10 cm',
+    materialsKo:
+      '소성하지 않은 흙, 한천, 구리봉과 구리선, 개조한 피에조 센서, 추, Teensy 4.1, Audio Shield, 커스텀 프로세싱 보드, 패치 베이, 스피커; 프로빙 오브젝트 3점, 각 30 × 10 cm',
+    imageUrl: '/images/residual-unfelt/DSC083752.JPG',
+    galleryUrls: [
+      '/images/residual-unfelt/DSC08374.JPG',
+      '/images/residual-unfelt/DSC08375.JPG',
+      '/images/residual-unfelt/DSC08324.JPG',
+    ],
+    description: `Residual, Unfelt investigates how human-made infrastructures and material transformations become recorded within the Earth's strata over time. Rather than treating geological layers as passive formations produced only by natural processes, the work considers the Earth as an active material archive that continuously receives, stores, and transforms vibrations, pressure, extraction, construction, and other traces of human activity. It asks: how are human-made materials recorded within the Earth's material layers, regardless of human intention?
+
+Three probing objects inspired by geological core samples translate subtle environmental vibrations into a slowly changing sonic environment. Each object contains three piezo sensors beneath layered slabs of unfired clay and agar. Visitors do not trigger an immediate response. Their footsteps, movements, and presence gradually alter an existing composition, mirroring the extended timescales through which traces accumulate within geological strata. The sound is not presented as the Earth's literal voice, but as a speculation on how imperceptible material responses might become audible.
+
+MATERIAL EXPERIMENTS
+
+The work emerged from nearly two months of experiments combining clay and agar at different ratios. Nine slabs were produced using agar concentrations of 6%, 8.3%, and 15%. Clay brings soil, sediment, and geological formation into the composite, while agar - a biomaterial derived from marine algae - introduces moisture, growth, decay, and continuous transformation. As the slabs dried, each concentration produced different patterns of cracking, shrinkage, opacity, deformation, and biological growth. These changes were understood not as defects, but as material records generated through time and environmental conditions.
+
+PROTOTYPE & SOUND SYSTEM
+
+The first prototype combined all nine slabs into one large core-sample structure. Because the clay-agar composite absorbed much of the vibration energy, piezo signals remained weak. The sensing structure was therefore redesigned: a needle was attached above each piezo, with a small weight suspended beneath it by copper wire to create tension and amplify subtle movement. Copper rods were added as both structural supports and efficient vibration conductors. Through this process, the forms shifted from sculptures toward speculative geological probes.
+
+The final system connects nine piezo sensors to three processing boards and a central Teensy 4.1 with an Audio Shield. Instead of directly triggering sounds, the sensors gradually influence layers of a composition: a 17-45 Hz sub-drone evokes deep geological movement; shifting tones suggest pressure, friction, and tension; filtered noise carries muffled material motion; and high-frequency leakage tones introduce traces of human-made infrastructure. Each influence decays slowly, giving the system a memory-like behavior. The exposed electronics, wiring, sensing elements, and patch connections reveal how invisible vibrations are gathered and transformed rather than concealing the process.
+
+Residual, Unfelt proposes that recording extends beyond cameras, sensors, and digital storage. It approaches the Earth itself as a medium - one that keeps registering human activity long after its immediate causes disappear. Rather than asking what humans record about the Earth, the work asks what the Earth may already be recording about us.`,
+    descriptionKo: `Residual, Unfelt는 인간이 만든 인프라와 물질적 변형이 시간이 흐르며 지구의 지층 안에 어떻게 기록되는지를 탐구합니다. 지질층을 자연 과정만으로 만들어진 수동적 형성물로 바라보는 대신, 진동과 압력, 채굴과 건설을 비롯한 인간 활동의 흔적을 지속해서 받아들이고 저장하며 변형하는 능동적인 물질 아카이브로서 지구를 바라봅니다. 작업은 묻습니다. 인간의 의도와 무관하게, 인간이 만든 물질은 지구의 물질적 층위 안에 어떻게 기록되는가?
+
+지질 코어 샘플에서 영감을 얻은 세 개의 프로빙 오브젝트는 환경의 미세한 진동을 서서히 변화하는 음향 환경으로 번역합니다. 각 오브젝트에는 소성하지 않은 흙과 한천으로 만든 층 아래에 세 개의 피에조 센서가 설치되어 있습니다. 관객의 행동은 즉각적인 반응을 일으키지 않습니다. 발걸음과 움직임, 물리적 현존은 이미 존재하는 사운드 구성을 점진적으로 변화시키며, 흔적이 긴 시간에 걸쳐 지층 안에 축적되는 과정을 닮아갑니다. 여기서 사운드는 지구의 목소리를 직접 재현하는 것이 아니라, 인간의 감각 너머에 있는 물질적 반응이 어떻게 들릴 수 있을지를 상상합니다.
+
+재료 실험
+
+작업은 약 두 달간 흙과 한천의 비율을 달리한 실험에서 출발했습니다. 6%, 8.3%, 15%의 서로 다른 한천 농도로 총 아홉 개의 슬래브를 제작했습니다. 흙이 토양과 퇴적, 지질 형성을 가리킨다면 해조류에서 유래한 생체 재료인 한천은 수분과 성장, 부패, 지속적인 변형의 성질을 더합니다. 건조가 진행되면서 각 농도는 서로 다른 균열과 수축, 투명도, 변형, 생물학적 성장의 패턴을 만들었습니다. 이러한 변화는 결함이 아니라 시간과 환경 조건이 생성한 물질적 기록으로 다루어졌습니다.
+
+프로토타입과 사운드 시스템
+
+첫 프로토타입은 아홉 개의 슬래브를 하나의 큰 코어 샘플 구조로 결합했습니다. 그러나 흙과 한천의 복합 재료가 진동 에너지의 상당 부분을 흡수해 피에조 신호가 약하게 나타났습니다. 이에 각 피에조 위에는 바늘을 부착하고, 아래에는 구리선으로 작은 추를 매달아 장력을 만들고 미세한 움직임을 증폭하도록 감지 구조를 다시 설계했습니다. 구리봉은 구조적 지지대이자 진동을 효율적으로 전달하는 요소로 추가되었습니다. 이 과정을 거치며 형태는 조각에서 추측적 지질 탐침에 가까운 모습으로 변화했습니다.
+
+최종 시스템은 아홉 개의 피에조 센서와 세 개의 프로세싱 보드, Audio Shield가 장착된 Teensy 4.1을 연결합니다. 센서는 개별 사운드를 즉시 재생하는 대신, 구성된 사운드 레이어에 점진적으로 영향을 줍니다. 17-45Hz의 서브 드론은 지하 깊은 곳의 움직임을, 천천히 이동하는 음은 압력과 마찰 및 지질학적 긴장을, 필터링된 노이즈는 직접 감지되지 않는 물질의 움직임을 표현합니다. 고주파 누설음은 풍경 속에 스며든 인공 인프라의 흔적을 더합니다. 각 변화는 곧바로 사라지지 않고 천천히 감쇠하며 시스템에 기억과 같은 성질을 만듭니다. 전자 부품과 배선, 센서와 패치 연결은 감추지 않고 드러내어 보이지 않는 진동이 수집되고 변환되는 과정을 보여줍니다.
+
+Residual, Unfelt는 기록이 카메라와 센서, 디지털 저장 장치에만 머물지 않는다고 제안합니다. 지구 자체를 하나의 매체로 바라보며, 직접적인 원인이 사라진 뒤에도 인간 활동을 계속 기록하는 물질 시스템으로 접근합니다. 작업은 인간이 지구에 관해 무엇을 기록하는지가 아니라, 지구가 이미 우리에 관해 무엇을 기록하고 있는지를 묻습니다.`,
+  },
+  {
     id: 'p11',
     title: 'Devouring Voices',
     projectType: 'Individual Project',
@@ -306,8 +355,8 @@ I unfold the deconstruction and afterlife of sensation through the vibrations an
 
 관객이 목격하지만 완전히 해석할 수 없는 두 오브젝트의 진동과 소리를 통해, 나는 감각의 해체와 사후를 펼쳐냅니다. 이 작업은 감각이 사라진 후 남는 것—지각의 유령—을 기록하며, 존재의 소멸과 잔류를 애도하는 행위입니다.`,
     imageUrl: '/images/autopsy/main.png',
-    audioUrl: 'placeholder', 
-    videoUrl: 'placeholder', 
+    audioUrl: '/audio/autopsy-of-sensing.mp3',
+    videoUrl: 'https://youtu.be/n8bzN-nxmiI',
     galleryUrls: [
        '/images/autopsy/01.jpg',
     ]
