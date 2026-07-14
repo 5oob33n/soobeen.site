@@ -19,6 +19,22 @@ export interface Project {
   titleKo?: string;
   categoryKo?: string;
   descriptionKo?: string;
+  detailSections?: ProjectDetailSection[];
+}
+
+export interface ProjectDetailImage {
+  url: string;
+  caption?: string;
+  captionKo?: string;
+}
+
+export interface ProjectDetailSection {
+  title: string;
+  titleKo?: string;
+  body: string;
+  bodyKo?: string;
+  images?: ProjectDetailImage[];
+  layout?: 'grid' | 'wide';
 }
 
 export interface MenuItem {

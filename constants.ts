@@ -286,6 +286,204 @@ Residual, Unfelt proposes that recording extends beyond cameras, sensors, and di
 최종 시스템은 아홉 개의 피에조 센서와 세 개의 프로세싱 보드, Audio Shield가 장착된 Teensy 4.1을 연결합니다. 센서는 개별 사운드를 즉시 재생하는 대신, 구성된 사운드 레이어에 점진적으로 영향을 줍니다. 17-45Hz의 서브 드론은 지하 깊은 곳의 움직임을, 천천히 이동하는 음은 압력과 마찰 및 지질학적 긴장을, 필터링된 노이즈는 직접 감지되지 않는 물질의 움직임을 표현합니다. 고주파 누설음은 풍경 속에 스며든 인공 인프라의 흔적을 더합니다. 각 변화는 곧바로 사라지지 않고 천천히 감쇠하며 시스템에 기억과 같은 성질을 만듭니다. 전자 부품과 배선, 센서와 패치 연결은 감추지 않고 드러내어 보이지 않는 진동이 수집되고 변환되는 과정을 보여줍니다.
 
 Residual, Unfelt는 기록이 카메라와 센서, 디지털 저장 장치에만 머물지 않는다고 제안합니다. 지구 자체를 하나의 매체로 바라보며, 직접적인 원인이 사라진 뒤에도 인간 활동을 계속 기록하는 물질 시스템으로 접근합니다. 작업은 인간이 지구에 관해 무엇을 기록하는지가 아니라, 지구가 이미 우리에 관해 무엇을 기록하고 있는지를 묻습니다.`,
+    detailSections: [
+      {
+        title: 'Artist Statement',
+        titleKo: '작품 개요',
+        body: `Residual, Unfelt investigates how human-made infrastructures and material transformations become recorded within the Earth's strata over time. Geological layers are approached not as passive formations produced solely by natural processes, but as active archives that continuously accumulate traces of human activity. Every vibration, pressure, extraction, and construction contributes to material changes that may remain imperceptible while continuing to exist long after their immediate causes have disappeared.
+
+Three probing objects inspired by geological core samples detect subtle environmental vibrations and translate them into sound. The system does not produce an immediate response. Instead, vibrations accumulate and gradually transform an existing sonic environment, mirroring the slow processes through which traces become embedded within geological strata. The sound is not the Earth's literal voice, but a speculation on how accumulated material responses might become perceptible.`,
+        bodyKo: `Residual, Unfelt는 인간이 만든 인프라와 물질적 변형이 시간이 흐르며 지구의 지층 안에 어떻게 기록되는지를 탐구합니다. 지질층을 자연 과정만으로 형성된 수동적 구조가 아니라, 인간 활동의 흔적을 지속해서 축적하는 능동적 아카이브로 바라봅니다. 진동과 압력, 채굴과 건설은 당장 감지되지 않더라도 물질을 변화시키며, 직접적인 원인이 사라진 뒤에도 지구 안에 남습니다.
+
+지질 코어 샘플에서 영감을 얻은 세 개의 프로빙 오브젝트는 환경의 미세한 진동을 감지해 사운드로 번역합니다. 시스템은 즉각 반응하지 않습니다. 진동이 축적되면서 이미 존재하는 음향 환경을 서서히 변화시키고, 흔적이 긴 시간에 걸쳐 지층 안에 새겨지는 과정을 닮아갑니다. 여기서 사운드는 지구의 실제 목소리가 아니라, 축적된 물질의 반응이 어떻게 감각될 수 있을지를 상상하는 장치입니다.`,
+        images: [
+          {
+            url: '/images/residual-unfelt/final-objects-group.png',
+            caption: 'Three final probing objects made from layered clay-agar slabs and copper rods.',
+            captionKo: '흙-한천 슬래브와 구리봉으로 제작한 세 개의 최종 프로빙 오브젝트.'
+          }
+        ],
+        layout: 'wide'
+      },
+      {
+        title: 'Material & Process',
+        titleKo: '재료와 제작 과정',
+        body: `The material research began with a question about fired ceramics. Although clay is a natural material, firing makes ceramic objects permanent and difficult to reshape or reuse. Unfired clay offered an alternative that could remain in continuous transformation. Agar, a gelatinous biomaterial derived from marine algae, introduced moisture, growth, decay, and a contrasting temporal behavior.
+
+For nearly two months, clay and agar were combined at different ratios. Nine slabs were produced with agar concentrations of 6%, 8.3%, and 15%. Agar powder was dissolved in water and heated into a viscous solution, then combined with clay slip and poured into plaster molds. Rather than treating the two substances separately, the experiments formed a composite system in which geological and biological processes could coexist.`,
+        bodyKo: `재료 연구는 소성 도자에 대한 질문에서 시작했습니다. 흙은 자연 재료지만 소성된 도자는 영구적인 물질이 되어 다시 형태를 바꾸거나 재사용하기 어렵습니다. 이에 지속적으로 변화할 수 있는 대안으로 소성하지 않은 흙을 선택했습니다. 해조류에서 유래한 젤 형태의 생체 재료인 한천은 수분과 성장, 부패, 그리고 흙과 다른 시간성을 작업 안에 도입합니다.
+
+약 두 달 동안 흙과 한천의 비율을 달리하며 실험했습니다. 6%, 8.3%, 15%의 한천 농도로 총 아홉 개의 슬래브를 제작했습니다. 한천 분말을 물에 녹여 가열해 점성 용액을 만들고, 이를 흙 슬립과 섞어 석고 몰드에 부었습니다. 두 재료를 분리된 물질로 다루는 대신, 지질학적 과정과 생물학적 과정이 공존하는 하나의 복합 시스템으로 접근했습니다.`,
+        images: [
+          {
+            url: '/images/residual-unfelt/process-agar-clay.jpg',
+            caption: 'Agar solution and clay prepared before mixing.',
+            captionKo: '혼합 전 준비한 한천 용액과 흙.'
+          },
+          {
+            url: '/images/residual-unfelt/process-mixing.jpg',
+            caption: 'Combining the heated agar solution with clay slip.',
+            captionKo: '가열한 한천 용액과 흙 슬립을 혼합하는 과정.'
+          },
+          {
+            url: '/images/residual-unfelt/process-poured-mold.jpg',
+            caption: 'The clay-agar mixture poured into a plaster mold.',
+            captionKo: '석고 몰드에 부은 흙-한천 혼합물.'
+          },
+          {
+            url: '/images/residual-unfelt/process-pigment-mold.jpg',
+            caption: 'A pigmented mixture in the mold during early material tests.',
+            captionKo: '초기 재료 실험에서 안료를 섞어 몰드에 부은 모습.'
+          }
+        ]
+      },
+      {
+        title: 'Material Transformation',
+        titleKo: '물질의 변화',
+        body: `The slabs were never intended as static sculptures. Drying, cracking, shrinkage, changes in opacity, surface deformation, and biological growth continued throughout the project. Each agar concentration produced a distinct drying behavior. In some samples, mold appeared because of agar's biological properties. These changes were not treated as defects, but as evidence generated by time, environmental conditions, and the interaction between clay and agar. The material itself became a model for geological recording as a gradual process of accumulation and transformation.`,
+        bodyKo: `슬래브는 고정된 조각이 아니었습니다. 건조와 균열, 수축, 투명도의 변화, 표면 변형과 생물학적 성장은 프로젝트 내내 계속되었습니다. 한천 농도에 따라 서로 다른 건조 양상이 나타났고, 일부 샘플에는 한천의 생물학적 성질로 인해 곰팡이가 형성되었습니다. 이러한 변화는 결함이 아니라 시간과 환경 조건, 흙과 한천의 상호작용이 만들어낸 증거로 다루었습니다. 물질 자체가 점진적인 축적과 변형으로 이루어지는 지질학적 기록의 모델이 되었습니다.`,
+        images: [
+          {
+            url: '/images/residual-unfelt/material-early.png',
+            caption: 'A clay-agar sample in an early stage of drying.',
+            captionKo: '건조 초기 단계의 흙-한천 샘플.'
+          },
+          {
+            url: '/images/residual-unfelt/material-mold-growth.png',
+            caption: 'Moisture retention and biological growth visible on the surface.',
+            captionKo: '표면에 나타난 수분의 잔류와 생물학적 성장.'
+          },
+          {
+            url: '/images/residual-unfelt/material-cracking.png',
+            caption: 'Cracks and layered traces produced through drying.',
+            captionKo: '건조 과정에서 형성된 균열과 층위의 흔적.'
+          },
+          {
+            url: '/images/residual-unfelt/material-comparison.png',
+            caption: 'Three samples showing different surface conditions and drying patterns.',
+            captionKo: '서로 다른 표면 상태와 건조 패턴을 보여주는 세 개의 샘플.'
+          }
+        ]
+      },
+      {
+        title: 'Prototype Development',
+        titleKo: '프로토타입 개발',
+        body: `The initial plan combined all nine slabs into one large form based on a geological core sample. Piezo sensors were attached directly to the structure to test how vibrations could be detected and translated into sound. The composite, however, absorbed much of the vibration energy. The resulting signals were weak, and the structure did not produce acoustically useful responses.
+
+The form was divided into three independent probes. Copper rods were introduced as structural supports and as conductive elements that transmit vibration more efficiently. Sketches and renderings tested how the layered slabs, sensors, and weights could be distributed. Through this development, the work shifted from a singular sculptural mass toward a network of speculative scientific instruments.`,
+        bodyKo: `초기 계획은 아홉 개의 슬래브를 지질 코어 샘플 형태의 하나의 큰 구조로 결합하는 것이었습니다. 피에조 센서를 구조에 직접 부착해 진동을 감지하고 사운드로 번역하는 실험을 진행했습니다. 그러나 복합 재료가 진동 에너지의 상당 부분을 흡수하면서 신호가 약하게 나타났고, 음향적으로 충분한 반응을 만들지 못했습니다.
+
+이후 형태를 세 개의 독립적인 탐침으로 나누었습니다. 구리봉은 구조적 지지대인 동시에 진동을 더 효율적으로 전달하는 전도 요소로 도입했습니다. 스케치와 렌더링을 통해 층층이 쌓인 슬래브, 센서, 추의 배치를 검토했습니다. 이 과정에서 작업은 하나의 조각적 덩어리에서 추측적 과학 장치의 네트워크로 변화했습니다.`,
+        images: [
+          {
+            url: '/images/residual-unfelt/initial-prototype.jpg',
+            caption: 'The first single-body prototype, later abandoned because of structural and sensing limitations.',
+            captionKo: '구조와 감지 성능의 한계로 이후 변경된 초기 단일 구조 프로토타입.'
+          },
+          {
+            url: '/images/residual-unfelt/render-initial.png',
+            caption: 'Early rendering of the slab-based sensing forms.',
+            captionKo: '슬래브 기반 감지 구조의 초기 렌더링.'
+          },
+          {
+            url: '/images/residual-unfelt/sketch-core-structure-1.jpg',
+            caption: 'Sketch exploring the separation of slabs and the suspended sensing structure.',
+            captionKo: '슬래브 분리와 매달린 감지 구조를 검토한 스케치.'
+          },
+          {
+            url: '/images/residual-unfelt/sketch-core-structure-2.jpg',
+            caption: 'Development sketch for three stacked layers on copper rods.',
+            captionKo: '구리봉 위 세 개 층을 쌓는 구조의 발전 스케치.'
+          },
+          {
+            url: '/images/residual-unfelt/render-three-probes.png',
+            caption: 'Rendering of the three distributed core-sample probes.',
+            captionKo: '공간에 분산된 세 개의 코어 샘플 탐침 렌더링.'
+          }
+        ]
+      },
+      {
+        title: 'Sensing & Technical System',
+        titleKo: '감지와 기술 시스템',
+        body: `Each of the three probes contains three piezo sensors, making nine sensors across the installation. To increase sensitivity, a needle is positioned above each piezo while a small weight is suspended beneath it with copper wire. The added tension amplifies subtle movement that the clay-agar slabs would otherwise absorb.
+
+Detachable audio connections route the sensors through three processing boards to a central Teensy 4.1 microcontroller with an Audio Shield. The probes can therefore be rearranged or replaced. Electronics, patch connections, wiring, and sensing mechanisms remain exposed, presenting the system as a visible geological measuring device rather than a concealed technical support.`,
+        bodyKo: `세 개의 탐침에는 각각 세 개의 피에조 센서가 들어가며, 설치 전체에는 총 아홉 개의 센서가 사용됩니다. 감도를 높이기 위해 각 피에조 위에 바늘을 두고 아래에는 구리선으로 작은 추를 매달았습니다. 이 장력이 흙-한천 슬래브가 흡수하는 미세한 움직임을 증폭합니다.
+
+분리 가능한 오디오 연결을 통해 센서 신호는 세 개의 프로세싱 보드를 거쳐 Audio Shield가 장착된 중앙 Teensy 4.1 마이크로컨트롤러로 전달됩니다. 따라서 탐침을 재배치하거나 교체할 수 있습니다. 전자 부품과 패치 연결, 배선, 감지 구조는 숨기지 않고 노출하여, 기술적 보조 장치가 아니라 작동 원리가 드러나는 지질학적 측정 장치처럼 보이게 했습니다.`,
+        images: [
+          {
+            url: '/images/residual-unfelt/sketch-piezo-weight.jpg',
+            caption: 'Sketch of the needle, piezo, copper wire, and suspended-weight mechanism.',
+            captionKo: '바늘, 피에조, 구리선, 매달린 추의 구조 스케치.'
+          },
+          {
+            url: '/images/residual-unfelt/piezo-weight.png',
+            caption: 'A modified piezo sensor with suspended weights used in the final prototype.',
+            captionKo: '최종 프로토타입에 사용된 추 결합형 피에조 센서.'
+          },
+          {
+            url: '/images/residual-unfelt/sound-system-diagram.png',
+            caption: 'Signal-flow diagram connecting piezo sensors, processing, Teensy Audio Shield, and speaker.',
+            captionKo: '피에조 센서, 프로세싱, Teensy Audio Shield, 스피커를 연결한 신호 흐름도.'
+          }
+        ]
+      },
+      {
+        title: 'Sound System',
+        titleKo: '사운드 시스템',
+        body: `The system is not designed as an immediate interactive instrument. Piezo sensors do not trigger individual sounds; each influences parameters within an already existing composition. A 17-45 Hz sub-drone suggests movement deep beneath the Earth's surface. Slowly shifting tonal frequencies evoke pressure, friction, and geological tension. Filtered noise represents muffled material movement, while high-frequency electrical leakage introduces traces of human-made infrastructure.
+
+These changes do not disappear immediately. They decay gradually, creating a memory-like behavior in which human-generated vibrations persist as long-term sonic traces. The resulting environment is neither a direct translation of data nor a representation of nature, but an imagined expression of material processes that unfold beyond ordinary human perception.`,
+        bodyKo: `이 시스템은 즉각 반응하는 인터랙티브 악기로 설계되지 않았습니다. 피에조 센서가 개별 사운드를 직접 재생하는 대신, 이미 존재하는 구성의 서로 다른 매개변수에 영향을 줍니다. 17-45Hz의 서브 드론은 지하 깊은 곳의 움직임을 암시하고, 천천히 이동하는 음은 압력과 마찰, 지질학적 긴장을 연상시킵니다. 필터링된 노이즈는 희미한 물질의 움직임을, 고주파 전기 누설음은 인간이 만든 인프라의 흔적을 나타냅니다.
+
+변화는 즉시 사라지지 않고 서서히 감쇠합니다. 이 기억과 같은 작동을 통해 인간이 만든 진동은 장기적인 음향의 흔적으로 남습니다. 결과적인 음향 환경은 데이터를 직접 번역하거나 자연을 재현하는 것이 아니라, 평범한 인간의 지각 너머에서 전개되는 물질 과정을 상상한 표현입니다.`,
+        images: [
+          {
+            url: '/images/residual-unfelt/final-objects-single.png',
+            caption: 'One final probe showing the different cracking and drying patterns of its three layers.',
+            captionKo: '세 개 층의 서로 다른 균열과 건조 패턴을 보여주는 최종 탐침.'
+          },
+          {
+            url: '/images/residual-unfelt/final-material-details.png',
+            caption: 'Surface details preserved as records of time and environmental conditions.',
+            captionKo: '시간과 환경 조건의 기록으로 남은 표면의 세부.'
+          }
+        ]
+      },
+      {
+        title: 'Installation & Exhibition',
+        titleKo: '설치와 전시',
+        body: `The three probing objects are distributed across the exhibition space with two speakers and the exposed electronic system. Visitors move freely among the probes. Their footsteps, movement, and physical presence enter an ongoing process of accumulation, gradually influencing the sound rather than generating an immediate effect.
+
+The speakers create a distributed sonic field so that sound appears to emerge from the surrounding environment rather than from a single object. Together, the probes, sound, electronics, and visitors form a space in which subtle traces accumulate and become perceptible. Rather than asking what humans record about the Earth, Residual, Unfelt asks what the Earth may already be recording about us.`,
+        bodyKo: `세 개의 프로빙 오브젝트는 두 대의 스피커와 노출된 전자 시스템과 함께 전시장 곳곳에 배치됩니다. 관객은 탐침 사이를 자유롭게 이동합니다. 발걸음과 움직임, 물리적 현존은 즉각적인 효과를 만드는 대신 지속적인 축적 과정에 들어가 사운드에 점진적으로 영향을 줍니다.
+
+두 스피커는 하나의 오브젝트가 아니라 주변 환경 전체에서 소리가 나타나는 듯한 분산된 음향장을 만듭니다. 탐침과 사운드, 전자 장치, 관객이 함께 미세한 흔적이 축적되고 감지되는 공간을 형성합니다. Residual, Unfelt는 인간이 지구에 관해 무엇을 기록하는지가 아니라, 지구가 이미 우리에 관해 무엇을 기록하고 있는지를 묻습니다.`,
+        images: [
+          {
+            url: '/images/residual-unfelt/DSC083752.JPG',
+            caption: 'Installation view of Residual, Unfelt.',
+            captionKo: 'Residual, Unfelt 설치 전경.'
+          },
+          {
+            url: '/images/residual-unfelt/DSC08374.JPG',
+            caption: 'Probing objects distributed across the exhibition space.',
+            captionKo: '전시장에 분산 배치된 프로빙 오브젝트.'
+          },
+          {
+            url: '/images/residual-unfelt/DSC08375.JPG',
+            caption: 'Exposed electronics and sensing structures as integral parts of the installation.',
+            captionKo: '설치의 일부로 노출된 전자 장치와 감지 구조.'
+          },
+          {
+            url: '/images/residual-unfelt/DSC08324.JPG',
+            caption: 'A visitor encountering the work from within the distributed sonic field.',
+            captionKo: '분산된 음향장 안에서 작업을 마주하는 관객.'
+          }
+        ]
+      }
+    ]
   },
   {
     id: 'p11',

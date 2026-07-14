@@ -610,12 +610,56 @@ const AppContent: React.FC = () => {
                           </div>
                         )}
 
-                        {/* Description Text */}
-                        <div className="mt-8">
-                          <p className={`text-base md:text-lg font-light leading-relaxed text-gray-800 whitespace-pre-line ${lang === 'ko' && selectedProjectData.descriptionKo ? 'font-ko' : ''}`}>
-                            {lang === 'ko' && selectedProjectData.descriptionKo ? selectedProjectData.descriptionKo : selectedProjectData.description}
-                          </p>
-                        </div>
+                        {/* Long-form project documentation */}
+                        {selectedProjectData.detailSections ? (
+                          <div className="mt-16 space-y-24">
+                            {selectedProjectData.detailSections.map((section, sectionIndex) => (
+                              <section key={section.title} className="border-t border-gray-200 pt-8">
+                                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 mb-10">
+                                  <div className="md:col-span-3">
+                                    <p className="font-mono text-[10px] text-gray-400 tracking-widest mb-3">
+                                      {String(sectionIndex + 1).padStart(2, '0')}
+                                    </p>
+                                    <h3 className={`font-heading text-xl uppercase tracking-wide ${lang === 'ko' ? 'font-ko' : ''}`}>
+                                      {lang === 'ko' && section.titleKo ? section.titleKo : section.title}
+                                    </h3>
+                                  </div>
+                                  <p className={`md:col-span-9 text-base md:text-lg font-light leading-relaxed text-gray-800 whitespace-pre-line ${lang === 'ko' ? 'font-ko' : ''}`}>
+                                    {lang === 'ko' && section.bodyKo ? section.bodyKo : section.body}
+                                  </p>
+                                </div>
+
+                                {section.images && section.images.length > 0 && (
+                                  <div className={section.layout === 'wide' ? 'space-y-8' : 'grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8'}>
+                                    {section.images.map((item, imageIndex) => (
+                                      <figure key={`${item.url}-${imageIndex}`} className="min-w-0">
+                                        <div className="bg-gray-50 overflow-hidden">
+                                          <img
+                                            src={item.url}
+                                            alt={lang === 'ko' && item.captionKo ? item.captionKo : (item.caption || section.title)}
+                                            loading="lazy"
+                                            className="w-full h-auto object-contain"
+                                          />
+                                        </div>
+                                        {(item.caption || item.captionKo) && (
+                                          <figcaption className={`mt-3 font-mono text-[10px] leading-relaxed text-gray-500 ${lang === 'ko' ? 'font-ko' : ''}`}>
+                                            {lang === 'ko' && item.captionKo ? item.captionKo : item.caption}
+                                          </figcaption>
+                                        )}
+                                      </figure>
+                                    ))}
+                                  </div>
+                                )}
+                              </section>
+                            ))}
+                          </div>
+                        ) : (
+                          <div className="mt-8">
+                            <p className={`text-base md:text-lg font-light leading-relaxed text-gray-800 whitespace-pre-line ${lang === 'ko' && selectedProjectData.descriptionKo ? 'font-ko' : ''}`}>
+                              {lang === 'ko' && selectedProjectData.descriptionKo ? selectedProjectData.descriptionKo : selectedProjectData.description}
+                            </p>
+                          </div>
+                        )}
                       </div>
                     )
                   )}
