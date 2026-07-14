@@ -251,6 +251,7 @@ export const PROJECTS: Project[] = [
     materialsKo:
       '소성하지 않은 흙, 한천, 구리봉과 구리선, 개조한 피에조 센서, 추, Teensy 4.1, Audio Shield, 커스텀 프로세싱 보드, 패치 베이, 스피커; 프로빙 오브젝트 3점, 각 30 × 10 cm',
     imageUrl: '/images/residual-unfelt/DSC083752.JPG',
+    videoUrl: 'https://youtu.be/UikgIIkVnpU',
     galleryUrls: [
       '/images/residual-unfelt/DSC08374.JPG',
       '/images/residual-unfelt/DSC08375.JPG',
